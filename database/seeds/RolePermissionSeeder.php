@@ -63,8 +63,7 @@ class RolePermissionSeeder extends Seeder
 
         // Create user & role
         $role = Role::create(['name' => 'user']);
-        $role->givePermissionTo('update-settings');
-        $role->givePermissionTo('view-user');
+        $role->givePermissionTo('view-post');
 
         $user = User::create([
             'name'=> 'User',

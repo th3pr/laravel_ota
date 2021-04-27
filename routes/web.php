@@ -12,15 +12,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+########## Main Route ##########
 Route::get('/', function () {
     return redirect()->route('home');
 });
 Route::get('/home', 'HomeController@index')->name('home');
-Auth::routes(['verify'=>true]);
 
 Route::resource('blog', 'PostShowController');
 
+########## Auth ##########
+Auth::routes(['verify'=>true]);
+
+########## Private Route ##########
 Route::group(['middleware' => ['auth','verified']], function () {
 
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
