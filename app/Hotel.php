@@ -2,6 +2,7 @@
 
 namespace App;
 
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -11,15 +12,17 @@ class Hotel extends Model
     use HasFactory;
     use LogsActivity;
 
-    protected $table = "hotels";
+    protected $table = "tours";
     protected $fillable = [
-        'hot_name',
-        'hot_price',
-        'hot_address',
-        'hot_details',
-        'hot_type',
-        'hot_image',
-        'user_id',
+        'tour_name',
+        'tour_price',
+        'tour_address',
+        'start_date',
+        'end_date',
+        'tour_review',
+        'tour_details',
+        'tour_image',
+        'user_id ',
         'created_at',
         'updated_at'
     ];
