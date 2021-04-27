@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\HomeController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +20,9 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('/', [HomeController::class, 'index'])->name('home.index');
+
 
 Route::resource('blog', 'PostShowController');
 

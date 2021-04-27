@@ -1,8 +1,9 @@
 @extends('layouts.layout')
+
 @section('home')
 <div class="full-height">
     <div class="video-wrapper">
-        <video loop autoplay muted poster="assets/img/frontend/259633153.jpg" class="bgvid" id="bgvid">
+        <video loop autoplay muted poster="img/259633153.jpg" class="bgvid" id="bgvid">
             <source type="video/mp4" src="{{asset('video/This is Egypt.mp4')}}">
             <!-- <source type="video/ogv" src="video/This is Egypt.ogv"> -->
             <!-- <source type="video/webm" src="video/video.webm"> -->
