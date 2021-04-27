@@ -42,9 +42,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        $title = 'Create post';
-        $categories = Category::pluck('category_name', 'id');
-        return view('post.create', compact('categories', 'title'));
+        $title = 'Create hotel';
+//        $categories = Category::pluck('category_name', 'id');
+        return view('post.create', compact('title'));
     }
 
     /**
@@ -53,7 +53,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostRequest $request)
+    public function store(HotelRequest $request)
     {
         $request->merge(['user_id' => Auth::user()->id]);
         $post = $request->except('featured_image');

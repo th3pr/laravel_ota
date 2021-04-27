@@ -52,6 +52,12 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::resource('category', 'CategoryController')->except('show');
     // Posts CRUD
     Route::resource('post', 'PostController');
+    // Hotels CRUD
+    Route::resource('hotel', 'HotelController');
+    // Cars CRUD
+    Route::resource('car', 'CarController');
+    // Tours CRUD
+    Route::resource('tour', 'TourController');
 
     Route::get('/activity-log', 'SettingController@activity')->name('activity-log.index');
 
