@@ -22,7 +22,7 @@ class Hotel extends Model
         'tour_review',
         'tour_details',
         'tour_image',
-        'user_id ',
+        'user_id',
         'created_at',
         'updated_at'
     ];
