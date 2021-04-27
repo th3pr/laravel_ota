@@ -18,7 +18,7 @@ class SettingsSeeder extends Seeder
         Setting::set('company_address', 'Egypt');
         Setting::set('company_city', 'Minya');
         Setting::set('company_currency_symbol', 'EGP');
-        Setting::set('record_per_page', 15);
+        Setting::set('record_per_page', 10);
         Setting::set('default_role', 2);
         Setting::set('max_login_attempts', 3);
         Setting::set('lockout_delay', 2);
