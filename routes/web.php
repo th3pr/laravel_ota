@@ -59,6 +59,18 @@ Route::group(['middleware' => ['auth','verified']], function () {
     // Tours CRUD
     Route::resource('tour', 'TourController');
 
+    //Frontend Routers
+    Route::resource('fronttour', 'FrontTourController');
+    Route::resource('fronthotel', 'FrontHotelController');
+    Route::resource('frontcar', 'FrontCarController');
+
+
+
+
+
+
+
+
     Route::get('/activity-log', 'SettingController@activity')->name('activity-log.index');
 
     Route::get('/settings', 'SettingController@index')->name('settings.index');
