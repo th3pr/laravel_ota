@@ -21,7 +21,7 @@
                                                 <i class="fa fa-picture-o"></i> Choose Image
                                               </a>
                                             </span>
-                                            <input id="thumbnail" class="form-control d-none" type="text" name="featured_image">
+                                            <input id="thumbnail" class="form-control d-none" type="text" name="hot_image">
                                         </div>
                                     </div>
                                 </div>
@@ -59,8 +59,8 @@
 
                                         <div class="form-group">
                                             {{ Form::label('hot_details', 'Hotel Details', ['class' => 'form-control-label']) }}
-                                            <textarea>{{$hotel->hot_detaisl}}</textarea>
-{{--                                            {!! Form::textarea('hot_details', $hotel->hot_details, ['id'=>"summernote", 'class'=> 'form-control',]) !!}--}}
+                                            {{-- <textarea>{{$hotel->hot_detaisl}}</textarea> --}}
+                                           {!! Form::textarea('hot_details', $hotel->hot_details, ['id'=>"summernote", 'class'=> 'form-control',]) !!}
                                         </div>
 
                                 </div>
