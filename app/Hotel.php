@@ -4,16 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Car extends Model
+class Hotel extends Model
 {
-
-    protected $table = "cars";
+    //
+    protected $table = "hotels";
     protected $fillable = [
-        'car_model',
-        'car_price',
-        'car_details',
-        'car_image',
-        'user_id',
+        'hot_name',
+        'hot_price',
+        'hot_address',
+        'hot_details',
+        'hot_type',
+        'hot_image',
+        'admin_id',
         'created_at',
         'updated_at'
     ];
@@ -21,5 +23,4 @@ class Car extends Model
         'created_at',
         'updated_at'
     ];
-
 }
