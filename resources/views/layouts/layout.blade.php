@@ -92,7 +92,6 @@
 	</header>
 @yield('home')
 @yield('hotels')
-@yield('hotel')
 @yield('tours')
 @yield('tour')
 @yield('cars')

@@ -25,10 +25,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::resource('blog', 'PostShowController');
+Route::resource('hotels', 'HotelShowController');
 
 ########## Auth ##########
 Auth::routes(['verify'=>true]);
-
 ########## Private Route ##########
 Route::group(['middleware' => ['auth','verified']], function () {
 

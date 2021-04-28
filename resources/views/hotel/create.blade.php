@@ -32,8 +32,8 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         {{ Form::label('hot_details', 'Hotel details', ['class' => 'form-control-label']) }}
-                                        <textarea name="hot_details" class="form-control"></textarea>
-{{--                                        {!! Form::textarea('hot_details', null, ['id'=>"summernote", 'class'=> 'form-control',]) !!}--}}
+{{--                                        <textarea name="hot_details" class="form-control"></textarea>--}}
+                                        {!! Form::textarea('hot_details', null, ['id'=>"summernote", 'class'=> 'form-control',]) !!}
                                     </div>
                                 </div>
                                 <div class="col-lg-12">

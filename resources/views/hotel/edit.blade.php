@@ -31,7 +31,7 @@
                                         <a href="{{ asset($hotel->hot_image) }}" target="_blank">
                                             <img alt="Image placeholder"
                                                  class="avatar avatar-xl  rounded-circle"
-                                                 data-toggle="tooltip" data-original-title="{{ $hotel->name }} Logo"
+                                                 data-toggle="tooltip" data-original-title="{{ $hotel->hot_name }} Logo"
                                                  src="{{ asset($hotel->hot_image) }}">
                                         </a>
                                     @endif
@@ -59,7 +59,6 @@
 
                                         <div class="form-group">
                                             {{ Form::label('hot_details', 'Hotel Details', ['class' => 'form-control-label']) }}
-                                            {{-- <textarea>{{$hotel->hot_detaisl}}</textarea> --}}
                                            {!! Form::textarea('hot_details', $hotel->hot_details, ['id'=>"summernote", 'class'=> 'form-control',]) !!}
                                         </div>
 
