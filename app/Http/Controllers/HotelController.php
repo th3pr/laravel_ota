@@ -31,7 +31,9 @@ class HotelController extends Controller
      */
     public function create()
     {
-        //
+        $title = 'Create hotel';
+//        $categories = Category::pluck('category_name', 'id');
+        return view('hotel.create', compact( 'title'));
     }
 
     /**
@@ -42,7 +44,14 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->merge(['user_id' => Auth::user()->id]);
+        $hotel = $request->except('hot_image');
+        if ($request->hot_image) {
+            $hotel['hot_image'] = parse_url($request->hot_image, PHP_URL_PATH);
+        }
+        Hotel::create($hotel);
+        flash('Hotel created successfully!')->success();
+        return redirect()->route('hotel.index');
     }
 
     /**
