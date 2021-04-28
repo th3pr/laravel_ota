@@ -13,15 +13,9 @@ class HotelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        if ($request->has('search')) {
-            $hotels = Hotel::where('hot_name', 'like', '%'.$request->search.'%')->paginate(setting('record_per_page', 15));
-        }else{
-            $hotels = Hotel::paginate(setting('record_per_page', 15));
-        }
-        $title =  'Manage Hotels';
-        return view('hotel.index', compact('hotels','title'));
+        //
     }
 
     /**
@@ -31,9 +25,7 @@ class HotelController extends Controller
      */
     public function create()
     {
-        $title = 'Create hotel';
-//        $categories = Category::pluck('category_name', 'id');
-        return view('hotel.create', compact( 'title'));
+        //
     }
 
     /**
@@ -44,23 +36,16 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        $request->merge(['user_id' => Auth::user()->id]);
-        $hotel = $request->except('hot_image');
-        if ($request->hot_image) {
-            $hotel['hot_image'] = parse_url($request->hot_image, PHP_URL_PATH);
-        }
-        Hotel::create($hotel);
-        flash('Hotel created successfully!')->success();
-        return redirect()->route('hotel.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Hotel $hotel)
     {
         //
     }
@@ -68,10 +53,10 @@ class HotelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Hotel $hotel)
     {
         //
     }
@@ -80,10 +65,10 @@ class HotelController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Hotel $hotel)
     {
         //
     }
@@ -91,10 +76,10 @@ class HotelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Hotel $hotel)
     {
         //
     }
