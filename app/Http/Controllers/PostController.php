@@ -42,7 +42,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $title = 'Create hotel';
+        $title = 'Create post';
         $categories = Category::pluck('category_name', 'id');
         return view('post.create', compact('categories', 'title'));
     }

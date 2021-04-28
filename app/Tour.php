@@ -7,15 +7,19 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class Tour extends Model
 {
-    use HasFactory;
-    use LogsActivity;
+//    use LogsActivity;
 
-    protected $table = "cars";
+    protected $table = "tours";
     protected $fillable = [
-        'car_model',
-        'car_price',
-        'car_details',
-        'car_image',
+        'tour_name',
+        'tour_price',
+        'tour_address',
+        'start_date',
+        'end_date',
+        'tour_review',
+        'tour_discount',
+        'tour_details',
+        'tour_image',
         'user_id',
         'created_at',
         'updated_at'
@@ -24,11 +28,11 @@ class Tour extends Model
         'created_at',
         'updated_at'
     ];
-    protected static $logFillable = true;
-    protected static $logName = 'tour';
-    protected static $logOnlyDirty = true;
-    public function setStatusAttribute($status)
-    {
-        $this->attributes['status'] = ($status)? 1 : 0;
-    }
+//    protected static $logFillable = true;
+//    protected static $logName = 'tour';
+//    protected static $logOnlyDirty = true;
+//    public function setStatusAttribute($status)
+//    {
+//        $this->attributes['status'] = ($status)? 1 : 0;
+//    }
 }

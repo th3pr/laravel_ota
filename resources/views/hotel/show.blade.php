@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @push('pg_btn')
-    @can('update-post')
-        <a class="btn btn-info btn-sm m-1" data-toggle="tooltip" data-placement="top" title="Edit post details" href="{{route('post.edit',$post)}}">
-            <i class="fa fa-edit" aria-hidden="true"></i> Edit Post
+    @can('update-hotel')
+        <a class="btn btn-info btn-sm m-1" data-toggle="tooltip" data-placement="top" title="Edit hotel details" href="{{route('hotel.edit',$hotel)}}">
+            <i class="fa fa-edit" aria-hidden="true"></i> Edit Hotel
         </a>
     @endcan
 @endpush
@@ -13,15 +13,15 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-4">
-                            Title
+                            Hotel
                         </div>
                         <div class="col-sm-4">
-                            <strong>{{ $post->post_title }}</strong>
+                            <strong>{{ $hotel->hot_name }}</strong>
                         </div>
                         <div class="col-sm-4">
-                            @if ($post->featured_image)
-                                <a href="{{ asset($post->featured_image) }}" target="_blank">
-                                    <img width="250" height="250" class="img-fluid" src="{{ asset($post->featured_image) }}" alt="">
+                            @if ($hotel->hot_image)
+                                <a href="{{ asset($hotel->hot_image) }}" target="_blank">
+                                    <img width="250" height="250" class="img-fluid" src="{{ asset($hotel->hot_image) }}" alt="">
                                 </a>
                             @endif
                         </div>
@@ -31,7 +31,7 @@
                             Category
                         </div>
                         <div class="col-sm-4">
-                            <strong>{{ $post->category->category_name }}</strong>
+                            <strong>{{ $hotel->hot_price }}</strong>
                         </div>
                     </div>
                     <div class="row">
@@ -47,18 +47,10 @@
                             Body
                         </div>
                         <div class="col-sm-4">
-                            <strong>{!! $post->post_body !!}</strong>
+                            <strong>{!! $post->hot_details !!}</strong>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-sm-1">
-                            Status
-                        </div>
-                        <div class="col-sm-3">
-                            {{ $post->status ? 'Active' : 'Disable'}}
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

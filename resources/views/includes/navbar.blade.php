@@ -90,6 +90,78 @@
                             </div>
                         </li>
                     @endcan
+
+                    @canany(['view-hotel', 'create-hotel'])
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('hotel*')) ? 'active' : '' }}" href="#navbar-hotel"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-hotel">
+                                <i class="fas text-primary fa-tasks"></i>
+                                <span class="nav-link-text">Manage Hotels</span>
+                            </a>
+                            <div class="collapse" id="navbar-hotel">
+                                <ul class="nav nav-sm flex-column">
+                                    @can('view-hotel')
+                                        <li class="nav-item">
+                                            <a href="{{route('hotel.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">All Hotels</span></a>
+                                        </li>
+                                    @endcan
+                                    @can( 'create-hotel')
+                                        <li class="nav-item">
+                                            <a href="{{route('hotel.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New Hotel</span></a>
+                                        </li>
+                                    @endcan
+                                </ul>
+                            </div>
+                        </li>
+                    @endcan
+
+                    @canany(['view-tour', 'create-tour'])
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('tour*')) ? 'active' : '' }}" href="#navbar-tour"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-tour">
+                                <i class="fas text-primary fa-tasks"></i>
+                                <span class="nav-link-text">Manage Tours</span>
+                            </a>
+                            <div class="collapse" id="navbar-tour">
+                                <ul class="nav nav-sm flex-column">
+                                    @can('view-tour')
+                                        <li class="nav-item">
+                                            <a href="{{route('tour.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">All Tours</span></a>
+                                        </li>
+                                    @endcan
+                                    @can( 'create-tour')
+                                        <li class="nav-item">
+                                            <a href="{{route('tour.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New Tour</span></a>
+                                        </li>
+                                    @endcan
+                                </ul>
+                            </div>
+                        </li>
+                    @endcan
+                    @canany(['view-car', 'create-car'])
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('car*')) ? 'active' : '' }}" href="#navbar-car"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-hotel">
+                                <i class="fas text-primary fa-tasks"></i>
+                                <span class="nav-link-text">Manage car</span>
+                            </a>
+                            <div class="collapse" id="navbar-car">
+                                <ul class="nav nav-sm flex-column">
+                                    @can('view-car')
+                                        <li class="nav-item">
+                                            <a href="{{route('car.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">All Cars</span></a>
+                                        </li>
+                                    @endcan
+                                    @can( 'create-car')
+                                        <li class="nav-item">
+                                            <a href="{{route('car.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New Car</span></a>
+                                        </li>
+                                    @endcan
+                                </ul>
+                            </div>
+                        </li>
+                    @endcan
+
                     @canany(['view-user', 'create-user'])
 
                         <li class="nav-item">
