@@ -67,7 +67,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<a href="index.php" class="logo">
-							<img src="{{asset('assets/img/frontend/minyalogo1.png')}}" alt="Minya Tours">
+							<img src="{{asset('img/minyalogo1.png')}}" alt="Minya Tours">
 						</a>
 						<div class="nav-menu-icon">
 							<a href="#"><i></i></a>
@@ -77,11 +77,11 @@
 								<li class="type-1 active">
 									<a href="index.php">home<span class="fa fa-angle-down"></span></a>
 								</li>
-								<li class="type-1"><a href="hotels.index">Hotels<span class="fa fa-angle-down"></span></a>
+								<li class="type-1"><a href="{{route('fronthotel.index')}}">Hotels<span class="fa fa-angle-down"></span></a>
 								</li>
-								<li class="type-1"><a href="cars">Cars<span class="fa fa-angle-down"></span></a>
+								<li class="type-1"><a href="{{route('frontcar.index')}}">Cars<span class="fa fa-angle-down"></span></a>
 								</li>
-								<li class="type-1"><a href="#">Tours<span class="fa fa-angle-down"></span></a>
+								<li class="type-1"><a href="{{route('fronttour.index')}}">Tours<span class="fa fa-angle-down"></span></a>
 								</li>
 							</ul>
 						</nav>
