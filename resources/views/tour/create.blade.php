@@ -1,33 +1,66 @@
 @extends('layouts.app')
 @push('pg_btn')
-    <a href="{{route('post.index')}}" class="btn btn-sm btn-neutral">All Posts</a>
+    <a href="{{route('hotel.index')}}" class="btn btn-sm btn-neutral">All Hotels</a>
 @endpush
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="card mb-5">
                 <div class="card-body">
-                    {!! Form::open(['route' => 'post.store', 'files' => true]) !!}
-                    <h6 class="heading-small text-muted mb-4">Post information</h6>
+                    {!! Form::open(['route' => 'hotel.store', 'files' => true]) !!}
+                    <h6 class="heading-small text-muted mb-4">Totel information</h6>
                         <div class="pl-lg-4">
                             <div class="row">
-                                <div class="col-lg-12">
+                                <div class="col-lg-6">
                                     <div class="form-group">
-                                        {{ Form::label('post_title', 'Post title', ['class' => 'form-control-label']) }}
-                                        {{ Form::text('post_title', null, ['class' => 'form-control']) }}
+                                        {{ Form::label('tour_name', 'Tour name', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('tour_name', null, ['class' => 'form-control']) }}
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        {{ Form::label('category_id', 'Select Category', ['class' => 'form-control-label']) }}
-                                        {{ Form::select('category_id', $categories, null, [ 'class'=> 'selectpicker form-control', 'placeholder' => 'Select category...']) }}
+                                        {{ Form::label('tour_price', 'Tour price', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('tour_price', null, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        {{ Form::label('tour_discount', 'Tour discount', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('tour_discount', null, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        {{ Form::label('start_date', 'Tour start date', ['class' => 'form-control-label']) }}
+                                        {{ Form::date('start_date', null, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        {{ Form::label('end_date', 'Tour end date', ['class' => 'form-control-label']) }}
+                                        {{ Form::date('end_date', null, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        {{ Form::label('tour_address', 'Tour address', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('tour_address', null, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        {{ Form::label('tour_details', 'Tour Details', ['class' => 'form-control-label']) }}
+                                        <textarea name="tour_details" class="form-control"></textarea>
+                                        {{--                                            {!! Form::textarea('hot_details', $hotel->hot_details, ['id'=>"summernote", 'class'=> 'form-control',]) !!}--}}
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        {{ Form::label('featured_image', 'Featured image', ['class' => 'form-control-label d-block']) }}
+                                        {{ Form::label('tour_image', 'Tour image', ['class' => 'form-control-label d-block']) }}
                                         <div class="input-group">
                                             <span class="input-group-btn">
                                               <a id="uploadFile" data-input="thumbnail" data-preview="holder" class="btn btn-secondary">
@@ -39,26 +72,12 @@
                                 </div>
                             </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        {{ Form::label('post_body', 'Post Body', ['class' => 'form-control-label']) }}
-                                        {!! Form::textarea('post_body', null, ['id'=>"summernote", 'class'=> 'form-control',]) !!}
-                                    </div>
-                                </div>
-
-                            </div>
                         </div>
 
                         <hr class="my-4" />
                         <div class="pl-lg-4">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" name="status" value="1" class="custom-control-input" id="status">
-                                        {{ Form::label('status', 'Status', ['class' => 'custom-control-label']) }}
-                                    </div>
-                                </div>
+
                                 <div class="col-md-12">
                                     {{ Form::submit('Submit', ['class'=> 'mt-5 btn btn-primary']) }}
                                 </div>

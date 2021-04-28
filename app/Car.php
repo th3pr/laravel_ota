@@ -8,8 +8,6 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class Car extends Model
 {
-    use HasFactory;
-    use LogsActivity;
 
     protected $table = "cars";
     protected $fillable = [
@@ -25,11 +23,11 @@ class Car extends Model
         'created_at',
         'updated_at'
     ];
-    protected static $logFillable = true;
-    protected static $logName = 'car';
-    protected static $logOnlyDirty = true;
-    public function setStatusAttribute($status)
-    {
-        $this->attributes['status'] = ($status)? 1 : 0;
-    }
+//    protected static $logFillable = true;
+//    protected static $logName = 'car';
+//    protected static $logOnlyDirty = true;
+//    public function setStatusAttribute($status)
+//    {
+//        $this->attributes['status'] = ($status)? 1 : 0;
+//    }
 }

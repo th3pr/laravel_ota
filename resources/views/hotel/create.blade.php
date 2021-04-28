@@ -58,7 +58,6 @@
                             </div>
                             </div>
                         </div>
-
                         <hr class="my-4" />
                         <div class="pl-lg-4">
                             <div class="row">

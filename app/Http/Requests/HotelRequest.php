@@ -13,7 +13,7 @@ class HotelRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class HotelRequest extends FormRequest
             'hot_details' => 'required',
             'hot_type' => 'required',
             'hot_image' => 'required',
-//            'user_id' => 'required',
+            'user_id' => 'required',
         ];
     }
 }

@@ -39,7 +39,7 @@
                             Created By
                         </div>
                         <div class="col-sm-4">
-                            <strong>{{ $post->user->name }}</strong>
+                            <strong>{{ $hotel->user->name }}</strong>
                         </div>
                     </div>
                     <div class="row">
@@ -47,7 +47,7 @@
                             Body
                         </div>
                         <div class="col-sm-4">
-                            <strong>{!! $post->hot_details !!}</strong>
+                            <strong>{!! $hotel->hot_details !!}</strong>
                         </div>
                     </div>
 

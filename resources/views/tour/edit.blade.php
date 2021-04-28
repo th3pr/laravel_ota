@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @push('pg_btn')
-    <a href="{{route('post.index')}}" class="btn btn-sm btn-neutral">All Posts</a>
+    <a href="{{route('hotel.index')}}" class="btn btn-sm btn-neutral">All Posts</a>
 @endpush
 @section('content')
     <div class="row">

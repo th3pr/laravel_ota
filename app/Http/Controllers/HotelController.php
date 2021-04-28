@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Hotel;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\HotelRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,9 +44,9 @@ class HotelController extends Controller
      */
     public function create()
     {
-        return view('hotel.create');
-//        $title = 'Create hotel';
-//        return view('hotel.create', compact( 'title'));
+//        return view('hotel.create');
+        $title = 'Create hotel';
+        return view('hotel.create', compact( 'title'));
     }
 
     /**
@@ -54,7 +55,7 @@ class HotelController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(HotelRequest $request)
     {
 
 //        try {
@@ -127,7 +128,7 @@ class HotelController extends Controller
      * @param  \App\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hotel $hotel)
+    public function update(HotelRequest $request, Hotel $hotel)
     {
         $hoteldata = $request->except('hot_image');
         if ($request->hot_image) {
