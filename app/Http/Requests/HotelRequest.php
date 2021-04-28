@@ -30,7 +30,7 @@ class HotelRequest extends FormRequest
             'hot_details' => 'required',
             'hot_type' => 'required',
             'hot_image' => 'required',
-            'user_id' => 'required',
+            // 'user_id' => 'required',
         ];
     }
 }

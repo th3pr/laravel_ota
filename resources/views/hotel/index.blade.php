@@ -68,7 +68,14 @@
                                         </th>
                                         <th scope="row">
                                             <div class="mx-w-440 d-flex flex-wrap">
-                                                {{$hotel->hot_image }}
+                                                <div class="avatar-group">
+                                                    @if ($hotel->hot_image)
+                                                    <img alt="Image placeholder"
+                                                        class="avatar avatar-xl rounded-circle"
+                                                        data-toggle="tooltip" data-original-title="{{$hotel->hot_name}}"
+                                                        src="{{ asset($hotel->hot_image) }}">
+                                                    @endif
+                                                </div>
                                             </div>
                                         </th>
                                         <td class="text-center">
