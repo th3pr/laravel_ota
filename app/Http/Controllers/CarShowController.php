@@ -2,31 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Hotel;
+use App\Car;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class FrontHotelController extends Controller
+class CarShowController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        // $hotels = Hotel::all();
-        // return view('frontend.hotel.index' , ["data" => $hotels]);
-
-
-        // if ($request->has('search')) {
-        //     $hotels = Hotel::with(['user'])->where('hotel_title', 'like', '%'.$request->search.'%')->paginate(setting('record_per_page', 10));
-        // }else{
-            $hotels = Hotel::all()->paginate(setting('record_per_page', 10));
-        // }
-        $title =  'Hotels';
-        return view('frontend.hotel.index', compact('hotels','title'));
+        if ($request->has('search')) {
+            $cars = Car::with(['user'])->where('car_model', 'like', '%'.$request->search.'%')->paginate(setting('record_per_page', 10));
+        }else{
+            $cars = Car::paginate(setting('record_per_page', 4));
+        }
+        $title =  'Cars';
+        return view('frontend.car.index', compact('cars','title'));
     }
 
     /**
@@ -53,23 +49,24 @@ class FrontHotelController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Hotel  $hotel
+     * @param  \App\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function show(Hotel $hotel)
+    public function show(Car $car)
     {
         //
-        return view('frontend.hotel.show' , ["data" => $hotel]);
-
+        $title = "Car Details";
+        // $hotel->with(['user']);
+        return view('frontend.car.show', compact('title', 'car'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Hotel  $hotel
+     * @param  \App\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function edit(Hotel $hotel)
+    public function edit(Car $car)
     {
         //
     }
@@ -78,10 +75,10 @@ class FrontHotelController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Hotel  $hotel
+     * @param  \App\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hotel $hotel)
+    public function update(Request $request, Car $car)
     {
         //
     }
@@ -89,10 +86,10 @@ class FrontHotelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Hotel  $hotel
+     * @param  \App\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hotel $hotel)
+    public function destroy(Car $car)
     {
         //
     }

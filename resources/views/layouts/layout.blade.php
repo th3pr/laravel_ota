@@ -77,11 +77,11 @@
 								<li class="type-1 active">
 									<a href="index.php">home<span class="fa fa-angle-down"></span></a>
 								</li>
-								<li class="type-1"><a href="{{route('fronthotel.index')}}">Hotels<span class="fa fa-angle-down"></span></a>
+								<li class="type-1"><a href="">Hotels<span class="fa fa-angle-down"></span></a>
 								</li>
-								<li class="type-1"><a href="{{route('frontcar.index')}}">Cars<span class="fa fa-angle-down"></span></a>
+								<li class="type-1"><a href="">Cars<span class="fa fa-angle-down"></span></a>
 								</li>
-								<li class="type-1"><a href="{{route('fronttour.index')}}">Tours<span class="fa fa-angle-down"></span></a>
+								<li class="type-1"><a href="">Tours<span class="fa fa-angle-down"></span></a>
 								</li>
 							</ul>
 						</nav>
@@ -92,6 +92,7 @@
 	</header>
 @yield('home')
 @yield('hotels')
+@yield('hotel')
 @yield('tours')
 @yield('tour')
 @yield('cars')

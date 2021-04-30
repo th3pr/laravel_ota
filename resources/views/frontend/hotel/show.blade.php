@@ -48,19 +48,19 @@
                             data-speed="500" data-center="0" data-slides-per-view="1">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide active" data-val="0">
-                                    <img class="img-responsive img-full" src="../../img/hotels/{{$data->hot_image}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/hotels/{{$hotel->hot_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="1">
-                                    <img class="img-responsive img-full" src="../../img/hotels/{{$data->hot_image}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/hotels/{{$hotel->hot_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="2">
-                                    <img class="img-responsive img-full" src="../../img/hotels/{{$data->hot_image}}"alt="">
+                                    <img class="img-responsive img-full" src="../../img/hotels/{{$hotel->hot_image}}"alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="3">
-                                    <img class="img-responsive img-full" src="../../img/hotels/{{$data->hot_image}}">
+                                    <img class="img-responsive img-full" src="../../img/hotels/{{$hotel->hot_image}}">
                                 </div>
                                 <div class="swiper-slide" data-val="4">
-                                    <img class="img-responsive img-full" src="../../img/hotels/{{$data->hot_image}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/hotels/{{$hotel->hot_image}}" alt="">
                                 </div>
                             </div>
                             <div class="pagination pagination-hidden"></div>
@@ -70,19 +70,19 @@
                             data-md-slides="5" data-lg-slides="5" data-add-slides="5">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide current active" data-val="0">
-                                    <img class="img-responsive img-full"src="../../img/hotels/{{$data->hot_image}}" alt="">
+                                    <img class="img-responsive img-full"src="../../img/hotels/{{$hotel->hot_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="1">
-                                    <img class="img-responsive img-full" src="../../img/hotels/{{$data->hot_image}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/hotels/{{$hotel->hot_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="2">
-                                    <img class="img-responsive img-full" src="../../img/hotels/{{$data->hot_image}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/hotels/{{$hotel->hot_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="3">
-                                    <img class="img-responsive img-full" src="../../img/hotels/{{$data->hot_image}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/hotels/{{$hotel->hot_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="4">
-                                    <img class="img-responsive img-full" src="../../img/hotels/{{$data->hot_image}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/hotels/{{$hotel->hot_image}}" alt="">
                                 </div>
                             </div>
                             <div class="pagination hidden"></div>
@@ -110,10 +110,10 @@
                             </div>
                             <div class="tabs-content clearfix">
                                 <div class="tab-info active ">
-                                    <h3>General Information About {{$data->hot_name}}</h3>
-                                    <p> {{$data->hot_details}}
+                                    <h3>General Information About {{$hotel->hot_name}}</h3>
+                                    <p> {{$hotel->hot_details}}
                                     </p>
-                                    <img class="right-img" src="../../img/hotels/{{$data->hot_image}}" alt="">
+                                    <img class="right-img" src="../../img/hotels/{{$hotel->hot_image}}" alt="">
                                     <h4>interesting for you </h4>
                                     <p>Pellentesque ac turpis egestas, varius justo et, condimentum augue. Praesent
                                         aliquam, nisl feugiat vehicula condimentum, justo tellus scelerisque metus.
@@ -133,13 +133,13 @@
                                 </div>
                                 <div class="tab-info">
                                     <h3>General Information About tour</h3>
-                                    <p>{{$data->hot_details}}
+                                    <p>{{$hotel->hot_details}}
                                     </p>
                                     <ul>
-                                        <li>Hotel Price : {{$data->hot_price}}EGP</li>
-                                        @if ($data->discount !=0)
-                                        <li>Discount : {{$data->discount}}%</li> 
-                                        <li>Hotel price after discount : {{$data->hot_price-($data->hot_price*$data->discount/100)}}EGP</li>
+                                        <li>Hotel Price : {{$hotel->hot_price}}EGP</li>
+                                        @if ($hotel->discount !=0)
+                                        <li>Discount : {{$hotel->discount}}%</li> 
+                                        <li>Hotel price after discount : {{$hotel->hot_price-($hotel->hot_price*$hotel->discount/100)}}EGP</li>
 
                                         @endif
                                     </ul>
@@ -183,7 +183,7 @@
                                 <div class="tab-info">
                                     <form class="simple-from" name="information"
                                         onsubmit="return validateFormTour()" method="POST" >
-                                        {{-- action="{{route('bookhotel.store' ,["id" =>$data] )}}" --}}
+                                        {{-- action="{{route('bookhotel.store' ,["id" =>$hotel] )}}" --}}
                                         @csrf
                                         
                                         <div class="simple-group">
@@ -456,7 +456,7 @@
             <div class="col-xs-12 col-md-4">
                 <div class="right-sidebar">
                     <iframe class="padd-40"
-                        src="{{$data->hot_address}}"
+                        src="{{$hotel->hot_address}}"
                         height="250px" width="100%"></iframe><noscript> Full functionality of this site requires
                         JavaScript to
                         be enabled. Learn how to <a href="https://javascriptdownload.org/">Download

@@ -268,13 +268,13 @@
                     </div>
                 </div>
                 <div class="list-content clearfix">
-                    @foreach ($data as $item)
+                    @foreach ($tours as $item)
                         <div class="list-item-entry">
                             <div class="hotel-item style-9 bg-white">
                                 <div class="table-view">
                                     <div class="radius-top cell-view">
                                         <img src="img/tours/{{$item->tour_image}}" alt="">
-                                        <div class="price price-s-4">$600</div>
+                                        <div class="price price-s-3 red tt">-{{$item->tour_discount}}%</div>
                                     </div>
                                     <div class="title hotel-middle cell-view">
                                         <div class="tour-info-line clearfix">
@@ -301,7 +301,7 @@
                                         </div>
                                         <p class="f-14 color-grey-3">{{$item->tour_details}}</p>
                                         <div class="buttons-block bg-dr-blue-2">
-                                            <a href="{{route('fronttour.show' , $item)}}"
+                                            <a href="{{route('tours.show' , $item)}}"
                                                 class="c-button b-40 bg-grey-6-t hv-grey-3-t b-1">detail</a>
                                             <a href="tours_detail.html"
                                                 class="c-button b-40 bg-white hv-transparent fr">book now</a>
@@ -318,8 +318,18 @@
                                                 <span class="fa fa-star color-yellow"></span>
                                             </div>
                                         </div>
+                                        @if ($item->tour_discount != 0)
+                                        <div class="hotel-person color-dark-2">from <del>{{$item->tour_price}} EGP</del></div>                                                                                            
+                                        @endif
+                                        <div class="hotel-person color-dark-2">{{$item->tour_price-($item->tour_price*$item->tour_discount/100)}} EGP</div>
+
+
+                                        {{-- @if ($item->tour_discount != 0)
+                                        <div class="hotel-person color-white">{{$item->tour_price-($item->tour_price*$item->tour_discount/100)}} EGP</div>
+
+                                        @endif
                                         <div class="hotel-person color-dark-2"> <span class="color-blue">{{$item->tour_price}} EGP <br></span>
-                                           per person</div>
+                                           per person</div> --}}
                                     </div>
                                 </div>
                             </div>

@@ -694,18 +694,20 @@
                     </div>
                 </div>
                 <div class="list-content clearfix">
+                    @foreach ($cars as $item)
+                        
                     <div class="list-item-entry">
                         <div class="hotel-item style-3 bg-white">
                             <div class="table-view">
                                 <div class="radius-top cell-view">
-                                    <img src="{{asset('img/cars/PORSCHECAYENNE.jpg')}}" alt="">
+                                    <img src="img/cars/{{$item->car_image}}" alt="">
                                 </div>
                                 <div class="title hotel-middle clearfix cell-view">
                                     <div class="date list-hidden">July <strong>19th</strong> to July
                                         <strong>26th</strong>
                                     </div>
                                     <div class="date grid-hidden"><strong>19.07 - 26.07 / 7</strong> night</div>
-                                    <h4><b>Marcides</b></h4>
+                                    <h4><b>{{$item->car_model}}</b></h4>
                                     <div class="rate-wrap">
                                         <div class="rate">
                                             <span class="fa fa-star color-yellow"></span>
@@ -716,189 +718,23 @@
                                         </div>
                                         <i>485 rewies</i>
                                     </div>
-                                    <p class="f-14 grid-hidden">Nunc cursus libero purus ac congue arcu cur sus ut
-                                        sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.</p>
+                                    <p class="f-14 grid-hidden">{{$item->car_details}}</p>
                                 </div>
                                 <div class="title hotel-right clearfix cell-view">
-                                    <div class="hotel-person color-dark-2">from <span class="color-blue">EG
-                                            653</span> person</div>
-                                    <a class="c-button b-40 bg-blue hv-blue-o grid-hidden"
-                                        href="car_detail.html">Book Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-item-entry">
-                        <div class="hotel-item style-3 bg-white">
-                            <div class="table-view">
-                                <div class="radius-top cell-view">
-                                    <img src="{{asset('img/cars/71BekpCdZvL._UY560_.jpg')}}" alt="">
-                                </div>
-                                <div class="title hotel-middle clearfix cell-view">
-                                    <div class="date list-hidden">July <strong>19th</strong> to July
-                                        <strong>26th</strong>
-                                    </div>
-                                    <div class="date grid-hidden"><strong>19.07 - 26.07 / 7</strong> night</div>
-                                    <h4><b>BMW</b></h4>
-                                    <div class="rate-wrap">
-                                        <div class="rate">
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                        </div>
-                                        <i>485 rewies</i>
-                                    </div>
-                                    <p class="f-14 grid-hidden">Nunc cursus libero purus ac congue arcu cur sus ut
-                                        sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.</p>
-                                </div>
-                                <div class="title hotel-right clearfix cell-view">
-                                    <div class="hotel-person color-dark-2">from <span class="color-blue">EG
-                                            703</span> person</div>
-                                    <a class="c-button b-40 bg-blue hv-blue-o grid-hidden"
-                                        href="car_detail.html">Book Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="list-item-entry">
-                        <div class="hotel-item style-3 bg-white">
-                            <div class="table-view">
-                                <div class="radius-top cell-view">
-                                    <img src="{{asset('img/2014_Nissan_Versa_01.jpg')}}" alt="">
-                                </div>
-                                <div class="title hotel-middle clearfix cell-view">
-                                    <div class="date list-hidden">July <strong>19th</strong> to July
-                                        <strong>26th</strong>
-                                    </div>
-                                    <div class="date grid-hidden"><strong>19.07 - 26.07 / 7</strong> night</div>
-                                    <h4><b>Jeep</b></h4>
-                                    <div class="rate-wrap">
-                                        <div class="rate">
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                        </div>
-                                        <i>485 rewies</i>
-                                    </div>
-                                    <p class="f-14 grid-hidden">Nunc cursus libero purus ac congue arcu cur sus ut
-                                        sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.</p>
-                                </div>
-                                <div class="title hotel-right clearfix cell-view">
-                                    <div class="hotel-person color-dark-2">from <span class="color-blue">EG
-                                            300</span> person</div>
+                                            @if ($item->discount != 0)
+                                            <div class="hotel-person color-dark-2">from <del>{{$item->car_price}} EGP</del></div>                                                                                            
+                                            @endif
+                                            <div class="hotel-person color-dark-2"><span class="color-blue"> {{$item->car_price-($item->car_price*$item->discount/100)}} EGP </span></div>
+
                                     <a class="c-button b-40 bg-blue hv-blue-o grid-hidden"
-                                        href="car_detail.html">Book Now</a>
+                                        href="{{route('cars.show' , $item)}}">Book Now</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="list-item-entry">
-                        <div class="hotel-item style-3 bg-white">
-                            <div class="table-view">
-                                <div class="radius-top cell-view">
-                                    <img src="{{asset('img/61q033vciXL._UY560_.jpg')}}" alt="">
-                                </div>
-                                <div class="title hotel-middle clearfix cell-view">
-                                    <div class="date list-hidden">July <strong>19th</strong> to July
-                                        <strong>26th</strong>
-                                    </div>
-                                    <div class="date grid-hidden"><strong>19.07 - 26.07 / 7</strong> night</div>
-                                    <h4><b>HYUNDAI</b></h4>
-                                    <div class="rate-wrap">
-                                        <div class="rate">
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                        </div>
-                                        <i>485 rewies</i>
-                                    </div>
-                                    <p class="f-14 grid-hidden">Nunc cursus libero purus ac congue arcu cur sus ut
-                                        sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.</p>
-                                </div>
-                                <div class="title hotel-right clearfix cell-view">
-                                    <div class="hotel-person color-dark-2">from <span class="color-blue">EG
-                                            400</span> person</div>
-                                    <a class="c-button b-40 bg-blue hv-blue-o grid-hidden"
-                                        href="car_detail.html">Book Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-item-entry">
-                        <div class="hotel-item style-3 bg-white">
-                            <div class="table-view">
-                                <div class="radius-top cell-view">
-                                    <img src="{{asset('img/2014_Nissan_Versa_01.jpg')}}" alt="">
-                                </div>
-                                <div class="title hotel-middle clearfix cell-view">
-                                    <div class="date list-hidden">July <strong>19th</strong> to July
-                                        <strong>26th</strong>
-                                    </div>
-                                    <div class="date grid-hidden"><strong>19.07 - 26.07 / 7</strong> night</div>
-                                    <h4><b>Marsidec</b></h4>
-                                    <div class="rate-wrap">
-                                        <div class="rate">
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                        </div>
-                                        <i>485 rewies</i>
-                                    </div>
-                                    <p class="f-14 grid-hidden">Nunc cursus libero purus ac congue arcu cur sus ut
-                                        sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.</p>
-                                </div>
-                                <div class="title hotel-right clearfix cell-view">
-                                    <div class="hotel-person color-dark-2">from <span class="color-blue">EG
-                                            273</span> person</div>
-                                    <a class="c-button b-40 bg-blue hv-blue-o grid-hidden"
-                                        href="car_detail.html">Book Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-item-entry">
-                        <div class="hotel-item style-3 bg-white">
-                            <div class="table-view">
-                                <div class="radius-top cell-view">
-                                    <img src="{{asset('img/cars/PORSCHECAYENNE.jpg')}}" alt="">
-                                </div>
-                                <div class="title hotel-middle clearfix cell-view">
-                                    <div class="date list-hidden">July <strong>19th</strong> to July
-                                        <strong>26th</strong>
-                                    </div>
-                                    <div class="date grid-hidden"><strong>19.07 - 26.07 / 7</strong> night</div>
-                                    <h4><b>HYUNDAI</b></h4>
-                                    <div class="rate-wrap">
-                                        <div class="rate">
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                        </div>
-                                        <i>485 rewies</i>
-                                    </div>
-                                    <p class="f-14 grid-hidden">Nunc cursus libero purus ac congue arcu cur sus ut
-                                        sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.</p>
-                                </div>
-                                <div class="title hotel-right clearfix cell-view">
-                                    <div class="hotel-person color-dark-2">from <span class="color-blue">EG
-                                            273</span> person</div>
-                                    <a class="c-button b-40 bg-blue hv-blue-o grid-hidden"
-                                        href="car_detail.html">Book Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+
 
                 </div>
                 <div class="c_pagination clearfix padd-120">

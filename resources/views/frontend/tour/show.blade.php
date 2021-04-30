@@ -41,19 +41,19 @@
                             data-speed="500" data-center="0" data-slides-per-view="1">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide active" data-val="0">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$data->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="1">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$data->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="2">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$data->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="3">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$data->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="4">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$data->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
                                 </div>
                             </div>
                             <div class="pagination pagination-hidden"></div>
@@ -63,19 +63,19 @@
                             data-md-slides="5" data-lg-slides="5" data-add-slides="5">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide current active" data-val="0">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$data->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="1">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$data->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="2">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$data->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="3">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$data->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="4">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$data->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
                                 </div>
                             </div>
                             <div class="pagination hidden"></div>
@@ -101,9 +101,9 @@
                             </div>
                             <div class="tabs-content clearfix">
                                 <div class="tab-info active ">
-                                    <h3>General Information About {{$data->tour_name}}</h3>
-                                    <p>{{ $data->tour_details }} </p>
-                                    <img class="right-img" src="../../img/tour/{{$data->tour_image}}" alt="">
+                                    <h3>General Information About {{$tour->tour_name}}</h3>
+                                    <p>{{ $tour->tour_details }} </p>
+                                    <img class="right-img" src="../../img/tour/{{$tour->tour_image}}" alt="">
                                     <h4>interesting for you</h4>
                                     <p>Pellentesque ac turpis egestas, varius justo et, condimentum augue. Praesent
                                         aliquam, nisl feugiat vehicula condimentum, justo tellus scelerisque metus.
@@ -122,12 +122,12 @@
                                         dolore magna aliqua.</p>
                                 </div>
                                 <div class="tab-info">
-                                    <h3>{{ Str::upper($data->tour_name) }} Details</h3>
-                                    <p>{{ $data->tour_details }}
+                                    <h3>{{ Str::upper($tour->tour_name) }} Details</h3>
+                                    <p>{{ $tour->tour_details }}
                                     </p>
                                     
                                     <ul>
-                                        <li>Price : {{$data->tour_price}} EGP per person </li>
+                                        <li>Price : {{$tour->tour_price}} EGP per person </li>
                                         <li>Discount : 10%</li>
                                         <li>Multi-product search</li>
                                         <li>Opportunity to share with friends</li>
@@ -181,7 +181,7 @@
                                   @endif
                                     <form class="simple-from" 
                                         onsubmit="return validateFormTour()" method="post" >
-                                        {{-- action="{{route('booktour.store' ,["id" =>$data] )}}"  --}}
+                                        {{-- action="{{route('booktour.store' ,["id" =>$tour] )}}"  --}}
                                         @csrf
                                         <div class="simple-group">
                                             <h3 class="small-title color-dr-blue-2 ">Tour Booking</h3>
@@ -347,7 +347,7 @@
             <div class="col-xs-12 col-md-4">
                 <div class="right-sidebar">
                     <iframe
-                        src="{{$data->tour_address}}"
+                        src="{{$tour->tour_address}}"
                         height="250px" width="100%"></iframe><noscript> Full functionality of this site requires
                         JavaScript to
                         be enabled. Learn how to <a href="https://javascriptdownload.org/">Download

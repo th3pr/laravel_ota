@@ -21,6 +21,7 @@ class Hotel extends Model
         'hot_image',
         'hot_type',
         'user_id',
+        'discount',
         'created_at',
         'updated_at'
     ];

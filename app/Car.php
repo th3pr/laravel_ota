@@ -16,6 +16,7 @@ class Car extends Model
         'car_details',
         'car_image',
         'user_id',
+        'discount',
         'created_at',
         'updated_at'
     ];

@@ -13,7 +13,7 @@ class HotelShowController extends Controller
         if ($request->has('search')) {
             $hotels = Hotel::with(['user'])->where('hotel_title', 'like', '%'.$request->search.'%')->paginate(setting('record_per_page', 10));
         }else{
-            $hotels = Hotel::with(['user'])->paginate(setting('record_per_page', 10));
+            $hotels = Hotel::paginate(setting('record_per_page', 4));
         }
         $title =  'Hotels';
         return view('frontend.hotel.index', compact('hotels','title'));
@@ -21,7 +21,8 @@ class HotelShowController extends Controller
     public function show(Hotel $hotel)
     {
         $title = "Hotel Details";
-        $hotel->with(['user']);
+        // $hotel->with(['user']);
         return view('frontend.hotel.show', compact('title', 'hotel'));
+
     }
 }

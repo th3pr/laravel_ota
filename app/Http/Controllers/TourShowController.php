@@ -2,31 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Hotel;
+use App\Tour;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class FrontHotelController extends Controller
+class TourShowController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        // $hotels = Hotel::all();
-        // return view('frontend.hotel.index' , ["data" => $hotels]);
-
-
-        // if ($request->has('search')) {
-        //     $hotels = Hotel::with(['user'])->where('hotel_title', 'like', '%'.$request->search.'%')->paginate(setting('record_per_page', 10));
-        // }else{
-            $hotels = Hotel::all()->paginate(setting('record_per_page', 10));
-        // }
-        $title =  'Hotels';
-        return view('frontend.hotel.index', compact('hotels','title'));
+        if ($request->has('search')) {
+            $tours = Tour::with(['user'])->where('tour_name', 'like', '%'.$request->search.'%')->paginate(setting('record_per_page', 10));
+        }else{
+            $tours = Tour::paginate(setting('record_per_page', 4));
+        }
+        $title =  'Tours';
+        return view('frontend.tour.index', compact('tours','title'));
     }
 
     /**
@@ -53,23 +48,24 @@ class FrontHotelController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Hotel  $hotel
+     * @param  \App\Tour  $tour
      * @return \Illuminate\Http\Response
      */
-    public function show(Hotel $hotel)
+    public function show(Tour $tour)
     {
         //
-        return view('frontend.hotel.show' , ["data" => $hotel]);
-
+        $title = "Tour Details";
+        // $hotel->with(['user']);
+        return view('frontend.tour.show', compact('title', 'tour'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Hotel  $hotel
+     * @param  \App\Tour  $tour
      * @return \Illuminate\Http\Response
      */
-    public function edit(Hotel $hotel)
+    public function edit(Tour $tour)
     {
         //
     }
@@ -78,10 +74,10 @@ class FrontHotelController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Hotel  $hotel
+     * @param  \App\Tour  $tour
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hotel $hotel)
+    public function update(Request $request, Tour $tour)
     {
         //
     }
@@ -89,10 +85,10 @@ class FrontHotelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Hotel  $hotel
+     * @param  \App\Tour  $tour
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hotel $hotel)
+    public function destroy(Tour $tour)
     {
         //
     }

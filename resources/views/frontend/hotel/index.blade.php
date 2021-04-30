@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@push('pg_btn')
 @section('hotels')
 	<!------------------------------------------------------------------------------------->
     <div class="modal">
@@ -538,7 +539,7 @@
                         </div>
                     </div>
                       <div class="list-content clearfix">
-                          @foreach ($data as $item)
+                          @foreach ($hotels as $item)
                           <div class="list-item-entry">
                             <div class="hotel-item style-8 bg-white">
                                 <div class="table-view">
@@ -578,11 +579,15 @@
                                         @endif
                                         <div class="hotel-person color-white">{{$item->hot_price-($item->hot_price*$item->discount/100)}} EGP</div>                                                                                            
 
-                                        <a class="c-button b-40 bg-white color-dark-2 hv-dark-2-o grid-hidden" href="{{route('fronthotel.show' , $item)}}">BOOK</a>
+                                        <a class="c-button b-40 bg-white color-dark-2 hv-dark-2-o grid-hidden" href="{{route('hotels.show' , $item)}}">BOOK</a>
                                     </div>						            
                                 </div>
-                            </div>						
+                            </div>	
+                            
+
                           </div>
+
+
                           @endforeach
                          
                           {{-- <div class="list-item-entry">
@@ -790,7 +795,7 @@
                                 </div>
                             </div>						
                           </div> --}}
-                   
+             
                             </div>						
                           </div>  						  						  						  						  						  						 						  						  						  						  						  						  						  						
                       </div>
@@ -800,7 +805,13 @@
                         <a href="#" class="c-button b-40 bg-dr-blue hv-dr-blue-o fl">prev page</a>
                         <a href="#" class="c-button b-40 bg-dr-blue hv-dr-blue-o fr">next page</a>
                         <ul class="cp_content color-2">
+
+                          {{$hotels->links()}}
+                          {{-- {{ $hotels->onEachSide(5)->links() }} --}}
+                                    
                             <li class="active"><a href="#">1</a></li>
+
+
                             <li><a href="#">2</a></li>
                             <li><a href="#">3</a></li>
                             <li><a href="#">4</a></li>

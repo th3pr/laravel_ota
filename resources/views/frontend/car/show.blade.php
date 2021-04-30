@@ -43,19 +43,19 @@
                             data-speed="500" data-center="0" data-slides-per-view="1">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide active" data-val="0">
-                                    <img class="img-responsive img-full" src="{{asset('img/71BekpCdZvL._UY560_.jpg')}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="1">
-                                    <img class="img-responsive img-full" src="{{asset('img/71BekpCdZvL._UY560_.jpg')}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="2">
-                                    <img class="img-responsive img-full" src="{{asset('img/71BekpCdZvL._UY560_.jpg')}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="3">
-                                    <img class="img-responsive img-full" src="{{asset('img/71BekpCdZvL._UY560_.jpg')}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="4">
-                                    <img class="img-responsive img-full" src="{{asset('img/71BekpCdZvL._UY560_.jpg')}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
                                 </div>
                             </div>
                             <div class="pagination pagination-hidden"></div>
@@ -65,19 +65,19 @@
                             data-md-slides="5" data-lg-slides="5" data-add-slides="5">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide current active" data-val="0">
-                                    <img class="img-responsive img-full" src="{{asset('img/71BekpCdZvL._UY560_.jpg')}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="1">
-                                    <img class="img-responsive img-full" src="{{asset('img/71BekpCdZvL._UY560_.jpg')}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="2">
-                                    <img class="img-responsive img-full" src="{{asset('img/71BekpCdZvL._UY560_.jpg')}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="3">
-                                    <img class="img-responsive img-full" src="{{asset('img/71BekpCdZvL._UY560_.jpg')}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="4">
-                                    <img class="img-responsive img-full" src="{{asset('img/71BekpCdZvL._UY560_.jpg')}}" alt="">
+                                    <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
                                 </div>
                             </div>
                             <div class="pagination hidden"></div>
@@ -104,18 +104,10 @@
                             </div>
                             <div class="tabs-content clearfix " style="background-color: white;">
                                 <div class="tab-info active ">
-                                    <h3>General Information About Car Jeep</h3>
-                                    <p>Jeep is a brand of American
-                                        automobile and a division of Stellantis.[3][4] Jeep has been part
-                                        of Chrysler since 1987, when Chrysler acquired the Jeep brand, along with
-                                        remaining assets, from its previous owner American Motors Corporation (AMC).
-                                        Jeep's current product range consists solely of sport utility vehicles –
-                                        both
-                                        crossovers and fully off-road worthy SUVs and models, including one pickup
-                                        truck. Previously,
-                                        Jeep's range included other pick-ups, as well as small vans, and a few
+                                    <h3>General Information About car {{$car->car_model}}</h3>
+                                    <p>{{$car->car_details}}
                                     </p>
-                                    <img class="right-img" src="{{asset('img/71BekpCdZvL._UY560_.jpg')}}" alt="">
+                                    <img class="right-img" src="../../img/cars/{{$car->car_image}}" alt="">
                                     <h4>interesting for you</h4>
                                     <p>Pellentesque ac turpis egestas, varius justo et, condimentum augue. Praesent
                                         aliquam, nisl feugiat vehicula condimentum, justo tellus scelerisque metus.
@@ -134,7 +126,7 @@
                                         Jeep's range included other pick-ups, as well as small vans, and a few</p>
                                 </div>
                                 <div class="tab-info">
-                                    <h3>General Information About car</h3>
+                                    <h3>General Information About {{$car->car_model}}</h3>
                                     <p>Pellentesque ac turpis egestas, varius justo et, condimentum augue. Praesent
                                         aliquam, nisl feugiat vehicula condimentum, justo tellus scelerisque metus.
                                         Pellentesque ac turpis egestas, varius justo et, condimentum augue. Lorem
@@ -159,7 +151,7 @@
                                 </div>
                                 <div class="tab-info">
 
-                                    <img class="right-img" src="{{asset('img/71BekpCdZvL._UY560_.jpg')}}" alt="">
+                                    <img class="right-img" src="img/cars/{{$car->car_image}}" alt="">
                                     <h3>General Information About Car</h3>
                                     <p>Pellentesque ac turpis egestas, varius justo et, condimentum augue. Praesent
                                         aliquam, nisl feugiat vehicula condimentum, justo tellus scelerisque metus.

@@ -26,7 +26,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('blog', 'PostShowController');
 Route::resource('hotels', 'HotelShowController');
+Route::resource('tours', 'TourShowController');
+Route::resource('cars', 'CarShowController');
 
+// Route::resource('fronttour', 'FrontTourController');
+// Route::resource('fronthotel', 'FrontHotelController');
+// Route::resource('frontcar', 'FrontCarController');
 ########## Auth ##########
 Auth::routes(['verify'=>true]);
 ########## Private Route ##########
@@ -60,9 +65,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::resource('tour', 'TourController');
 
     //Frontend Routers
-    Route::resource('fronttour', 'FrontTourController');
-    Route::resource('fronthotel', 'FrontHotelController');
-    Route::resource('frontcar', 'FrontCarController');
+
 
 
 
@@ -82,3 +85,5 @@ Route::group(['middleware' => ['auth','verified']], function () {
         return view('media.index');
     })->name('media.index');
 });
+
+

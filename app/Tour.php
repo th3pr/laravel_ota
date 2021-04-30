@@ -9,13 +9,19 @@ class Tour extends Model
 {
 //    use LogsActivity;
 
-    protected $table = "cars";
+    protected $table = "tours";
     protected $fillable = [
-        'car_model',
-        'car_price',
-        'car_details',
-        'car_image',
+        'tour_name',
+        'tour_price',
+        'tour_address',
+        'start_date',
+        'end_date',
+        'tour_review',
+        'tour_discount',
+        'tour_details',
+        'tour_image',
         'user_id',
+        'tour_guide_id',
         'created_at',
         'updated_at'
     ];
