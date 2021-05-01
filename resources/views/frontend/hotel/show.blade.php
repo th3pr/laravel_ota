@@ -2,7 +2,7 @@
 @section('hotel')
 <!-- INNER-BANNER slider -->
 <div class="inner-banner style-2">
-    <img class="center-image" src="{{$hotel->hot_image}}" alt="">
+    <img class="center-image" src="{{ $hotel->hot_image }}">
     <div class="vertical-align">
         <div class="container">
             <div class="row">

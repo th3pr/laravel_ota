@@ -700,7 +700,7 @@
                         <div class="hotel-item style-3 bg-white">
                             <div class="table-view">
                                 <div class="radius-top cell-view">
-                                    <img src="img/cars/{{$item->car_image}}" alt="">
+                                    <img src="{{$item->car_image}}" alt="">
                                 </div>
                                 <div class="title hotel-middle clearfix cell-view">
                                     <div class="date list-hidden">July <strong>19th</strong> to July
@@ -718,7 +718,7 @@
                                         </div>
                                         <i>485 rewies</i>
                                     </div>
-                                    <p class="f-14 grid-hidden">{{$item->car_details}}</p>
+                                    <p class="f-14 grid-hidden">{!! $item->car_details !!}</p>
                                 </div>
                                 <div class="title hotel-right clearfix cell-view">
 

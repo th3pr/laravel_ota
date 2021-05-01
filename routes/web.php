@@ -63,6 +63,8 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::resource('car', 'CarController');
     // Tours CRUD
     Route::resource('tour', 'TourController');
+    // Guides CRUD
+    Route::resource('guide', 'GuideController');
 
     Route::resource('booktour', 'BookTourController');
 

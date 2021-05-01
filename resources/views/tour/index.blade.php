@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @push('pg_btn')
-@can('create-post')
-    <a href="{{ route('tour.create') }}" class="btn btn-sm btn-neutral">Create New Tour</a>
-@endcan
+    @can('create-tour')
+        <a href="{{ route('tour.create') }}" class="btn btn-sm btn-neutral">Create New Tour</a>
+    @endcan
 @endpush
 @section('content')
     <div class="row">
@@ -11,16 +11,16 @@
                 <div class="card-header bg-transparent">
                     <div class="row">
                         <div class="col-lg-8">
-                            <h3 class="mb-0">All tours</h3>
+                            <h3 class="mb-0">All Tours</h3>
                         </div>
                         <div class="col-lg-4">
-                    {!! Form::open(['route' => 'post.index', 'method'=>'get']) !!}
-                        <div class="form-group mb-0">
-                        {{ Form::text('search', request()->query('search'), ['class' => 'form-control form-control-sm', 'placeholder'=>'Search post']) }}
-                    </div>
+                            {!! Form::open(['route' => 'tour.index', 'method'=>'get']) !!}
+                            <div class="form-group mb-0">
+                                {{ Form::text('search', request()->query('search'), ['class' => 'form-control form-control-sm', 'placeholder'=>'Search tour']) }}
+                            </div>
 
-                    {!! Form::close() !!}
-                </div>
+                            {!! Form::close() !!}
+                        </div>
                     </div>
                 </div>
                 <div class="card-body p-0">
@@ -29,64 +29,69 @@
                             <table class="table table-hover align-items-center">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Category </th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Create By</th>
-                                    <th scope="col">Photo</th>
+                                    <th scope="col">Tour name</th>
+                                    <th scope="col">Tour price </th>
+                                    <th scope="col">Tour discount</th>
+                                    <th scope="col">Tour s_date</th>
+                                    <th scope="col">Tour e_date</th>
+                                    <th scope="col">Tour address</th>
+                                    <th scope="col">Tour image</th>
                                     <th scope="col" class="text-center">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody class="list">
-                                @foreach($tours as $item)
+                                @foreach($tours as $tour)
                                     <tr>
                                         <th scope="row">
                                             <div class="mx-w-440 d-flex flex-wrap">
-                                                {{$item->post_title }}
+                                                {{$tour->tour_name }}
                                             </div>
                                         </th>
                                         <td class="budget">
-                                            {{$item->category->category_name}}
+                                            {{$tour->tour_price}}
                                         </td>
-                                        <td>
-                                            @if($item->status)
-                                                <span class="badge badge-pill badge-lg badge-success">Active</span>
-                                            @else
-                                                <span class="badge badge-pill badge-lg badge-danger">Disabled</span>
-                                            @endif
+                                        <td class="budget">
+                                            {{$tour->tour_discount}}
                                         </td>
-                                        <td>
-                                            {{$item->user->name}}
+                                        <td class="budget">
+                                            {{$tour->start_date}}
                                         </td>
+                                        <td class="budget">
+                                            {{$tour->end_date}}
+                                        </td>
+                                        <td class="budget">
+                                            {{$tour->tour_address}}
+                                        </td>
+
                                         <td>
                                             <div class="avatar-group">
-                                                @if ($item->featured_image)
-                                                <img alt="Image placeholder"
-                                                    class="avatar avatar-xl rounded-circle"
-                                                    data-toggle="tooltip" data-original-title="{{$item->post_title}}"
-                                                    src="{{ asset($item->featured_image) }}">
+                                                @if ($tour->tour_image)
+                                                    <img alt="Image placeholder"
+                                                         class="avatar avatar-xl rounded-circle"
+                                                         data-toggle="tooltip" data-original-title="{{$tour->tour_name}}"
+                                                         src="{{ asset($tour->tour_image) }}">
                                                 @endif
                                             </div>
                                         </td>
                                         <td class="text-center">
-                                            @can('destroy-post')
-                                            {!! Form::open(['route' => ['post.destroy', $item],'method' => 'delete',  'class'=>'d-inline-block dform']) !!}
+                                            @can('destroy-tour')
+                                                {!! Form::open(['route' => ['tour.destroy', $tour],'method' => 'delete',  'class'=>'d-inline-block dform']) !!}
                                             @endcan
-                                            @can('view-post')
-                                            <a class="btn btn-primary btn-sm m-1" data-toggle="tooltip" data-placement="top" title="View and edit post details" href="{{route('item.show', $item)}}">
-                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                            </a>
+                                            @can('view-tour')
+                                                <a class="btn btn-primary btn-sm m-1" data-toggle="tooltip" data-placement="top" title="View and edit tour details" href="{{route('tour.show', $tour)}}">
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                                </a>
                                             @endcan
-                                            @can('update-post')
-                                            <a class="btn btn-info btn-sm m-1" data-toggle="tooltip" data-placement="top" title="Edit post details" href="{{route('item.edit',$item)}}">
-                                                <i class="fa fa-edit" aria-hidden="true"></i>
-                                            </a>
+                                            @can('update-tour')
+                                                <a class="btn btn-info btn-sm m-1" data-toggle="tooltip" data-placement="top" title="Edit tour details" href="{{route('tour.edit',$tour)}}">
+                                                    <i class="fa fa-edit" aria-hidden="true"></i>
+                                                </a>
                                             @endcan
-                                            @can('destroy-post')
-                                                <button type="submit" class="btn delete btn-danger btn-sm m-1" data-toggle="tooltip" data-placement="top" title="Delete post" href="">
+                                            @can('destroy-tour')
+                                                <button type="submit" class="btn delete btn-danger btn-sm m-1" data-toggle="tooltip" data-placement="top" title="Delete tour" href="">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
-                                            {!! Form::close() !!}
+                                                {!! Form::close() !!}
                                             @endcan
                                         </td>
                                     </tr>

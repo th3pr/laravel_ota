@@ -1,81 +1,64 @@
 @extends('layouts.app')
 @push('pg_btn')
-    <a href="{{route('car.index')}}" class="btn btn-sm btn-neutral">All Cars</a>
+    <a href="{{route('guide.index')}}" class="btn btn-sm btn-neutral">All Guides</a>
 @endpush
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="card mb-5">
                 <div class="card-body">
-                    {!! Form::open(['route' => ['car.update', $car], 'method'=>'put', 'files' => true]) !!}
-                    <h6 class="heading-small text-muted mb-4">Car information</h6>
+                    {!! Form::open(['route' => ['guide.update', $guide], 'method'=>'put', 'files' => true]) !!}
+                    <h6 class="heading-small text-muted mb-4">Guide information</h6>
                         <div class="pl-lg-4">
                             <div class="row">
-
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <div class="form-group">
-                                        {{ Form::label('car_model', 'Car model', ['class' => 'form-control-label']) }}
-                                        {{ Form::text('car_model', $car->car_model, ['class' => 'form-control']) }}
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        {{ Form::label('car_price', 'Car price', ['class' => 'form-control-label']) }}
-                                        {{ Form::text('car_price', $car->car_price, ['class' => 'form-control']) }}
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        {{ Form::label('discount', 'Car discount', ['class' => 'form-control-label']) }}
-                                        {{ Form::text('discount', $car->discount, ['class' => 'form-control']) }}
+                                        {{ Form::label('name', 'Guide name', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('name', $guide->name, ['class' => 'form-control']) }}
                                     </div>
                                 </div>
 
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        {{ Form::label('car_details', 'Car Details', ['class' => 'form-control-label']) }}
-                                        {!! Form::textarea('car_details',$car->car_details, ['id'=>"summernote", 'class'=> 'form-control',]) !!}
+                                        {{ Form::label('phone', 'Guide phone', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('phone', $guide->phone, ['class' => 'form-control']) }}
                                     </div>
                                 </div>
 
+
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        {{ Form::label('car_image', 'Car image', ['class' => 'form-control-label d-block']) }}
+                                        {{ Form::label('image', 'Guides image', ['class' => 'form-control-label d-block']) }}
                                         <div class="input-group">
                                             <span class="input-group-btn">
                                               <a id="uploadFile" data-input="thumbnail" data-preview="holder" class="btn btn-secondary">
-                                                <i class="fa fa-picture-o"></i> Choose Car Image
+                                                <i class="fa fa-picture-o"></i> Choose Guides Image
                                               </a>
                                             </span>
-                                            <input id="thumbnail" class="form-control d-none" type="text" name="car_image">
+                                            <input id="thumbnail" class="form-control d-none" type="text" name="image">
                                         </div>
                                 </div>
                             </div>
 
                                         <div class="col-md-2">
-                                            @if ($car->car_image)
-                                                <a href="{{ asset($car->car_image) }}" target="_blank">
+                                            @if ($guide->image)
+                                                <a href="{{ asset($guide->image) }}" target="_blank">
                                                     <img alt="Image placeholder"
                                                     class="avatar avatar-xl  rounded-circle"
-                                                    data-toggle="tooltip" data-original-title="{{ $car->car_model }} Logo"
-                                                    src="{{ asset($car->car_image) }}">
+                                                    data-toggle="tooltip" data-original-title="{{ $guide->name }} Logo"
+                                                    src="{{ asset($guide->image) }}">
                                                 </a>
                                             @endif
                                     </div>
+
                             </div>
+
                         </div>
 
                         <hr class="my-4" />
                         <div class="pl-lg-4">
                             <div class="row">
-{{--                                <div class="col-md-12">--}}
-{{--                                    <div class="custom-control custom-checkbox">--}}
-{{--                                        <input type="checkbox" name="status" value="1" {{ $post->status ? 'checked' : ''}}  class="custom-control-input" id="status">--}}
-{{--                                        {{ Form::label('status', 'Status', ['class' => 'custom-control-label']) }}--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+
                                 <div class="col-md-12">
                                     {{ Form::submit('Submit', ['class'=> 'mt-5 btn btn-primary']) }}
                                 </div>

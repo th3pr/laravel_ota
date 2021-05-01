@@ -51,6 +51,12 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
+                                        {{ Form::label('discount', 'Hotel discount', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('discount', $hotel->discount, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
                                         {{ Form::label('hot_address', 'Hotel address', ['class' => 'form-control-label']) }}
                                         {{ Form::text('hot_address', $hotel->hot_address, ['class' => 'form-control']) }}
                                     </div>

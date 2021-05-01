@@ -41,19 +41,19 @@
                             data-speed="500" data-center="0" data-slides-per-view="1">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide active" data-val="0">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="{{$tour->tour_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="1">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="{{$tour->tour_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="2">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="{{$tour->tour_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="3">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="{{$tour->tour_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="4">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="{{$tour->tour_image}}" alt="">
                                 </div>
                             </div>
                             <div class="pagination pagination-hidden"></div>
@@ -63,19 +63,19 @@
                             data-md-slides="5" data-lg-slides="5" data-add-slides="5">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide current active" data-val="0">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="{{$tour->tour_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="1">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="{{$tour->tour_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="2">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="{{$tour->tour_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="3">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="{{$tour->tour_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="4">
-                                    <img class="img-responsive img-full" src="../../img/tour/{{$tour->tour_image}}" alt="">
+                                    <img class="img-responsive img-full" src="{{$tour->tour_image}}" alt="">
                                 </div>
                             </div>
                             <div class="pagination hidden"></div>
@@ -103,7 +103,7 @@
                                 <div class="tab-info active ">
                                     <h3>General Information About {{$tour->tour_name}}</h3>
                                     <p>{{ $tour->tour_details }} </p>
-                                    <img class="right-img" src="../../img/tour/{{$tour->tour_image}}" alt="">
+                                    <img class="right-img" src="{{$tour->tour_image}}" alt="">
                                     <h4>interesting for you</h4>
                                     <p>Pellentesque ac turpis egestas, varius justo et, condimentum augue. Praesent
                                         aliquam, nisl feugiat vehicula condimentum, justo tellus scelerisque metus.
@@ -346,12 +346,13 @@
             </div>
             <div class="col-xs-12 col-md-4">
                 <div class="right-sidebar">
-                    <iframe
-                        src="{{$tour->tour_address}}"
-                        height="250px" width="100%"></iframe><noscript> Full functionality of this site requires
-                        JavaScript to
-                        be enabled. Learn how to <a href="https://javascriptdownload.org/">Download
-                            JavaScript</a> in your browser.</noscript>
+			<iframe class="padd-40" src="{{$tour->tour_address}}" height="250px" width="100%" allowfullscreen="" loading="lazy"></iframe>
+{{--                    <iframe--}}
+{{--                        src="{{$tour->tour_address}}"--}}
+{{--                        height="250px" width="100%"></iframe><noscript> Full functionality of this site requires--}}
+{{--                        JavaScript to--}}
+{{--                        be enabled. Learn how to <a href="https://javascriptdownload.org/">Download--}}
+{{--                            JavaScript</a> in your browser.</noscript>--}}
                 </div>
                 <div class="popular-tours bg-grey-2">
                     <h4 class="color-dark-2">popular tours</h4>

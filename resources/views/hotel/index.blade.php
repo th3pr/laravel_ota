@@ -31,8 +31,9 @@
                                 <tr>
                                     <th scope="col">Hotel Name</th>
                                     <th scope="col">Hotel Price </th>
-                                    <th scope="col">Hotel Address</th>
+{{--                                    <th scope="col">Hotel Address</th>--}}
 {{--                                    <th scope="col">Hotel Details</th>--}}
+                                    <th scope="col">Hotel discount</th>
                                     <th scope="col">Hotel Type</th>
                                     <th scope="col">Hotel Image</th>
                                     <th scope="col" class="text-center">Action</th>
@@ -53,9 +54,14 @@
                                         </th>
                                         <th scope="row">
                                             <div class="mx-w-440 d-flex flex-wrap">
-                                                {{$hotel->hot_address }}
+                                                {{$hotel->discount }}
                                             </div>
                                         </th>
+{{--                                        <th scope="row">--}}
+{{--                                            <div class="mx-w-440 d-flex flex-wrap">--}}
+{{--                                                {{$hotel->hot_address }}--}}
+{{--                                            </div>--}}
+{{--                                        </th>--}}
 {{--                                        <th scope="row">--}}
 {{--                                            <div class="mx-w-440 d-flex flex-wrap">--}}
 {{--                                                {{$hotel->hot_details }}--}}

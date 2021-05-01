@@ -162,7 +162,31 @@
                         </li>
                     @endcan
 
-                    @canany(['view-user', 'create-user'])
+                    @canany(['view-guide', 'create-guide'])
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('guide*')) ? 'active' : '' }}" href="#navbar-guide"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-guide">
+                                <i class="fas text-primary fa-tasks"></i>
+                                <span class="nav-link-text">Manage Guides</span>
+                            </a>
+                            <div class="collapse" id="navbar-guide">
+                                <ul class="nav nav-sm flex-column">
+                                    @can('view-guide')
+                                        <li class="nav-item">
+                                            <a href="{{route('guide.index')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">All Guides</span></a>
+                                        </li>
+                                    @endcan
+                                    @can( 'create-guide')
+                                        <li class="nav-item">
+                                            <a href="{{route('guide.create')}}" class="nav-link"><span class="sidenav-mini-icon">D </span><span class="sidenav-normal">Add New Guide</span></a>
+                                        </li>
+                                    @endcan
+                                </ul>
+                            </div>
+                        </li>
+                    @endcan
+
+                @canany(['view-user', 'create-user'])
 
                         <li class="nav-item">
                             <a class="nav-link {{ (request()->is('users*')) ? 'active' : '' }}" href="#navbar-users"  data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-users">

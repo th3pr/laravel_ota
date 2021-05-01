@@ -24,7 +24,14 @@ class TourRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'tour_name' => 'required|string',
+            'tour_price' => 'required|numeric',
+            'tour_address' => 'required',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
+            'tour_discount' => 'required|numeric',
+            'tour_details' => 'required|string',
+            'tour_image' => 'required'
         ];
     }
 }

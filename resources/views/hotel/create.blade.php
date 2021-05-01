@@ -17,10 +17,16 @@
                                         {{ Form::text('hot_name', null, ['class' => 'form-control']) }}
                                     </div>
                                 </div>
-                                <div class="col-lg-12">
+                                <div class="col-lg-6">
                                     <div class="form-group">
                                         {{ Form::label('hot_price', 'Hotel Price', ['class' => 'form-control-label']) }}
                                         {{ Form::text('hot_price', null, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        {{ Form::label('discount', 'Hotel discount', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('discount', null, ['class' => 'form-control']) }}
                                     </div>
                                 </div>
                                 <div class="col-lg-12">

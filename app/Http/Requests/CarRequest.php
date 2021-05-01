@@ -13,7 +13,7 @@ class CarRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class CarRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'car_model'=>'required|string',
+            'car_price'=>'required|numeric',
+            'car_details'=>'required|string',
+            'discount'=>'required|numeric',
+            'car_image'=>'required',
         ];
     }
 }

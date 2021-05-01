@@ -29,6 +29,10 @@ class Tour extends Model
         'created_at',
         'updated_at'
     ];
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 //    protected static $logFillable = true;
 //    protected static $logName = 'tour';
 //    protected static $logOnlyDirty = true;

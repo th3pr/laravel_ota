@@ -24,6 +24,10 @@ class Car extends Model
         'created_at',
         'updated_at'
     ];
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 //    protected static $logFillable = true;
 //    protected static $logName = 'car';
 //    protected static $logOnlyDirty = true;

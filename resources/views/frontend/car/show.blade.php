@@ -49,13 +49,13 @@
                                     <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="2">
-                                    <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
+                                    <img class="img-responsive img-full" src="{{$car->car_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="3">
-                                    <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
+                                    <img class="img-responsive img-full" src="{{$car->car_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="4">
-                                    <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
+                                    <img class="img-responsive img-full" src="{{$car->car_image}}" alt="">
                                 </div>
                             </div>
                             <div class="pagination pagination-hidden"></div>
@@ -65,19 +65,19 @@
                             data-md-slides="5" data-lg-slides="5" data-add-slides="5">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide current active" data-val="0">
-                                    <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
+                                    <img class="img-responsive img-full" src="{{$car->car_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="1">
-                                    <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
+                                    <img class="img-responsive img-full" src="{{$car->car_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="2">
-                                    <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
+                                    <img class="img-responsive img-full" src="{{$car->car_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="3">
-                                    <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
+                                    <img class="img-responsive img-full" src="{{$car->car_image}}" alt="">
                                 </div>
                                 <div class="swiper-slide" data-val="4">
-                                    <img class="img-responsive img-full" src="../../img/cars/{{$car->car_image}}" alt="">
+                                    <img class="img-responsive img-full" src="{{$car->car_image}}" alt="">
                                 </div>
                             </div>
                             <div class="pagination hidden"></div>
@@ -107,7 +107,7 @@
                                     <h3>General Information About car {{$car->car_model}}</h3>
                                     <p>{{$car->car_details}}
                                     </p>
-                                    <img class="right-img" src="../../img/cars/{{$car->car_image}}" alt="">
+                                    <img class="right-img" src="{{$car->car_image}}" alt="">
                                     <h4>interesting for you</h4>
                                     <p>Pellentesque ac turpis egestas, varius justo et, condimentum augue. Praesent
                                         aliquam, nisl feugiat vehicula condimentum, justo tellus scelerisque metus.
@@ -151,7 +151,7 @@
                                 </div>
                                 <div class="tab-info">
 
-                                    <img class="right-img" src="img/cars/{{$car->car_image}}" alt="">
+                                    <img class="right-img" src="{{$car->car_image}}" alt="">
                                     <h3>General Information About Car</h3>
                                     <p>Pellentesque ac turpis egestas, varius justo et, condimentum augue. Praesent
                                         aliquam, nisl feugiat vehicula condimentum, justo tellus scelerisque metus.

@@ -1,76 +1,95 @@
 @extends('layouts.app')
 @push('pg_btn')
-    <a href="{{route('hotel.index')}}" class="btn btn-sm btn-neutral">All Posts</a>
+    <a href="{{route('tour.index')}}" class="btn btn-sm btn-neutral">All Tours</a>
 @endpush
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="card mb-5">
                 <div class="card-body">
-                    {!! Form::open(['route' => ['post.update', $post], 'method'=>'put', 'files' => true]) !!}
-                    <h6 class="heading-small text-muted mb-4">Post information</h6>
+                    {!! Form::open(['route' => ['tour.update', $tour], 'method'=>'put', 'files' => true]) !!}
+                    <h6 class="heading-small text-muted mb-4">Tour information</h6>
                         <div class="pl-lg-4">
                             <div class="row">
-                                <div class="col-lg-12">
+                                <div class="col-lg-6">
                                     <div class="form-group">
-                                        {{ Form::label('post_title', 'Post title', ['class' => 'form-control-label']) }}
-                                        {{ Form::text('post_title', $post->post_title, ['class' => 'form-control']) }}
+                                        {{ Form::label('tour_name', 'Tour name', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('tour_name', $tour->tour_name, ['class' => 'form-control']) }}
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        {{ Form::label('category_id', 'Select Category', ['class' => 'form-control-label']) }}
-                                        {{ Form::select('category_id', $categories, $post->category_id, [ 'class'=> 'selectpicker form-control', 'placeholder' => 'Select category...']) }}
+                                        {{ Form::label('tour_price', 'Tour price', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('tour_price', $tour->tour_price, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        {{ Form::label('tour_discount', 'Tour discount', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('tour_discount', $tour->tour_discount, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        {{ Form::label('start_date', 'Tour start date', ['class' => 'form-control-label']) }}
+                                        {{ Form::date('start_date', $tour->start_date, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        {{ Form::label('end_date', 'Tour end date', ['class' => 'form-control-label']) }}
+                                        {{ Form::date('end_date',  $tour->end_date, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        {{ Form::label('tour_address', 'Tour address', ['class' => 'form-control-label']) }}
+                                        {{ Form::text('tour_address',  $tour->tour_address, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        {{ Form::label('tour_details', 'Tour Details', ['class' => 'form-control-label']) }}
+                                        {!! Form::textarea('tour_details', $tour->tour_details, ['id'=>"summernote", 'class'=> 'form-control',]) !!}
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        {{ Form::label('featured_image', 'Featured image', ['class' => 'form-control-label d-block']) }}
+                                        {{ Form::label('tour_image', 'Tour image', ['class' => 'form-control-label d-block']) }}
                                         <div class="input-group">
                                             <span class="input-group-btn">
                                               <a id="uploadFile" data-input="thumbnail" data-preview="holder" class="btn btn-secondary">
                                                 <i class="fa fa-picture-o"></i> Choose Image
                                               </a>
                                             </span>
-                                            <input id="thumbnail" class="form-control d-none" type="text" name="featured_image">
+                                            <input id="thumbnail" class="form-control d-none" type="text" name="tour_image">
                                         </div>
                                 </div>
                             </div>
 
                                         <div class="col-md-2">
-                                            @if ($post->featured_image)
-                                                <a href="{{ asset($post->featured_image) }}" target="_blank">
+                                            @if ($tour->tour_image)
+                                                <a href="{{ asset($tour->tour_image) }}" target="_blank">
                                                     <img alt="Image placeholder"
                                                     class="avatar avatar-xl  rounded-circle"
-                                                    data-toggle="tooltip" data-original-title="{{ $post->name }} Logo"
-                                                    src="{{ asset($post->featured_image) }}">
+                                                    data-toggle="tooltip" data-original-title="{{ $tour->name }} Logo"
+                                                    src="{{ asset($tour->tour_image) }}">
                                                 </a>
                                             @endif
                                     </div>
-
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        {{ Form::label('post_body', 'Post Body', ['class' => 'form-control-label']) }}
-                                        {!! Form::textarea('post_body', $post->post_body, ['id'=>"summernote", 'class'=> 'form-control',]) !!}
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
 
                         <hr class="my-4" />
                         <div class="pl-lg-4">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" name="status" value="1" {{ $post->status ? 'checked' : ''}}  class="custom-control-input" id="status">
-                                        {{ Form::label('status', 'Status', ['class' => 'custom-control-label']) }}
-                                    </div>
-                                </div>
                                 <div class="col-md-12">
                                     {{ Form::submit('Submit', ['class'=> 'mt-5 btn btn-primary']) }}
                                 </div>
