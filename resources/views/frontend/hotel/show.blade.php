@@ -2,13 +2,13 @@
 @section('hotel')
 <!-- INNER-BANNER slider -->
 <div class="inner-banner style-2">
-    <img class="center-image  " src="{{asset('img/imges/cover.jpg')}}" alt="">
+    <img class="center-image  " src="{{$hotel->hot_image}}" alt="">
     <div class="vertical-align">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-8 col-md-offset-2">
 
-                    <h2 class="color-white">sea tours in Minya</h2>
+                    <h2 class="color-white">{{$hotel->hot_name}}</h2>
                 </div>
             </div>
         </div>
@@ -47,6 +47,8 @@
                         <div class="swiper-container thumbnails-preview" data-autoplay="0" data-loop="1"
                             data-speed="500" data-center="0" data-slides-per-view="1">
                             <div class="swiper-wrapper">
+                                {{-- @foreach(json_decode($hotel->hot_image, true) as $images)
+                                @endforeach --}}
                                 <div class="swiper-slide active" data-val="0">
                                     <img class="img-responsive img-full" src="{{$hotel->hot_image}}" alt="">
                                 </div>
@@ -457,7 +459,7 @@
                 <div class="right-sidebar">
                     <iframe class="padd-40"
                         src="{{$hotel->hot_address}}"
-                        height="250px" width="100%"></iframe><noscript> Full functionality of this site requires
+                        height="250px" width="100%"  allowfullscreen="" loading="lazy"></iframe><noscript> Full functionality of this site requires
                         JavaScript to
                         be enabled. Learn how to <a href="https://javascriptdownload.org/">Download
                             JavaScript</a> in your browser.</noscript>

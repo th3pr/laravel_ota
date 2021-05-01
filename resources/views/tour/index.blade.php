@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @push('pg_btn')
 @can('create-post')
-    <a href="{{ route('post.create') }}" class="btn btn-sm btn-neutral">Create New Post</a>
+    <a href="{{ route('tour.create') }}" class="btn btn-sm btn-neutral">Create New Tour</a>
 @endcan
 @endpush
 @section('content')
@@ -11,7 +11,7 @@
                 <div class="card-header bg-transparent">
                     <div class="row">
                         <div class="col-lg-8">
-                            <h3 class="mb-0">All Posts</h3>
+                            <h3 class="mb-0">All tours</h3>
                         </div>
                         <div class="col-lg-4">
                     {!! Form::open(['route' => 'post.index', 'method'=>'get']) !!}
@@ -38,47 +38,47 @@
                                 </tr>
                                 </thead>
                                 <tbody class="list">
-                                @foreach($posts as $post)
+                                @foreach($tours as $item)
                                     <tr>
                                         <th scope="row">
                                             <div class="mx-w-440 d-flex flex-wrap">
-                                                {{$post->post_title }}
+                                                {{$item->post_title }}
                                             </div>
                                         </th>
                                         <td class="budget">
-                                            {{$post->category->category_name}}
+                                            {{$item->category->category_name}}
                                         </td>
                                         <td>
-                                            @if($post->status)
+                                            @if($item->status)
                                                 <span class="badge badge-pill badge-lg badge-success">Active</span>
                                             @else
                                                 <span class="badge badge-pill badge-lg badge-danger">Disabled</span>
                                             @endif
                                         </td>
                                         <td>
-                                            {{$post->user->name}}
+                                            {{$item->user->name}}
                                         </td>
                                         <td>
                                             <div class="avatar-group">
-                                                @if ($post->featured_image)
+                                                @if ($item->featured_image)
                                                 <img alt="Image placeholder"
                                                     class="avatar avatar-xl rounded-circle"
-                                                    data-toggle="tooltip" data-original-title="{{$post->post_title}}"
-                                                    src="{{ asset($post->featured_image) }}">
+                                                    data-toggle="tooltip" data-original-title="{{$item->post_title}}"
+                                                    src="{{ asset($item->featured_image) }}">
                                                 @endif
                                             </div>
                                         </td>
                                         <td class="text-center">
                                             @can('destroy-post')
-                                            {!! Form::open(['route' => ['post.destroy', $post],'method' => 'delete',  'class'=>'d-inline-block dform']) !!}
+                                            {!! Form::open(['route' => ['post.destroy', $item],'method' => 'delete',  'class'=>'d-inline-block dform']) !!}
                                             @endcan
                                             @can('view-post')
-                                            <a class="btn btn-primary btn-sm m-1" data-toggle="tooltip" data-placement="top" title="View and edit post details" href="{{route('post.show', $post)}}">
+                                            <a class="btn btn-primary btn-sm m-1" data-toggle="tooltip" data-placement="top" title="View and edit post details" href="{{route('item.show', $item)}}">
                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                             </a>
                                             @endcan
                                             @can('update-post')
-                                            <a class="btn btn-info btn-sm m-1" data-toggle="tooltip" data-placement="top" title="Edit post details" href="{{route('post.edit',$post)}}">
+                                            <a class="btn btn-info btn-sm m-1" data-toggle="tooltip" data-placement="top" title="Edit post details" href="{{route('item.edit',$item)}}">
                                                 <i class="fa fa-edit" aria-hidden="true"></i>
                                             </a>
                                             @endcan
@@ -95,7 +95,7 @@
                                 <tfoot >
                                 <tr>
                                     <td colspan="6">
-                                        {{$posts->links()}}
+                                        {{$tours->links()}}
                                     </td>
                                 </tr>
                                 </tfoot>

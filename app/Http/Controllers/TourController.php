@@ -34,7 +34,7 @@ class TourController extends Controller
             $tours = Tour::paginate(setting('record_per_page', 15));
         }
         $title =  'Manage Hotels';
-        return view('hotel.index', compact('tours','title'));
+        return view('tour.index', compact('tours','title'));
     }
 
     /**

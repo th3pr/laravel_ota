@@ -23,7 +23,7 @@ class CreateHotelsTable extends Migration
             $table->string('hot_image');
             $table->unsignedbiginteger('user_id')->nullable();
             $table->timestamps();
-            
+
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
