@@ -17,7 +17,7 @@ class CreateToursTable extends Migration
             $table->id();
             $table->string('tour_name');
             $table->integer('tour_price');
-            $table->string('tour_address');
+            $table->longText('tour_address');
             $table->date('start_date');
             $table->date('end_date');
             $table->string('tour_review')->nullable();

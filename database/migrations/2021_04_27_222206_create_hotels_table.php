@@ -17,7 +17,7 @@ class CreateHotelsTable extends Migration
             $table->id();
             $table->string('hot_name');
             $table->integer('hot_price');
-            $table->string('hot_address');
+            $table->longText('hot_address');
             $table->text('hot_details');
             $table->string('hot_type');
             $table->string('hot_image');
