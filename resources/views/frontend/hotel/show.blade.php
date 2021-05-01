@@ -2,7 +2,7 @@
 @section('hotel')
 <!-- INNER-BANNER slider -->
 <div class="inner-banner style-2">
-    <img class="center-image  " src="{{$hotel->hot_image}}" alt="">
+    <img class="center-image" src="{{$hotel->hot_image}}" alt="">
     <div class="vertical-align">
         <div class="container">
             <div class="row">
@@ -457,12 +457,7 @@
             <!--block detalis-->
             <div class="col-xs-12 col-md-4">
                 <div class="right-sidebar">
-                    <iframe class="padd-40"
-                        src="{{$hotel->hot_address}}"
-                        height="250px" width="100%"  allowfullscreen="" loading="lazy"></iframe><noscript> Full functionality of this site requires
-                        JavaScript to
-                        be enabled. Learn how to <a href="https://javascriptdownload.org/">Download
-                            JavaScript</a> in your browser.</noscript>
+                    <iframe class="padd-40" src="{{$hotel->hot_address}}" height="250px" width="100%" allowfullscreen="" loading="lazy"></iframe>
 
                     <div class="help-contact bg-grey-2">
                         <h4 class="color-dark-2">Need Help?</h4>
