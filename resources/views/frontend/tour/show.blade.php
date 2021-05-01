@@ -180,7 +180,7 @@
                                     </div><br />
                                   @endif
                                     <form class="simple-from" 
-                                        onsubmit="return validateFormTour()" method="post" >
+                                        onsubmit="return validateFormTour()" method="post" action="{{route('booktour.store' ,["id" =>$tour] )}}"  >
                                         {{-- action="{{route('booktour.store' ,["id" =>$tour] )}}"  --}}
                                         @csrf
                                         <div class="simple-group">
@@ -211,9 +211,9 @@
                                                                     <a href="#" class="tperson">4</a>
                                                                 </span>
                                                             </div> --}}
-                                                            {{-- <div class="input-style-1 b-50 brd-0 type-2 color-3">
-                                                                <input type="number"  class="" name="person">
-                                                            </div> --}}
+                                                            <div class="input-style-1 b-50 brd-0 type-2 color-3">
+                                                                <input type="number"  class="" name="persons">
+                                                            </div>
                                                           
                                                               
                                                         </div>
