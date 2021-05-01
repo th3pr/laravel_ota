@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Tour;
+use App\BookTour;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class FrontTourController extends Controller
+class BookTourController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,13 +16,6 @@ class FrontTourController extends Controller
     public function index()
     {
         //
-        // $tours = Tour::all();
-        $tours = Tour::paginate(setting('record_per_page' , 10));
-        return view('frontend.tour.index' , ["data" => $tours]);
-
-
-        // $posts = Post::with(['user','category'])->paginate(setting('record_per_page', 10));
-
     }
 
     /**
@@ -44,28 +37,48 @@ class FrontTourController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'book_date' => 'required | date',
+            'persons' => 'required | numeric',
+
+        ]);
+        $input = $request->all();
+        $input['tour_id'] = (int)$input['id'];
+        $input['user_id'] = auth()->user()->id;
+        //  dd($input);
+        // BookTour::create($input);
+        // return redirect()->route('tours.index');
+
+        if(BookTour::find($input['user_id']) == null && BookTour::find($input['tour_id']) == null )
+        {
+          BookTour::create($input);
+          return redirect()->route('tours.index');
+        }
+        else{
+        return redirect()->route('tours.show' ,  $input['tour_id']);
+        }
+
+        
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Tour  $tour
+     * @param  \App\BookTour  $bookTour
      * @return \Illuminate\Http\Response
      */
-    public function show(Tour $tour)
+    public function show(BookTour $bookTour)
     {
         //
-        return view('frontend.tour.showtour' , ["data" => $tour]);
-
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Tour  $tour
+     * @param  \App\BookTour  $bookTour
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tour $tour)
+    public function edit(BookTour $bookTour)
     {
         //
     }
@@ -74,10 +87,10 @@ class FrontTourController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Tour  $tour
+     * @param  \App\BookTour  $bookTour
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tour $tour)
+    public function update(Request $request, BookTour $bookTour)
     {
         //
     }
@@ -85,10 +98,10 @@ class FrontTourController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Tour  $tour
+     * @param  \App\BookTour  $bookTour
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tour $tour)
+    public function destroy(BookTour $bookTour)
     {
         //
     }

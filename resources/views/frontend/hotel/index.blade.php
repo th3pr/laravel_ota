@@ -550,7 +550,11 @@
                                            @endif
                                       </div>
                                       <div class="title hotel-middle clearfix cell-view">
-                                          <div class="hotel-person color-dark-2 list-hidden">from <span>$83</span></div>
+                                        @if ($item->discount != 0)
+                                        <div class="hotel-person color-dark-2 list-hidden">from <del>{{$item->hot_price}} EGP</del></div>                                                                                            
+                                        @endif
+                                         
+                                          <div class="hotel-person color-dark-2 list-hidden"> <span>{{$item->hot_price-($item->hot_price*$item->discount/100)}} EGP</span> </div>
                                           <div class="rate-wrap">
                                               <div class="rate">
                                                 <span class="fa fa-star color-yellow"></span>

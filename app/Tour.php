@@ -36,4 +36,11 @@ class Tour extends Model
 //    {
 //        $this->attributes['status'] = ($status)? 1 : 0;
 //    }
+
+
+public function users(): BelongsToMany
+{
+    return $this->belongsToMany(Tour::class, 'book_tour', 'user_id', 'tour_id');
+}
+
 }
