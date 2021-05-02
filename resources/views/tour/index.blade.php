@@ -34,7 +34,7 @@
                                     <th scope="col">Tour discount</th>
                                     <th scope="col">Tour s_date</th>
                                     <th scope="col">Tour e_date</th>
-                                    <th scope="col">Tour address</th>
+{{--                                    <th scope="col">Tour address</th>--}}
                                     <th scope="col">Tour image</th>
                                     <th scope="col" class="text-center">Action</th>
                                 </tr>
@@ -59,9 +59,9 @@
                                         <td class="budget">
                                             {{$tour->end_date}}
                                         </td>
-                                        <td class="budget">
-                                            {{$tour->tour_address}}
-                                        </td>
+{{--                                        <td class="budget">--}}
+{{--                                            {{$tour->tour_address}}--}}
+{{--                                        </td>--}}
 
                                         <td>
                                             <div class="avatar-group">

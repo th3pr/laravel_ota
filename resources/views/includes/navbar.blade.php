@@ -3,14 +3,15 @@
         <!-- Brand -->
         <div class="sidenav-header  d-flex  align-items-center">
             <a class="navbar-brand" href="{{ route('dashboard') }}" data-toggle="tooltip" data-original-title="{{ setting('company_name') }}">
-                @if (setting('company_logo'))
+{{--                @if (setting('company_logo'))--}}
                 <img alt="{{ setting('company_name') }}"
                     height="45"
                     class="navbar-brand-img"
-                    src="{{ asset(setting('company_logo')) }}">
-                @else
-                {{ substr(setting('company_name'), 0, 15) }}...
-                @endif
+                     src="{{ url('img\minyalogo1.png') }}"><br>
+{{--                {{ setting('company_name') }}--}}
+{{--                @else--}}
+{{--                {{ substr(setting('company_name'), 0, 15) }}...--}}
+{{--                @endif--}}
             </a>
             <div class=" ml-auto ">
                 <!-- Sidenav toggler -->
