@@ -806,8 +806,8 @@
 
 
                       <div class="c_pagination clearfix padd-120">
-                        <a href="#" class="c-button b-40 bg-dr-blue hv-dr-blue-o fl">prev page</a>
-                        <a href="#" class="c-button b-40 bg-dr-blue hv-dr-blue-o fr">next page</a>
+                        {{-- <a href="#" class="c-button b-40 bg-dr-blue hv-dr-blue-o fl">prev page</a>
+                        <a href="#" class="c-button b-40 bg-dr-blue hv-dr-blue-o fr">next page</a> --}}
                         <ul class="cp_content color-2">
 
                           {{$hotels->links()}}

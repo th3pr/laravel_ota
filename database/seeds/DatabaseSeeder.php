@@ -15,7 +15,10 @@ class DatabaseSeeder extends Seeder
              RolePermissionSeeder::class,
              SettingsSeeder::class,
              CategorySeeder::class,
-             PostSeeder::class
+             PostSeeder::class,
+             ToursSeeder::class,
+             HotelsSeeder::class,
+             CarsSeeder::class,
          ]);
     }
 }
