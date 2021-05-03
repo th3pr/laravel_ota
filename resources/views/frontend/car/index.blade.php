@@ -59,7 +59,7 @@
                                         <li><b>90</b>hotels</li>
                                     </ul>
                                     <p>Rose Al-Youssef Gate</p>
-                                    <a href="car_detail.html" class="c-button bg-aqua hv-aqua-o b-40"><span>Book
+                                    <a href="{{route('cars.show' , $item)}}" class="c-button bg-aqua hv-aqua-o b-40"><span>Book
                                             Now</span></a>
                                 </div>
                             </div>

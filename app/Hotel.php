@@ -5,30 +5,27 @@ namespace App;
 
 //use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Hotel extends Model
 {
+    use Searchable;
 //    use HasFactory;
 //    use LogsActivity;
 
     protected $table = "hotels";
     protected $fillable = [
-        'hot_name',
-        'hot_price',
-        'hot_address',
-        'hot_details',
-        'hot_image',
-        'hot_type',
-        'user_id',
-        'discount',
-        'created_at',
-        'updated_at'
+        'hot_name','hot_price','hot_address','hot_details','hot_image','hot_type','user_id','discount','created_at','updated_at'
     ];
-    protected $hidden = [
-        'created_at',
-        'updated_at'
-    ];
+    protected $hidden = ['created_at','updated_at'];
+
+    public function searchableAs()
+    {
+        return 'hot_name';
+    }
+
+
     public function user()
     {
         return $this->belongsTo('App\User');

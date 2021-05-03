@@ -1,6 +1,7 @@
 /* We currently rely on the token ID mapping to be the same between PHP 5 and PHP 7 - so the same lexer can be used for
  * both. This is enforced by sharing this token file. */
 
+%right T_THROW
 %left T_INCLUDE T_INCLUDE_ONCE T_EVAL T_REQUIRE T_REQUIRE_ONCE
 %left ','
 %left T_LOGICAL_OR
@@ -82,6 +83,7 @@
 %token T_CLASS
 %token T_TRAIT
 %token T_INTERFACE
+%token T_ENUM
 %token T_EXTENDS
 %token T_IMPLEMENTS
 %token T_OBJECT_OPERATOR
@@ -109,3 +111,5 @@
 %token T_NAME_FULLY_QUALIFIED
 %token T_NAME_QUALIFIED
 %token T_NAME_RELATIVE
+%token T_ATTRIBUTE
+%token T_ENUM

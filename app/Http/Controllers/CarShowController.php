@@ -15,7 +15,6 @@ class CarShowController extends Controller
      */
     public function index(Request $request)
     {
-        //
         if ($request->has('search')) {
             $cars = Car::with(['user'])->where('car_model', 'like', '%'.$request->search.'%')->paginate(setting('record_per_page', 8));
         }else{

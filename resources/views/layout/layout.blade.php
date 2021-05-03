@@ -52,9 +52,9 @@
 						<a href="#"><i class="fa fa-twitter"></i></a>
 						<a href="#"><i class="fa fa-instagram"></i></a>
 					</div>
-					<form action="?" class="serach-item">
+					<form action="hotel.index" method="get" class="serach-item">
 						<button type="submit" class="fa fa-search"></button>
-						<input type="text" placeholder="Search...">
+						<input type="text" name="search" value="{{request()->query('search')}}" placeholder="Search...">
 					</form>
 
 				</div>

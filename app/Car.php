@@ -4,11 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Car extends Model
 {
-
+    use Searchable;
     protected $table = "cars";
     protected $fillable = [
         'car_model',
@@ -24,6 +25,12 @@ class Car extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function searchableAs()
+    {
+        return 'car_model';
+    }
+
     public function user()
     {
         return $this->belongsTo('App\User');

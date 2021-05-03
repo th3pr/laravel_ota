@@ -177,7 +177,6 @@
 <div class="list-wrapper bg-grey-2">
     <div class="container">
         <ul class="list-breadcrumb clearfix">
-
         </ul>
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-3">

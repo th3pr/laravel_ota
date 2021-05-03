@@ -34,10 +34,10 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                                             <div class="tabs-block">
-                                                <h5>Your Destinations</h5>
+                                                <h5>Your Hotels</h5>
                                                 <div class="input-style">
                                                     <img src="{{asset('img/loc_icon_small.png')}}" alt="">
-                                                    <input type="text"
+                                                    <input type="text" name="search"
                                                         placeholder="Enter a destination or hotel name">
                                                 </div>
                                             </div>
@@ -126,7 +126,7 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                                             <div class="tabs-block">
-                                                <h5>Your Destinationss</h5>
+                                                <h5>Your Cars</h5>
                                                 <div class="input-style">
                                                     <img src="{{asset('img/loc_icon_small.png')}}" alt="">
                                                     <input type="text"
@@ -218,7 +218,7 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                                             <div class="tabs-block">
-                                                <h5>Your Destinationss</h5>
+                                                <h5>Your Tours</h5>
                                                 <div class="input-style">
                                                     <img src="{{asset('img/loc_icon_small.png')}}" alt="">
                                                     <input type="text"

@@ -44,7 +44,6 @@ class HotelController extends Controller
      */
     public function create()
     {
-//        return view('hotel.create');
         $title = 'Create hotel';
         return view('hotel.create', compact( 'title'));
     }
@@ -57,31 +56,6 @@ class HotelController extends Controller
      */
     public function store(HotelRequest $request)
     {
-
-//        try {
-//            $filePath = "";
-//            if ($request->has('hot_image')) {
-//                $filePath = $this->saveImages($request->hot_image,'Images/Hotels/');
-//            }
-//
-//            Hotel::create([
-//                'hot_image' => $filePath,
-//                'hot_name' => $request ->hot_name,
-//                'hot_price' => $request ->hot_price,
-//                'hot_details' => $request ->hot_details,
-//                'hot_type' =>$request ->hot_type,
-//                'hot_address' => $request ->hot_address,
-////                'latitude'=>$request->latitude,  // هنا بقوله مكانك هذا علي الخريطه عايز تعدله ام لا
-////                'longitude'=>$request->longitude,
-//            ]);
-//
-//            return redirect()->route('admin.hotels')->with(['success' => 'Hotels Added Successfully']);
-//
-//        } catch(\Exception $ex) {
-////            dd($ex);
-//            return redirect()->route('admin.hotels')->with(['error' => 'Entering data wrong, try again later']);
-//        }
-//        dd($request);
 
         $request->merge(['user_id' => Auth::user()->id]);
         $hotel = $request->except('hot_image');
