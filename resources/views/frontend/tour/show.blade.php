@@ -91,9 +91,9 @@
                                     <div class="nav-tab-item">
                                         Details
                                     </div>
-                                    {{-- <div class="nav-tab-item">
+                                    <div class="nav-tab-item">
                                         Reviews
-                                    </div> --}}
+                                    </div>
                                     <div class="nav-tab-item">
                                         Booking
                                     </div>
@@ -143,9 +143,11 @@
                                         consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                                         dolore magna aliqua.</p> --}}
                                 </div>
-                                {{-- <div class="tab-info">
+                                <div class="tab-info">
 
-                                    <img class="right-img" src="{{asset('img/detail/tab_img.jpg')}}" alt="">
+                                    @livewire('tour-ratings', ['tour' => $tour], key($tour->id))
+
+                                    {{-- <img class="right-img" src="{{asset('img/detail/tab_img.jpg')}}" alt="">
                                     <h3>General Information About tour</h3>
                                     <p>Pellentesque ac turpis egestas, varius justo et, condimentum augue. Praesent
                                         aliquam, nisl feugiat vehicula condimentum, justo tellus scelerisque metus.
@@ -167,8 +169,8 @@
                                         aliquam, nisl feugiat vehicula condimentum, justo tellus scelerisque metus.
                                         Pellentesque varius justo et, condimentum augue. Lorem ipsum dolor sit amet,
                                         consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                                        dolore magna aliqua.</p>
-                                </div> --}}
+                                        dolore magna aliqua.</p> --}}
+                                </div>
                                 <div class="tab-info">
                                     @if ($errors->any())
                                     <div class="alert alert-danger">

@@ -40,4 +40,10 @@ class Hotel extends Model
 //    {
 //        $this->attributes['status'] = ($status)? 1 : 0;
 //    }
+
+
+        public function ratings()
+        {
+            return $this->hasMany('App\Rating_Hotel');
+        }
 }

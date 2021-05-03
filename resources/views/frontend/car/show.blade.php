@@ -150,30 +150,7 @@
                                         dolore magna aliqua.</p>
                                 </div>
                                 <div class="tab-info">
-
-                                    <img class="right-img" src="{{$car->car_image}}" alt="">
-                                    <h3>General Information About Car</h3>
-                                    <p>Pellentesque ac turpis egestas, varius justo et, condimentum augue. Praesent
-                                        aliquam, nisl feugiat vehicula condimentum, justo tellus scelerisque metus.
-                                        Pellentesque ac turpis egestas, varius justo et, condimentum augue. Lorem
-                                        ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                                    </p>
-                                    <h4>interesting for you</h4>
-                                    <p>Pellentesque ac turpis egestas, varius justo et, condimentum augue. Praesent
-                                        aliquam, nisl feugiat vehicula condimentum, justo tellus scelerisque metus.
-                                    </p>
-                                    <ul>
-                                        <li>Shopping history</li>
-                                        <li>Hot offers according your settings</li>
-                                        <li>Multi-product search</li>
-                                        <li>Opportunity to share with friends</li>
-                                    </ul>
-                                    <h3>you need to know</h3>
-                                    <p>Pellentesque ac turpis egestas, varius justo et, condimentum augue. Praesent
-                                        aliquam, nisl feugiat vehicula condimentum, justo tellus scelerisque metus.
-                                        Pellentesque varius justo et, condimentum augue. Lorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                                        dolore magna aliqua.</p>
+                                    @livewire('car-ratings', ['car' => $car], key($car->id))
                                 </div>
                                 <div class="tab-info">
                                     <form class="simple-from" name="information"

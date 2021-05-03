@@ -10,14 +10,15 @@
 	<link rel="shortcut icon" href="favicon.ico" />
 
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
-
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 	<link href="{{asset('assets/css/frontend/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
 	<link href="{{asset('assets/css/frontend/jquery-ui.structure.min.css')}}" rel="stylesheet" type="text/css"/>
 	<link href="{{asset('assets/css/frontend/jquery-ui.min.css')}}" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link href="{{asset('assets/css/frontend/style.min.css')}}" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="{{asset('assets/css/frontend/popup.css')}}">
-
+	@livewireStyles
 	<title>Minya </title>
 </head>
 
@@ -212,7 +213,7 @@
 	<script src="{{asset('assets/js/frontend/jquery.circliful.min.js')}}"></script>
 	<script src="{{asset('assets/js/frontend/myJquery.js')}}"></script>
 
-
+    @livewireScripts
 </body>
 
 </html>
