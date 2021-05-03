@@ -540,57 +540,56 @@
                     </div>
                       <div class="list-content clearfix">
                           @foreach ($hotels as $item)
-                          <div class="list-item-entry">
-                            <div class="hotel-item style-8 bg-white">
-                                <div class="table-view">
-                                      <div class="radius-top cell-view">
-                                           <img src="{{$item->hot_image}}" alt="">
-                                           @if ($item->discount != 0)
-                                           <div class="price price-s-3 red tt">-{{$item->discount}}%</div>
-                                           @endif
+                              <div class="list-item-entry">
+                                  <div class="hotel-item style-8 bg-white">
+                                      <div class="table-view">
+                                          <div class="radius-top cell-view">
+                                              <img src="{{$item->hot_image}}" alt="">
+                                              @if ($item->discount != 0)
+                                                  <div class="price price-s-3 red tt">-{{$item->discount}}%</div>
+                                              @endif
+                                          </div>
+                                          <div class="title hotel-middle clearfix cell-view">
+                                              @if ($item->discount != 0)
+                                                  <div class="hotel-person color-dark-2 list-hidden">from <del>{{$item->hot_price}} EGP</del></div>
+                                              @endif
+
+                                              <div class="hotel-person color-dark-2 list-hidden"> <span>{{$item->hot_price-($item->hot_price*$item->discount/100)}} EGP</span> </div>
+                                              <div class="rate-wrap">
+                                                  <div class="rate">
+                                                      <span class="fa fa-star color-yellow"></span>
+                                                      <span class="fa fa-star color-yellow"></span>
+                                                      <span class="fa fa-star color-yellow"></span>
+                                                      <span class="fa fa-star color-yellow"></span>
+                                                      <span class="fa fa-star color-yellow"></span>
+                                                  </div>
+                                                  <i>44 rewies</i>
+                                              </div>
+                                              <h4><b><a href="{{route('hotels.show' , $item)}}">{{$item->hot_name}}</a></b></h4>
+                                              <p class="f-14">{!! Str::limit($item->hot_details, 150) !!} </p>
+                                              <div class="hotel-icons-block grid-hidden">
+                                                  <img class="hotel-icon" src="{{asset('img/tour_list/hotel_icon_1.png')}}" alt="">
+                                                  <img class="hotel-icon" src="{{asset('img/tour_list/hotel_icon_2.png')}}" alt="">
+                                                  <img class="hotel-icon" src="{{asset('img/tour_list/hotel_icon_3.png')}}" alt="">
+                                                  <img class="hotel-icon" src="{{asset('img/tour_list/hotel_icon_4.png')}}" alt="">
+                                                  <img class="hotel-icon" src="{{asset('img/tour_list/hotel_icon_5.png')}}" alt="">
+                                              </div>
+                                              <a href="hotel_list.html" class="c-button bg-dr-blue hv-dr-blue-o b-40 fl list-hidden">select</a>
+                                              <a href="hotel_list.html" class="c-button color-dr-blue hv-o b-40 fr list-hidden"><img src="" alt="">view on map</a>
+                                          </div>
+                                          <div class="title hotel-right bg-dr-blue clearfix cell-view">
+                                              @if ($item->discount != 0)
+                                                  <div class="hotel-person color-white">from <del>{{$item->hot_price}} EGP</del></div>
+                                              @endif
+                                              <div class="hotel-person color-white">{{$item->hot_price-($item->hot_price*$item->discount/100)}} EGP</div>
+
+                                              <a class="c-button b-40 bg-white color-dark-2 hv-dark-2-o grid-hidden" href="{{route('hotels.show' , $item)}}">BOOK</a>
+                                          </div>
                                       </div>
-                                      <div class="title hotel-middle clearfix cell-view">
-                                        @if ($item->discount != 0)
-                                        <div class="hotel-person color-dark-2 list-hidden">from <del>{{$item->hot_price}} EGP</del></div>                                                                                            
-                                        @endif
-                                         
-                                          <div class="hotel-person color-dark-2 list-hidden"> <span>{{$item->hot_price-($item->hot_price*$item->discount/100)}} EGP</span> </div>
-                                          <div class="rate-wrap">
-                                              <div class="rate">
-                                                <span class="fa fa-star color-yellow"></span>
-                                                <span class="fa fa-star color-yellow"></span>
-                                                <span class="fa fa-star color-yellow"></span>
-                                                <span class="fa fa-star color-yellow"></span>
-                                                <span class="fa fa-star color-yellow"></span>
-                                            </div>
-                                            <i>44 rewies</i>
-                                        </div>
-                                          <h4><b><a href="{{route('hotels.show' , $item)}}">{{$item->hot_name}}</a></b></h4>
-                                        <p class="f-14">{!! Str::limit($item->hot_details, 150) !!} </p>
-                                        <div class="hotel-icons-block grid-hidden">
-                                            <img class="hotel-icon" src="{{asset('img/tour_list/hotel_icon_1.png')}}" alt="">
-                                            <img class="hotel-icon" src="{{asset('img/tour_list/hotel_icon_2.png')}}" alt="">
-                                            <img class="hotel-icon" src="{{asset('img/tour_list/hotel_icon_3.png')}}" alt="">
-                                            <img class="hotel-icon" src="{{asset('img/tour_list/hotel_icon_4.png')}}" alt="">
-                                            <img class="hotel-icon" src="{{asset('img/tour_list/hotel_icon_5.png')}}" alt="">
-                                        </div>
-                                        <a href="hotel_list.html" class="c-button bg-dr-blue hv-dr-blue-o b-40 fl list-hidden">select</a>
-                                           <a href="hotel_list.html" class="c-button color-dr-blue hv-o b-40 fr list-hidden"><img src="" alt="">view on map</a>
-                                    </div>
-                                    <div class="title hotel-right bg-dr-blue clearfix cell-view">
-                                        @if ($item->discount != 0)
-                                        <div class="hotel-person color-white">from <del>{{$item->hot_price}} EGP</del></div>
-                                        @endif
-                                        <div class="hotel-person color-white">{{$item->hot_price-($item->hot_price*$item->discount/100)}} EGP</div>
-
-                                        <a class="c-button b-40 bg-white color-dark-2 hv-dark-2-o grid-hidden" href="{{route('hotels.show' , $item)}}">BOOK</a>
-                                    </div>
-                                </div>
-                            </div>
+                                  </div>
 
 
-                          </div>
-
+                              </div>
 
                           @endforeach
 
