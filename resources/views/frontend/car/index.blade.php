@@ -31,10 +31,14 @@
                     data-slides-per-view="responsive" data-mob-slides="1" data-xs-slides="2" data-sm-slides="2"
                     data-md-slides="3" data-lg-slides="3" data-add-slides="3">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide" data-val="0">
+                        <?php $count = 0; ?>
+                        @foreach ($cars as $item)
+                        <?php if($count == 6) break; ?>
+
+                        <div class="swiper-slide" data-val="<?php echo $count ?>">
                             <div class="offers-block radius-mask">
                                 <div class="clip">
-                                    <div class="bg bg-bg-chrome act" style="background-image:url({{asset('img/slider-1.jpg')}})">
+                                    <div class="bg bg-bg-chrome act" style="background-image:url({{$item->car_image}})">
                                     </div>
                                 </div>
                                 <div class="tour-layer delay-1"></div>
@@ -46,7 +50,7 @@
                                         <span class="fa fa-star color-yellow"></span>
                                         <span class="fa fa-star color-yellow"></span>
                                     </div>
-                                    <h3>Nissan</h3>
+                                    <h3>{{ $item->car_model}}</h3>
                                 </div>
                                 <div class="vertical-bottom">
                                     <ul class="offers-info">
@@ -60,95 +64,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide" data-val="1">
-                            <div class="offers-block radius-mask">
-                                <div class="clip">
-                                    <div class="bg bg-bg-chrome act"
-                                        style="background-image:url(img/slider_1_4.jpg)">
-                                    </div>
-                                </div>
-                                <div class="tour-layer delay-1"></div>
-                                <div class="vertical-top">
-                                    <div class="rate">
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                    </div>
-                                    <h3>Jeep</h3>
-                                </div>
-                                <div class="vertical-bottom">
-                                    <ul class="offers-info">
-                                        <li><b>58</b>tours</li>
-                                        <li><b>49</b>cities</li>
-                                        <li><b>70</b>hotels</li>
-                                    </ul>
-                                    <p>Tona Elgabl</p>
-                                    <a href="car_detail.html" class="c-button bg-aqua hv-aqua-o b-40"><span>Book
-                                            Now</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" data-val="2">
-                            <div class="offers-block radius-mask">
-                                <div class="clip">
-                                    <div class="bg bg-bg-chrome act" style="background-image:url({{asset('img/slider-1.jpg')}})">
-                                    </div>
-                                </div>
-                                <div class="tour-layer delay-1"></div>
-                                <div class="vertical-top">
-                                    <div class="rate">
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                    </div>
-                                    <h3>HYUNDAI</h3>
-                                </div>
-                                <div class="vertical-bottom">
-                                    <ul class="offers-info">
-                                        <li><b>88</b>tours</li>
-                                        <li><b>10</b>cities</li>
-                                        <li><b>193</b>hotels</li>
-                                    </ul>
-                                    <p>Rose Al-Youssef Gate</p>
-                                    <a href="car_detail.html" class="c-button bg-aqua hv-aqua-o b-40"><span>Book
-                                            Now</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" data-val="3">
-                            <div class="offers-block radius-mask">
-                                <div class="clip">
-                                    <div class="bg bg-bg-chrome act"
-                                        style="background-image:url({{asset('img/slider_1_4.jpg')}})">
-                                    </div>
-                                </div>
-                                <div class="tour-layer delay-1"></div>
-                                <div class="vertical-top">
-                                    <div class="rate">
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                    </div>
-                                    <h3>TOTOTA</h3>
-                                </div>
-                                <div class="vertical-bottom">
-                                    <ul class="offers-info">
-                                        <li><b>88</b>tours</li>
-                                        <li><b>10</b>cities</li>
-                                        <li><b>193</b>hotels</li>
-                                    </ul>
-                                    <p>Tona Elgabl</p>
-                                    <a href="car_detail.html" class="c-button bg-aqua hv-aqua-o b-40"><span>Book
-                                            Now</span></a>
-                                </div>
-                            </div>
-                        </div>
+                        <?php $count++; ?>
+                          @endforeach
                     </div>
                     <div class="pagination  poin-style-1 pagination-hidden"></div>
                 </div>
@@ -294,10 +211,13 @@
 
 <!-- TOP PREVIEW-->
 <div class="top-preview row no-margin">
+    <?php $count = 0; ?>
+    @foreach ($cars as $item)
+        <?php if($count == 8) break; ?>
     <div class="col-mob-12 col-xs-6 col-sm-6 col-md-3 no-padding">
         <div class="tp_entry style-2">
             <div class="tp_image">
-                <img class="center-image" src="{{asset('img/2014_Nissan_Versa_01.jpg')}}" alt="">
+                <img class="center-image" src="{{$item->car_image}}" alt="">
             </div>
             <div class="tp_content">
                 <div class="rate-wrap clearfix">
@@ -309,9 +229,9 @@
                         <span class="fa fa-star color-yellow"></span>
                     </div>
                     <i>485 rewies</i>
-                    <div class="tp_price">EG 950</div>
+                    <div class="tp_price">{{$item->car_price}} EGP</div>
                 </div>
-                <h4><b><a href="car_detail.html">car In Minia</a></b></h4>
+                <h4><b><a href="{{route('cars.show' , $item)}}">{{$item->car_model}}</a></b></h4>
                 <div class="tour-info-line clearfix">
                     <div class="tour-info fl">
                         <img src="{{asset('img/calendar_icon_grey.png')}}" alt="">
@@ -325,223 +245,8 @@
             </div>
         </div>
     </div>
-    <div class="col-mob-12 col-xs-6 col-sm-6 col-md-3 no-padding">
-        <div class="tp_entry style-2">
-            <div class="tp_image">
-                <img class="center-image" src="{{asset('img/banner-slider-2.jpg')}}" alt="">
-            </div>
-            <div class="tp_content">
-                <div class="rate-wrap clearfix">
-                    <div class="rate">
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                    </div>
-                    <i>485 rewies</i>
-                    <div class="tp_price">EG 273</div>
-                </div>
-                <h4><b><a href="car_detail.html">Car In Bani Mazar</a></b></h4>
-                <div class="tour-info-line clearfix">
-                    <div class="tour-info fl">
-                        <img src="{{asset('img/calendar_icon_grey.png')}}" alt="">
-                        <span class="font-style-2 color-grey-3">July <strong>19th 2021</strong></span>
-                    </div>
-                    <div class="tour-info fl">
-                        <img src="{{asset('img/loc_icon_small_grey.png')}}" alt="">
-                        <span class="font-style-2 color-grey-3">Bani Mazar</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-mob-12 col-xs-6 col-sm-6 col-md-3 no-padding">
-        <div class="tp_entry style-2">
-            <div class="tp_image">
-                <img class="center-image" src="{{asset('img/unnamed.png')}}" alt="">
-            </div>
-            <div class="tp_content">
-                <div class="rate-wrap clearfix">
-                    <div class="rate">
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                    </div>
-                    <i>485 rewies</i>
-                    <div class="tp_price">EG 273</div>
-                </div>
-                <h4><b><a href="car_detail.html">car In Malawy</a></b></h4>
-                <div class="tour-info-line clearfix">
-                    <div class="tour-info fl">
-                        <img src="{{asset('img/calendar_icon_grey.png')}}" alt="">
-                        <span class="font-style-2 color-grey-3">July <strong>19th 2021</strong></span>
-                    </div>
-                    <div class="tour-info fl">
-                        <img src="{{asset('img/loc_icon_small_grey.png')}}" alt="">
-                        <span class="font-style-2 color-grey-3">Malawy</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-mob-12 col-xs-6 col-sm-6 col-md-3 no-padding">
-        <div class="tp_entry style-2">
-            <div class="tp_image">
-                <img class="center-image" src="{{asset('img/51rkn5UDQhL._UY462_.jpg')}}" alt="">
-            </div>
-            <div class="tp_content">
-                <div class="rate-wrap clearfix">
-                    <div class="rate">
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                    </div>
-                    <i>485 rewies</i>
-                    <div class="tp_price">EG 573</div>
-                </div>
-                <h4><b><a href="car_detail.html">Car In Mati</a></b></h4>
-                <div class="tour-info-line clearfix">
-                    <div class="tour-info fl">
-                        <img src="{{asset('img/calendar_icon_grey.png')}}" alt="">
-                        <span class="font-style-2 color-grey-3">July <strong>19th 2021</strong></span>
-                    </div>
-                    <div class="tour-info fl">
-                        <img src="{{asset('img/loc_icon_small_grey.png')}}" alt="">
-                        <span class="font-style-2 color-grey-3">Mati Elbald</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-mob-12 col-xs-6 col-sm-6 col-md-3 no-padding">
-        <div class="tp_entry style-2">
-            <div class="tp_image">
-                <img class="center-image" src="{{asset('img/download.jfif')}}" alt="">
-            </div>
-            <div class="tp_content">
-                <div class="rate-wrap clearfix">
-                    <div class="rate">
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                    </div>
-                    <i>485 rewies</i>
-                    <div class="tp_price">EG 273</div>
-                </div>
-                <h4><b><a href="car_detail.html">car in samalout</a></b></h4>
-                <div class="tour-info-line clearfix">
-                    <div class="tour-info fl">
-                        <img src="{{asset('img/calendar_icon_grey.png')}}" alt="">
-                        <span class="font-style-2 color-grey-3">July <strong>19th 2021</strong></span>
-                    </div>
-                    <div class="tour-info fl">
-                        <img src="{{asset('img/loc_icon_small_grey.png')}}" alt="">
-                        <span class="font-style-2 color-grey-3">samalout</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-mob-12 col-xs-6 col-sm-6 col-md-3 no-padding">
-        <div class="tp_entry style-2">
-            <div class="tp_image">
-                <img class="center-image" src="{{asset('img/71BekpCdZvL._UY560_.jpg')}}" alt="">
-            </div>
-            <div class="tp_content">
-                <div class="rate-wrap clearfix">
-                    <div class="rate">
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                    </div>
-                    <i>485 rewies</i>
-                    <div class="tp_price">EG 288</div>
-                </div>
-                <h4><b><a href="car_detail.html">car In Aboqorqas</a></b></h4>
-                <div class="tour-info-line clearfix">
-                    <div class="tour-info fl">
-                        <img src="{{asset('img/calendar_icon_grey.png')}}" alt="">
-                        <span class="font-style-2 color-grey-3">July <strong>19th 2021</strong></span>
-                    </div>
-                    <div class="tour-info fl">
-                        <img src="{{asset('img/loc_icon_small_grey.png')}}" alt="">
-                        <span class="font-style-2 color-grey-3">Aboqorqas</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-mob-12 col-xs-6 col-sm-6 col-md-3 no-padding">
-        <div class="tp_entry style-2">
-            <div class="tp_image">
-                <img class="center-image" src="{{asset('img/cars/redcar.jfif')}}" alt="">
-            </div>
-            <div class="tp_content">
-                <div class="rate-wrap clearfix">
-                    <div class="rate">
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                    </div>
-                    <i>485 rewies</i>
-                    <div class="tp_price">EG 973</div>
-                </div>
-                <h4><b><a href="car_detail.html">CAR IN Dermawas</a></b></h4>
-                <div class="tour-info-line clearfix">
-                    <div class="tour-info fl">
-                        <img src="{{asset('img/calendar_icon_grey.png')}}" alt="">
-                        <span class="font-style-2 color-grey-3">July <strong>19th 2021</strong></span>
-                    </div>
-                    <div class="tour-info fl">
-                        <img src="{{asset('img/loc_icon_small_grey.png')}}" alt="">
-                        <span class="font-style-2 color-grey-3">Dermawas</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-mob-12 col-xs-6 col-sm-6 col-md-3 no-padding">
-        <div class="tp_entry style-2">
-            <div class="tp_image">
-                <img class="center-image" src="{{asset('img/cars/61wYYYRKLDL._UY560_.jpg')}}" alt="">
-            </div>
-            <div class="tp_content">
-                <div class="rate-wrap clearfix">
-                    <div class="rate">
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                        <span class="fa fa-star color-yellow"></span>
-                    </div>
-                    <i>485 rewies</i>
-                    <div class="tp_price">EG 993</div>
-                </div>
-                <h4><b><a href="car_detail.html">Car In Damaris</a></b></h4>
-                <div class="tour-info-line clearfix">
-                    <div class="tour-info fl">
-                        <img src="{{asset('img/calendar_icon_grey.png')}}" alt="">
-                        <span class="font-style-2 color-grey-3">July <strong>19th 2021</strong></span>
-                    </div>
-                    <div class="tour-info fl">
-                        <img src="{{asset('img/loc_icon_small_grey.png')}}" alt="">
-                        <span class="font-style-2 color-grey-3">Damaris</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php $count++; ?>
+    @endforeach
 </div>
 
 <!------------------------------------------------------cars-------------------------------->
