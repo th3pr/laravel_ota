@@ -114,6 +114,8 @@
 @yield('car')
 @yield('posts')
 @yield('showpost')
+@yield('signup')
+@yield('login')
     <footer class="bg-dark type-2">
 		<div class="container">
 			<div class="row">
@@ -141,7 +143,7 @@
 							<div class="f_news-content">
 								<a class="f_news-tilte color-white link-red" href="#">{{$post->post_title}}</a>
 								<span class="date-f">{{$post->created_at}}</span>
-								<a href="#" class="r-more">read more</a>
+								<a href="{{route('post.show', $post->user_id)}}" class="r-more">read more</a>
 							</div>
 						</div>
 						@endforeach
