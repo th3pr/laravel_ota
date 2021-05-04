@@ -1,3 +1,16 @@
+@php
+    // Hotels
+    $hotels = DB::table('hotels')->limit(6)->get();
+    //dd($hotels);
+    //$page_title = $settings[0];
+   // $email = $settings[1];
+    //$phone_number = $settings[2];
+    //$location = $settings[4];
+    //$logo = $settings[5];
+    // Posts
+    //$posts = DB::table('posts')->latest()->limit(3)->get();
+@endphp
+
 @extends('layouts.layout')
 
 @section('home')
@@ -408,6 +421,7 @@
     <!-- Section -->
     <div class="main-wraper">
         <div class="clip">
+
             <div class="bg bg-bg-chrome" style="background-image:url(img/11.jpg)">
             </div>
         </div>
@@ -415,7 +429,7 @@
             id="tour-slide">
             <div class="swiper-wrapper">
                 <?php $count2 = 0; ?>
-                @foreach ($tours as $tour)
+                @foreach ($hotels as $hotel)
                     <?php if ($count2 == 6) {
                     break;
                     } ?>
@@ -424,7 +438,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="slider-tour padd-90-90">
-                                        <h3>from {{ $tour->tour_price }} EGP</h3>
+                                        <h3>from {{ $hotel->hot_price }} EGP</h3>
                                         <div class="rate">
                                             <span class="fa fa-star color-yellow"></span>
                                             <span class="fa fa-star color-yellow"></span>
@@ -432,8 +446,8 @@
                                             <span class="fa fa-star color-yellow"></span>
                                             <span class="fa fa-star color-yellow"></span>
                                         </div>
-                                        <h2>{{ $tour->tour_name }}</h2>
-                                        <h5>{{ $tour->end_date }}</h5>
+                                        <h2>{{ $hotel->hot_name }}</h2>
+                                        <h5>{{ $hotel->hot_type }}</h5>
                                     </div>
                                 </div>
                             </div>
@@ -457,25 +471,20 @@
                 </div>
             </div>
             <div class="row col-no-padd">
-                <?php $count2 = 0; ?>
-                @foreach ($tours as $tour)
-                    <?php if ($count2 == 6) {
-                    break;
-                    } ?>
-
+                @foreach ($hotels as $hotel)
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="photo-block hover-aqua">
                             <div class="tour-layer delay-1"></div>
-                            <img src="{{ $tour->tour_image }}" alt="">
+                            <img src="{{ $hotel->hot_image }}" alt="">
                             <div class="vertical-align">
                                 <div class="photo-title">
                                     <h4 class="delay-1"><b>Only <span class="color-aqua">$
-                                                {{ $tour->tour_price }}</span></b></h4>
-                                    <a class="hover-it" href="{{ route('tours.show', $tour) }}">
-                                        <h3>{{ $tour->tour_name }}</h3>
+                                                {{ $hotel->hot_price }}</span></b></h4>
+                                    <a class="hover-it" href="#">
+                                        <h3>{{ $hotel->hot_name }}</h3>
                                     </a>
                                     <p>Discount</p>
-                                    <h4 class="delay-1">{{ $tour->tour_discount }}%</h4>
+                                    <h4 class="delay-1">{{ $hotel->discount }}%</h4>
                                 </div>
                             </div>
                         </div>
