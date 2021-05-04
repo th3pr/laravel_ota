@@ -4,6 +4,7 @@
 	$page_title = $settings[0];
 	$email = $settings[1];
 	$phone_number = $settings[2];
+	$description = $settings[3];
 	$location = $settings[4];
 	$logo = $settings[5];
 	// Posts
@@ -118,9 +119,8 @@
 			<div class="row">
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<div class="footer-block">
-						<img src="{{asset('assets/img/frontend/minyalogo1.png')}}" alt="" class="logo-footer">
-						<div class="f_text color-grey-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-							eiusmod tempor incididunt ut labore magna aliqua. Ut aliquip ex ea commodo consequat.</div>
+						<img src="{{$logo}}" alt="" class="logo-footer">
+						<div class="f_text color-grey-7">{!! $description !!}</div>
 						<div class="footer-share">
 							<a href="#"><span class="fa fa-facebook"></span></a>
 							<a href="#"><span class="fa fa-twitter"></span></a>

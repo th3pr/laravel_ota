@@ -357,8 +357,7 @@
                                         </div>
                                         <div class="tour-info">
                                             <img src="img/calendar_icon.png" alt="">
-                                            <span class="font-style-2 color-grey-4">{{ $tour->start_date }}<strong
-                                                    class="color-white"> 26th</strong></span>
+                                            <span class="font-style-2 color-grey-4">{{ $tour->start_date }}</span>
                                         </div>
                                     </div>
                                     <a href="{{ route('tours.show', $tour) }}"
