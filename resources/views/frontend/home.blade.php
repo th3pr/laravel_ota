@@ -30,13 +30,13 @@
                         </div>
 
                              <div class="tab-content tpl-tabs-cont section-text t-con-style-1">
-                                 <form action="{{route('searchHotel')}}" method="get" class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                                 <form action="" method="get" class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
                                         <div class="tab-pane active in" id="one">
                                         <div class="container">
                                         <div class="row">
                                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                                             <div class="tabs-block">
-                                                <h5>Your Hotels</h5>
+                                                <h5>Your Tours</h5>
                                                 <div class="input-style">
                                                     <img src="{{asset('img/loc_icon_small.png')}}" alt="">
                                                     <input type="text" name="search" value="{{request()->query('search')}}"
@@ -359,8 +359,7 @@
                                         <span class="font-style-2 color-grey-4">{{$tour->start_date}}<strong class="color-white"> 26th</strong></span>
                                     </div>
                                 </div>
-                                <a href="{{route('tours.show' , $tour)}}" class="c-button b-50 bg-aqua hv-transparent fr"><img src="img/flag_icon.png"
-                                                                                                 alt=""><span>view more</span></a>
+                                <a href="{{route('tours.show' , $tour)}}" class="c-button b-50 bg-aqua hv-transparent fr"><span>view more</span></a>
                             </div>
                         </div>
                     </div>
@@ -615,86 +614,89 @@
     <div class="swiper-container" data-autoplay="0" data-loop="1" data-speed="1000" data-slides-per-view="1"
         id="tour-slide">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="slider-tour padd-90-90">
-                                <h3>from $360</h3>
-                                <div class="rate">
-                                    <span class="fa fa-star color-yellow"></span>
-                                    <span class="fa fa-star color-yellow"></span>
-                                    <span class="fa fa-star color-yellow"></span>
-                                    <span class="fa fa-star color-yellow"></span>
-                                    <span class="fa fa-star color-yellow"></span>
+            @foreach($tours as $tour)
+                <div class="swiper-slide">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="slider-tour padd-90-90">
+                                    <h3>from $ {{$tour->tour_price}}</h3>
+                                    <div class="rate">
+                                        <span class="fa fa-star color-yellow"></span>
+                                        <span class="fa fa-star color-yellow"></span>
+                                        <span class="fa fa-star color-yellow"></span>
+                                        <span class="fa fa-star color-yellow"></span>
+                                        <span class="fa fa-star color-yellow"></span>
+                                    </div>
+                                    <h2>{{$tour->tour_name}}</h2>
+                                    <h5>{{$tour->end_date}}</h5>
                                 </div>
-                                <h2>Tuna Elgabel</h2>
-                                <h5>july <b>19th</b> to july <b>26th</b></h5>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="slider-tour padd-90-90">
-                                <h3>from $360</h3>
-                                <div class="rate">
-                                    <span class="fa fa-star color-yellow"></span>
-                                    <span class="fa fa-star color-yellow"></span>
-                                    <span class="fa fa-star color-yellow"></span>
-                                    <span class="fa fa-star color-yellow"></span>
-                                    <span class="fa fa-star color-yellow"></span>
-                                </div>
-                                <h2>Tuna Elgabel</h2>
-                                <h5>july <b>19th</b> to july <b>26th</b></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="slider-tour padd-90-90">
-                                <h3>from $360</h3>
-                                <div class="rate">
-                                    <span class="fa fa-star color-yellow"></span>
-                                    <span class="fa fa-star color-yellow"></span>
-                                    <span class="fa fa-star color-yellow"></span>
-                                    <span class="fa fa-star color-yellow"></span>
-                                    <span class="fa fa-star color-yellow"></span>
-                                </div>
-                                <h2>Tuna Elgabel</h2>
-                                <h5>july <b>19th</b> to july <b>26th</b></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="slider-tour padd-90-90">
-                                <h3>from $360</h3>
-                                <div class="rate">
-                                    <span class="fa fa-star color-yellow"></span>
-                                    <span class="fa fa-star color-yellow"></span>
-                                    <span class="fa fa-star color-yellow"></span>
-                                    <span class="fa fa-star color-yellow"></span>
-                                    <span class="fa fa-star color-yellow"></span>
-                                </div>
-                                <h2>Tuna Elgabel</h2>
-                                <h5>july <b>19th</b> to july <b>26th</b></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                @endforeach
+
+{{--            <div class="swiper-slide">--}}
+{{--                <div class="container">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-md-12">--}}
+{{--                            <div class="slider-tour padd-90-90">--}}
+{{--                                <h3>from $360</h3>--}}
+{{--                                <div class="rate">--}}
+{{--                                    <span class="fa fa-star color-yellow"></span>--}}
+{{--                                    <span class="fa fa-star color-yellow"></span>--}}
+{{--                                    <span class="fa fa-star color-yellow"></span>--}}
+{{--                                    <span class="fa fa-star color-yellow"></span>--}}
+{{--                                    <span class="fa fa-star color-yellow"></span>--}}
+{{--                                </div>--}}
+{{--                                <h2>Tuna Elgabel</h2>--}}
+{{--                                <h5>july <b>19th</b> to july <b>26th</b></h5>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="swiper-slide">--}}
+{{--                <div class="container">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-md-12">--}}
+{{--                            <div class="slider-tour padd-90-90">--}}
+{{--                                <h3>from $360</h3>--}}
+{{--                                <div class="rate">--}}
+{{--                                    <span class="fa fa-star color-yellow"></span>--}}
+{{--                                    <span class="fa fa-star color-yellow"></span>--}}
+{{--                                    <span class="fa fa-star color-yellow"></span>--}}
+{{--                                    <span class="fa fa-star color-yellow"></span>--}}
+{{--                                    <span class="fa fa-star color-yellow"></span>--}}
+{{--                                </div>--}}
+{{--                                <h2>Tuna Elgabel</h2>--}}
+{{--                                <h5>july <b>19th</b> to july <b>26th</b></h5>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="swiper-slide">--}}
+{{--                <div class="container">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-md-12">--}}
+{{--                            <div class="slider-tour padd-90-90">--}}
+{{--                                <h3>from $360</h3>--}}
+{{--                                <div class="rate">--}}
+{{--                                    <span class="fa fa-star color-yellow"></span>--}}
+{{--                                    <span class="fa fa-star color-yellow"></span>--}}
+{{--                                    <span class="fa fa-star color-yellow"></span>--}}
+{{--                                    <span class="fa fa-star color-yellow"></span>--}}
+{{--                                    <span class="fa fa-star color-yellow"></span>--}}
+{{--                                </div>--}}
+{{--                                <h2>Tuna Elgabel</h2>--}}
+{{--                                <h5>july <b>19th</b> to july <b>26th</b></h5>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
         <div class="pagination poin-style-1"></div>
     </div>
@@ -722,7 +724,7 @@
                                 <a class="hover-it" href="{{route('tours.show',$tour)}}">
                                     <h3>{{$tour->tour_name}}</h3>
                                 </a>
-                                <h5 class="delay-1">{{$tour->tour_discount}}</h5>
+                                <p>Discount</p><h4 class="delay-1">{{$tour->tour_discount}}%</h4>
                             </div>
                         </div>
                     </div>
