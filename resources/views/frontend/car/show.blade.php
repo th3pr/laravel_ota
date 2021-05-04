@@ -1,5 +1,9 @@
 @extends('layouts.layout')
 @section('car')
+@php
+    $related_cars = DB::table('cars')->limit(6)->get();
+    // dd($related_cars); 
+@endphp
 <!-- INNER-BANNER -->
 <div class="inner-banner">
     <img class="center-image" src="{{asset('img/SLIDE_28e18275b27230c3e83f2f654919f5e1.jpg')}}" alt="">
@@ -21,7 +25,7 @@
         <div class="detail-header">
             <div class="row">
                 <div class="col-xs-12 col-sm-8">
-                    <h2 class="detail-title color-dark-2">Car Details</h2>
+                    <h2 class="detail-title color-dark-2">{{$car->car_model}}</h2>
                     <div class="detail-rate rate-wrap clearfix">
                         <div class="rate">
                             <span class="fa fa-star color-yellow"></span>
@@ -485,14 +489,15 @@
                     data-center="0" data-slides-per-view="responsive" data-mob-slides="1" data-xs-slides="2"
                     data-sm-slides="2" data-md-slides="3" data-lg-slides="4" data-add-slides="4">
                     <div class="swiper-wrapper">
+                        @foreach ($related_cars as $cars)
                         <div class="swiper-slide">
                             <div class="hotel-item">
                                 <div class="radius-top">
-                                    <img src="{{asset('img/71PwiT0x5sL._UY560_.jpg')}}" alt="">
-                                    <div class="price price-s-1">EG 273</div>
+                                    <img src="{{$cars->car_image}}" alt="">
+                                    <div class="price price-s-1">{{$cars->car_price}} EGP</div>
                                 </div>
                                 <div class="title clearfix">
-                                    <h4><b>Toyota</b></h4>
+                                    <h4><b>{{$cars->car_model}}</b></h4>
                                     <div class="rate-wrap">
                                         <div class="rate">
                                             <span class="fa fa-star color-yellow"></span>
@@ -510,7 +515,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
+                        @endforeach
+                        {{-- <div class="swiper-slide">
                             <div class="hotel-item">
                                 <div class="radius-top">
                                     <img src="{{asset('img/mb_gla_1x.png')}}" alt="">
@@ -559,8 +565,8 @@
                                             src="{{asset('img/loc_icon_small_drak.png')}}" alt="">view on map</a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
+                        </div> --}}
+                        {{-- <div class="swiper-slide">
                             <div class="hotel-item">
                                 <div class="radius-top">
                                     <img src="{{asset('img/PORSCHE CAYENNE.jpg')}}" alt="">
@@ -584,7 +590,7 @@
                                             src="{{asset('img/loc_icon_small_drak.png')}}" alt="">view on map</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="pagination"></div>
                     <div class="swiper-arrow-left arrows-travel"><span class="fa fa-angle-left"></span></div>
