@@ -25,8 +25,15 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        return view('frontend.home');
+        if ($request->has('search')) {
+            $tours = Tour::with(['user'])->where('tour_name', 'like', '%'.$request->search.'%')->paginate(setting('record_per_page', 10));
+        } else{
+            $tours = Tour::paginate(setting('record_per_page', 4));
+        }
+        return view('frontend.home',compact('tours'));
     }
+
+
     public function indexTour(Request $request)
     {
 

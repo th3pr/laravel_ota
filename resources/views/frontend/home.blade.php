@@ -31,9 +31,9 @@
 
                              <div class="tab-content tpl-tabs-cont section-text t-con-style-1">
                                  <form action="{{route('searchHotel')}}" method="get" class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="tab-pane active in" id="one">
+                                        <div class="tab-pane active in" id="one">
                                         <div class="container">
-                                    <div class="row">
+                                        <div class="row">
                                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                                             <div class="tabs-block">
                                                 <h5>Your Hotels</h5>
@@ -49,7 +49,7 @@
                                                 <h5>hot_type</h5>
                                                 <div class="input-style">
 {{--                                                    <img src="{{asset('img/calendar_icon.png')}}" alt="">--}}
-                                                    <input type="text" name="hot_type"  value="{{request()->query('hot_type')}}"placeholder="Hotel Type" class="datepicker">
+                                                    <input type="text" placeholder="Hotel Type" class="datepicker">
                                                 </div>
                                             </div>
                                         </div>
@@ -117,16 +117,6 @@
                                             </div>
                                         </div>
                                         <button type="submit"class="c-button b-60 bg-aqua hv-transparent">search now</button>
-
-{{--                                        <form action="" method="get" class="col-lg-2 col-md-6 col-sm-6 col-xs-12">--}}
-{{--                                            --}}
-{{--                                            <input type="text" name="search" value="{{request()->query('search')}}" placeholder="Search...">--}}
-{{--                                        </form>--}}
-
-{{--                                        <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">--}}
-{{--                                            <a href="{{route('home')}}" class="c-button b-60 bg-aqua hv-transparent"><i--}}
-{{--                                                    class="fa fa-search"></i><span>search now</span></a>--}}
-{{--                                        </div>--}}
                                     </div>
                                 </div>
                             </div>
@@ -337,234 +327,236 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="radius-mask tour-block hover-aqua">
-                    <div class="clip">
-                        <div class="bg bg-bg-chrome act" style="background-image:url(img/6.jpg)">
-                        </div>
-                    </div>
-                    <div class="tour-layer delay-1"></div>
-                    <div class="tour-caption">
-                        <div class="vertical-align">
-                            <h3 class="hover-it">Tuna Elgabel</h3>
-                            <div class="rate">
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
+            @foreach($tours as $tour)
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="radius-mask tour-block hover-aqua">
+                        <div class="clip">
+                            <div class="bg bg-bg-chrome act" style="background-image:url({{$tour->tour_image}})">
                             </div>
-                            <h4>from <b>$160</b></h4>
                         </div>
-                        <div class="vertical-bottom">
-                            <div class="fl">
-                                <div class="tour-info">
-                                    <img src="img/people_icon.png" alt="">
-                                    <span class="font-style-2 color-grey-4"><strong class="color-white">2</strong>
+                        <div class="tour-layer delay-1"></div>
+                        <div class="tour-caption">
+                            <div class="vertical-align">
+                                <a href="{{route('tours.show',$tour)}}"><h3 class="hover-it">{{$tour->tour_name}}</h3></a>
+                                <div class="rate">
+                                    <span class="fa fa-star color-yellow"></span>
+                                    <span class="fa fa-star color-yellow"></span>
+                                    <span class="fa fa-star color-yellow"></span>
+                                    <span class="fa fa-star color-yellow"></span>
+                                    <span class="fa fa-star color-yellow"></span>
+                                </div>
+                                <h4>from <b>$ {{$tour->tour_price}}</b></h4>
+                            </div>
+                            <div class="vertical-bottom">
+                                <div class="fl">
+                                    <div class="tour-info">
+                                        <img src="img/people_icon.png" alt="">
+                                        <span class="font-style-2 color-grey-4"><strong class="color-white">2</strong>
                                         adults, <strong class="color-white">1</strong> kids</span>
+                                    </div>
+                                    <div class="tour-info">
+                                        <img src="img/calendar_icon.png" alt="">
+                                        <span class="font-style-2 color-grey-4">{{$tour->start_date}}<strong class="color-white"> 26th</strong></span>
+                                    </div>
                                 </div>
-                                <div class="tour-info">
-                                    <img src="img/calendar_icon.png" alt="">
-                                    <span class="font-style-2 color-grey-4">July<strong class="color-white">
-                                            19th</strong> to July<strong class="color-white"> 26th</strong></span>
-                                </div>
+                                <a href="{{route('tours.show' , $tour)}}" class="c-button b-50 bg-aqua hv-transparent fr"><img src="img/flag_icon.png"
+                                                                                                 alt=""><span>view more</span></a>
                             </div>
-                            <a href="#" class="c-button b-50 bg-aqua hv-transparent fr"><img src="img/flag_icon.png"
-                                    alt=""><span>view more</span></a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="radius-mask tour-block">
-                    <div class="clip">
-                        <div class="bg bg-bg-chrome act" style="background-image:url(img/1.jpg)">
-                        </div>
-                    </div>
-                    <div class="tour-layer delay-1"></div>
-                    <div class="tour-caption">
-                        <div class="vertical-align">
-                            <h3 class="hover-it">Tuna Elgabel</h3>
-                            <div class="rate">
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                            </div>
-                            <h4>from <b>$150</b></h4>
-                        </div>
-                        <div class="vertical-bottom">
-                            <div class="fl">
-                                <div class="tour-info">
-                                    <img src="img/people_icon.png" alt="">
-                                    <span class="font-style-2 color-grey-4"><strong class="color-white">2</strong>
-                                        adults, <strong class="color-white">1</strong> kids</span>
-                                </div>
-                                <div class="tour-info">
-                                    <img src="img/calendar_icon.png" alt="">
-                                    <span class="font-style-2 color-grey-4">July<strong class="color-white">
-                                            19th</strong> to July<strong class="color-white"> 26th</strong></span>
-                                </div>
-                            </div>
-                            <a href="#" class="c-button bg-aqua hv-transparent b-50 fr"><img src="img/flag_icon.png"
-                                    alt=""><span>view more</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="radius-mask tour-block">
-                    <div class="clip">
-                        <div class="bg bg-bg-chrome act" style="background-image:url(img/2.jpg)">
-                        </div>
-                    </div>
-                    <div class="tour-layer delay-1"></div>
-                    <div class="tour-caption">
-                        <div class="vertical-align">
-                            <h3 class="hover-it">Tuna Elgabel</h3>
-                            <div class="rate">
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                            <h4>from <b>$100</b></h4>
-                        </div>
-                        <div class="vertical-bottom">
-                            <div class="fl">
-                                <div class="tour-info">
-                                    <img src="img/people_icon.png" alt="">
-                                    <span class="font-style-2 color-grey-4"><strong class="color-white">2</strong>
-                                        adults, <strong class="color-white">1</strong> kids</span>
-                                </div>
-                                <div class="tour-info">
-                                    <img src="img/calendar_icon.png" alt="">
-                                    <span class="font-style-2 color-grey-4">July<strong class="color-white">
-                                            19th</strong> to July<strong class="color-white"> 26th</strong></span>
-                                </div>
-                            </div>
-                            <a href="#" class="c-button bg-aqua hv-transparent b-50 fr"><img src="img/flag_icon.png"
-                                    alt=""><span>view more</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="radius-mask tour-block hover-aqua">
-                    <div class="clip">
-                        <div class="bg bg-bg-chrome act" style="background-image:url(img/6.jpg)">
-                        </div>
-                    </div>
-                    <div class="tour-layer delay-1"></div>
-                    <div class="tour-caption">
-                        <div class="vertical-align">
-                            <h3 class="hover-it">Tuna Elgabel</h3>
-                            <div class="rate">
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                            </div>
-                            <h4>from <b>$160</b></h4>
-                        </div>
-                        <div class="vertical-bottom">
-                            <div class="fl">
-                                <div class="tour-info">
-                                    <img src="img/people_icon.png" alt="">
-                                    <span class="font-style-2 color-grey-4"><strong class="color-white">2</strong>
-                                        adults, <strong class="color-white">1</strong> kids</span>
-                                </div>
-                                <div class="tour-info">
-                                    <img src="img/calendar_icon.png" alt="">
-                                    <span class="font-style-2 color-grey-4">July<strong class="color-white">
-                                            19th</strong> to July<strong class="color-white"> 26th</strong></span>
-                                </div>
-                            </div>
-                            <a href="#" class="c-button b-50 bg-aqua hv-transparent fr"><img src="img/flag_icon.png"
-                                    alt=""><span>view more</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="radius-mask tour-block">
-                    <div class="clip">
-                        <div class="bg bg-bg-chrome act" style="background-image:url(img/1.jpg)">
-                        </div>
-                    </div>
-                    <div class="tour-layer delay-1"></div>
-                    <div class="tour-caption">
-                        <div class="vertical-align">
-                            <h3 class="hover-it">Tuna Elgabel</h3>
-                            <div class="rate">
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                            </div>
-                            <h4>from <b>$150</b></h4>
-                        </div>
-                        <div class="vertical-bottom">
-                            <div class="fl">
-                                <div class="tour-info">
-                                    <img src="img/people_icon.png" alt="">
-                                    <span class="font-style-2 color-grey-4"><strong class="color-white">2</strong>
-                                        adults, <strong class="color-white">1</strong> kids</span>
-                                </div>
-                                <div class="tour-info">
-                                    <img src="img/calendar_icon.png" alt="">
-                                    <span class="font-style-2 color-grey-4">July<strong class="color-white">
-                                            19th</strong> to July<strong class="color-white"> 26th</strong></span>
-                                </div>
-                            </div>
-                            <a href="#" class="c-button bg-aqua hv-transparent b-50 fr"><img src="img/flag_icon.png"
-                                    alt=""><span>view more</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="radius-mask tour-block">
-                    <div class="clip">
-                        <div class="bg bg-bg-chrome act" style="background-image:url(img/2.jpg)">
-                        </div>
-                    </div>
-                    <div class="tour-layer delay-1"></div>
-                    <div class="tour-caption">
-                        <div class="vertical-align">
-                            <h3 class="hover-it">Tuna Elgabel</h3>
-                            <div class="rate">
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star color-yellow"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                            <h4>from <b>$100</b></h4>
-                        </div>
-                        <div class="vertical-bottom">
-                            <div class="fl">
-                                <div class="tour-info">
-                                    <img src="img/people_icon.png" alt="">
-                                    <span class="font-style-2 color-grey-4"><strong class="color-white">2</strong>
-                                        adults, <strong class="color-white">1</strong> kids</span>
-                                </div>
-                                <div class="tour-info">
-                                    <img src="img/calendar_icon.png" alt="">
-                                    <span class="font-style-2 color-grey-4">July<strong class="color-white">
-                                            19th</strong> to July<strong class="color-white"> 26th</strong></span>
-                                </div>
-                            </div>
-                            <a href="#" class="c-button bg-aqua hv-transparent b-50 fr"><img src="img/flag_icon.png"
-                                    alt=""><span>view more</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
+{{--            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">--}}
+{{--                <div class="radius-mask tour-block">--}}
+{{--                    <div class="clip">--}}
+{{--                        <div class="bg bg-bg-chrome act" style="background-image:url(img/1.jpg)">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="tour-layer delay-1"></div>--}}
+{{--                    <div class="tour-caption">--}}
+{{--                        <div class="vertical-align">--}}
+{{--                            <h3 class="hover-it">Tuna Elgabel</h3>--}}
+{{--                            <div class="rate">--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                            </div>--}}
+{{--                            <h4>from <b>$150</b></h4>--}}
+{{--                        </div>--}}
+{{--                        <div class="vertical-bottom">--}}
+{{--                            <div class="fl">--}}
+{{--                                <div class="tour-info">--}}
+{{--                                    <img src="img/people_icon.png" alt="">--}}
+{{--                                    <span class="font-style-2 color-grey-4"><strong class="color-white">2</strong>--}}
+{{--                                        adults, <strong class="color-white">1</strong> kids</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="tour-info">--}}
+{{--                                    <img src="img/calendar_icon.png" alt="">--}}
+{{--                                    <span class="font-style-2 color-grey-4">July<strong class="color-white">--}}
+{{--                                            19th</strong> to July<strong class="color-white"> 26th</strong></span>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <a href="#" class="c-button bg-aqua hv-transparent b-50 fr"><img src="img/flag_icon.png"--}}
+{{--                                    alt=""><span>view more</span></a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">--}}
+{{--                <div class="radius-mask tour-block">--}}
+{{--                    <div class="clip">--}}
+{{--                        <div class="bg bg-bg-chrome act" style="background-image:url(img/2.jpg)">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="tour-layer delay-1"></div>--}}
+{{--                    <div class="tour-caption">--}}
+{{--                        <div class="vertical-align">--}}
+{{--                            <h3 class="hover-it">Tuna Elgabel</h3>--}}
+{{--                            <div class="rate">--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star"></span>--}}
+{{--                            </div>--}}
+{{--                            <h4>from <b>$100</b></h4>--}}
+{{--                        </div>--}}
+{{--                        <div class="vertical-bottom">--}}
+{{--                            <div class="fl">--}}
+{{--                                <div class="tour-info">--}}
+{{--                                    <img src="img/people_icon.png" alt="">--}}
+{{--                                    <span class="font-style-2 color-grey-4"><strong class="color-white">2</strong>--}}
+{{--                                        adults, <strong class="color-white">1</strong> kids</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="tour-info">--}}
+{{--                                    <img src="img/calendar_icon.png" alt="">--}}
+{{--                                    <span class="font-style-2 color-grey-4">July<strong class="color-white">--}}
+{{--                                            19th</strong> to July<strong class="color-white"> 26th</strong></span>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <a href="#" class="c-button bg-aqua hv-transparent b-50 fr"><img src="img/flag_icon.png"--}}
+{{--                                    alt=""><span>view more</span></a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">--}}
+{{--                <div class="radius-mask tour-block hover-aqua">--}}
+{{--                    <div class="clip">--}}
+{{--                        <div class="bg bg-bg-chrome act" style="background-image:url(img/6.jpg)">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="tour-layer delay-1"></div>--}}
+{{--                    <div class="tour-caption">--}}
+{{--                        <div class="vertical-align">--}}
+{{--                            <h3 class="hover-it">Tuna Elgabel</h3>--}}
+{{--                            <div class="rate">--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                            </div>--}}
+{{--                            <h4>from <b>$160</b></h4>--}}
+{{--                        </div>--}}
+{{--                        <div class="vertical-bottom">--}}
+{{--                            <div class="fl">--}}
+{{--                                <div class="tour-info">--}}
+{{--                                    <img src="img/people_icon.png" alt="">--}}
+{{--                                    <span class="font-style-2 color-grey-4"><strong class="color-white">2</strong>--}}
+{{--                                        adults, <strong class="color-white">1</strong> kids</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="tour-info">--}}
+{{--                                    <img src="img/calendar_icon.png" alt="">--}}
+{{--                                    <span class="font-style-2 color-grey-4">July<strong class="color-white">--}}
+{{--                                            19th</strong> to July<strong class="color-white"> 26th</strong></span>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <a href="#" class="c-button b-50 bg-aqua hv-transparent fr"><img src="img/flag_icon.png"--}}
+{{--                                    alt=""><span>view more</span></a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">--}}
+{{--                <div class="radius-mask tour-block">--}}
+{{--                    <div class="clip">--}}
+{{--                        <div class="bg bg-bg-chrome act" style="background-image:url(img/1.jpg)">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="tour-layer delay-1"></div>--}}
+{{--                    <div class="tour-caption">--}}
+{{--                        <div class="vertical-align">--}}
+{{--                            <h3 class="hover-it">Tuna Elgabel</h3>--}}
+{{--                            <div class="rate">--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                            </div>--}}
+{{--                            <h4>from <b>$150</b></h4>--}}
+{{--                        </div>--}}
+{{--                        <div class="vertical-bottom">--}}
+{{--                            <div class="fl">--}}
+{{--                                <div class="tour-info">--}}
+{{--                                    <img src="img/people_icon.png" alt="">--}}
+{{--                                    <span class="font-style-2 color-grey-4"><strong class="color-white">2</strong>--}}
+{{--                                        adults, <strong class="color-white">1</strong> kids</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="tour-info">--}}
+{{--                                    <img src="img/calendar_icon.png" alt="">--}}
+{{--                                    <span class="font-style-2 color-grey-4">July<strong class="color-white">--}}
+{{--                                            19th</strong> to July<strong class="color-white"> 26th</strong></span>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <a href="#" class="c-button bg-aqua hv-transparent b-50 fr"><img src="img/flag_icon.png"--}}
+{{--                                    alt=""><span>view more</span></a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">--}}
+{{--                <div class="radius-mask tour-block">--}}
+{{--                    <div class="clip">--}}
+{{--                        <div class="bg bg-bg-chrome act" style="background-image:url(img/2.jpg)">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="tour-layer delay-1"></div>--}}
+{{--                    <div class="tour-caption">--}}
+{{--                        <div class="vertical-align">--}}
+{{--                            <h3 class="hover-it">Tuna Elgabel</h3>--}}
+{{--                            <div class="rate">--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star color-yellow"></span>--}}
+{{--                                <span class="fa fa-star"></span>--}}
+{{--                            </div>--}}
+{{--                            <h4>from <b>$100</b></h4>--}}
+{{--                        </div>--}}
+{{--                        <div class="vertical-bottom">--}}
+{{--                            <div class="fl">--}}
+{{--                                <div class="tour-info">--}}
+{{--                                    <img src="img/people_icon.png" alt="">--}}
+{{--                                    <span class="font-style-2 color-grey-4"><strong class="color-white">2</strong>--}}
+{{--                                        adults, <strong class="color-white">1</strong> kids</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="tour-info">--}}
+{{--                                    <img src="img/calendar_icon.png" alt="">--}}
+{{--                                    <span class="font-style-2 color-grey-4">July<strong class="color-white">--}}
+{{--                                            19th</strong> to July<strong class="color-white"> 26th</strong></span>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <a href="#" class="c-button bg-aqua hv-transparent b-50 fr"><img src="img/flag_icon.png"--}}
+{{--                                    alt=""><span>view more</span></a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
     </div>
 </div>
@@ -735,141 +727,145 @@
             </div>
         </div>
         <div class="row col-no-padd">
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="photo-block hover-aqua">
-                    <div class="tour-layer delay-1"></div>
-                    <img src="img/28.jpg" alt="">
-                    <div class="vertical-align">
-                        <div class="photo-title">
-                            <h4 class="delay-1"><b>Only <span class="color-aqua">$235</span></b></h4>
-                            <a class="hover-it" href="#">
-                                <h3>nile trip</h3>
-                            </a>
-                            <h5 class="delay-1">Minya, 3 Nights/4 Days</h5>
+            @foreach($tours as $tour)
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="photo-block hover-aqua">
+                        <div class="tour-layer delay-1"></div>
+                        <img src="{{$tour->tour_image}}" alt="">
+                        <div class="vertical-align">
+                            <div class="photo-title">
+                                <h4 class="delay-1"><b>Only <span class="color-aqua">$ {{$tour->tour_price}}</span></b></h4>
+                                <a class="hover-it" href="{{route('tours.show',$tour)}}">
+                                    <h3>{{$tour->tour_name}}</h3>
+                                </a>
+                                <h5 class="delay-1">{{$tour->tour_discount}}</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="photo-block hover-aqua">
-                    <div class="tour-layer delay-1"></div>
-                    <img src="img/28.jpg" alt="">
-                    <div class="vertical-align">
-                        <div class="photo-title">
-                            <h4 class="delay-1"><b>Only <span class="color-aqua">$235</span></b></h4>
-                            <a class="hover-it" href="#">
-                                <h3>nile trip</h3>
-                            </a>
-                            <h5 class="delay-1">Minya, 3 Nights/4 Days</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="photo-block hover-aqua">
-                    <div class="tour-layer delay-1"></div>
-                    <img src="img/28.jpg" alt="">
-                    <div class="vertical-align">
-                        <div class="photo-title">
-                            <h4 class="delay-1"><b>Only <span class="color-aqua">$235</span></b></h4>
-                            <a class="hover-it" href="#">
-                                <h3>nile trip</h3>
-                            </a>
-                            <h5 class="delay-1">Minya, 3 Nights/4 Days</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="photo-block hover-aqua">
-                    <div class="tour-layer delay-1"></div>
-                    <img src="img/26.jpg" alt="">
-                    <div class="vertical-align">
-                        <div class="photo-title">
-                            <h4 class="delay-1"><b>Only <span class="color-aqua">$235</span></b></h4>
-                            <a class="hover-it" href="#">
-                                <h3>nile trip</h3>
-                            </a>
-                            <h5 class="delay-1">Minya, 3 Nights/4 Days</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="photo-block hover-aqua">
-                    <div class="tour-layer delay-1"></div>
-                    <img src="img/26.jpg" alt="">
-                    <div class="vertical-align">
-                        <div class="photo-title">
-                            <h4 class="delay-1"><b>Only <span class="color-aqua">$235</span></b></h4>
-                            <a class="hover-it" href="#">
-                                <h3>nile trip</h3>
-                            </a>
-                            <h5 class="delay-1">Minya, 3 Nights/4 Days</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="photo-block hover-aqua">
-                    <div class="tour-layer delay-1"></div>
-                    <img src="img/26.jpg" alt="">
-                    <div class="vertical-align">
-                        <div class="photo-title">
-                            <h4 class="delay-1"><b>Only <span class="color-aqua">$235</span></b></h4>
-                            <a class="hover-it" href="#">
-                                <h3>nile trip</h3>
-                            </a>
-                            <h5 class="delay-1">Minya, 3 Nights/4 Days</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="photo-block hover-aqua">
-                    <div class="tour-layer delay-1"></div>
-                    <img src="img/33.jpg" alt="">
-                    <div class="vertical-align">
-                        <div class="photo-title">
-                            <h4 class="delay-1"><b>Only <span class="color-aqua">$235</span></b></h4>
-                            <a class="hover-it" href="#">
-                                <h3>nile trip</h3>
-                            </a>
-                            <h5 class="delay-1">Minya, 3 Nights/4 Days</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="photo-block hover-aqua">
-                    <div class="tour-layer delay-1"></div>
-                    <img src="img/33.jpg" alt="">
-                    <div class="vertical-align">
-                        <div class="photo-title">
-                            <h4 class="delay-1"><b>Only <span class="color-aqua">$235</span></b></h4>
-                            <a class="hover-it" href="#">
-                                <h3>nile trip</h3>
-                            </a>
-                            <h5 class="delay-1">Minya, 3 Nights/4 Days</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="photo-block hover-aqua">
-                    <div class="tour-layer delay-1"></div>
-                    <img src="img/33.jpg" alt="">
-                    <div class="vertical-align">
-                        <div class="photo-title">
-                            <h4 class="delay-1"><b>Only <span class="color-aqua">$235</span></b></h4>
-                            <a class="hover-it" href="#">
-                                <h3>nile trip</h3>
-                            </a>
-                            <h5 class="delay-1">Minya, 3 Nights/4 Days</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            @endforeach
+
+{{--            <div class="col-md-4 col-sm-6 col-xs-12">--}}
+{{--                <div class="photo-block hover-aqua">--}}
+{{--                    <div class="tour-layer delay-1"></div>--}}
+{{--                    <img src="img/28.jpg" alt="">--}}
+{{--                    <div class="vertical-align">--}}
+{{--                        <div class="photo-title">--}}
+{{--                            <h4 class="delay-1"><b>Only <span class="color-aqua">$235</span></b></h4>--}}
+{{--                            <a class="hover-it" href="#">--}}
+{{--                                <h3>nile trip</h3>--}}
+{{--                            </a>--}}
+{{--                            <h5 class="delay-1">Minya, 3 Nights/4 Days</h5>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-md-4 col-sm-6 col-xs-12">--}}
+{{--                <div class="photo-block hover-aqua">--}}
+{{--                    <div class="tour-layer delay-1"></div>--}}
+{{--                    <img src="img/28.jpg" alt="">--}}
+{{--                    <div class="vertical-align">--}}
+{{--                        <div class="photo-title">--}}
+{{--                            <h4 class="delay-1"><b>Only <span class="color-aqua">$235</span></b></h4>--}}
+{{--                            <a class="hover-it" href="#">--}}
+{{--                                <h3>nile trip</h3>--}}
+{{--                            </a>--}}
+{{--                            <h5 class="delay-1">Minya, 3 Nights/4 Days</h5>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-md-4 col-sm-6 col-xs-12">--}}
+{{--                <div class="photo-block hover-aqua">--}}
+{{--                    <div class="tour-layer delay-1"></div>--}}
+{{--                    <img src="img/26.jpg" alt="">--}}
+{{--                    <div class="vertical-align">--}}
+{{--                        <div class="photo-title">--}}
+{{--                            <h4 class="delay-1"><b>Only <span class="color-aqua">$235</span></b></h4>--}}
+{{--                            <a class="hover-it" href="#">--}}
+{{--                                <h3>nile trip</h3>--}}
+{{--                            </a>--}}
+{{--                            <h5 class="delay-1">Minya, 3 Nights/4 Days</h5>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-md-4 col-sm-6 col-xs-12">--}}
+{{--                <div class="photo-block hover-aqua">--}}
+{{--                    <div class="tour-layer delay-1"></div>--}}
+{{--                    <img src="img/26.jpg" alt="">--}}
+{{--                    <div class="vertical-align">--}}
+{{--                        <div class="photo-title">--}}
+{{--                            <h4 class="delay-1"><b>Only <span class="color-aqua">$235</span></b></h4>--}}
+{{--                            <a class="hover-it" href="#">--}}
+{{--                                <h3>nile trip</h3>--}}
+{{--                            </a>--}}
+{{--                            <h5 class="delay-1">Minya, 3 Nights/4 Days</h5>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-md-4 col-sm-6 col-xs-12">--}}
+{{--                <div class="photo-block hover-aqua">--}}
+{{--                    <div class="tour-layer delay-1"></div>--}}
+{{--                    <img src="img/26.jpg" alt="">--}}
+{{--                    <div class="vertical-align">--}}
+{{--                        <div class="photo-title">--}}
+{{--                            <h4 class="delay-1"><b>Only <span class="color-aqua">$235</span></b></h4>--}}
+{{--                            <a class="hover-it" href="#">--}}
+{{--                                <h3>nile trip</h3>--}}
+{{--                            </a>--}}
+{{--                            <h5 class="delay-1">Minya, 3 Nights/4 Days</h5>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-md-4 col-sm-6 col-xs-12">--}}
+{{--                <div class="photo-block hover-aqua">--}}
+{{--                    <div class="tour-layer delay-1"></div>--}}
+{{--                    <img src="img/33.jpg" alt="">--}}
+{{--                    <div class="vertical-align">--}}
+{{--                        <div class="photo-title">--}}
+{{--                            <h4 class="delay-1"><b>Only <span class="color-aqua">$235</span></b></h4>--}}
+{{--                            <a class="hover-it" href="#">--}}
+{{--                                <h3>nile trip</h3>--}}
+{{--                            </a>--}}
+{{--                            <h5 class="delay-1">Minya, 3 Nights/4 Days</h5>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-md-4 col-sm-6 col-xs-12">--}}
+{{--                <div class="photo-block hover-aqua">--}}
+{{--                    <div class="tour-layer delay-1"></div>--}}
+{{--                    <img src="img/33.jpg" alt="">--}}
+{{--                    <div class="vertical-align">--}}
+{{--                        <div class="photo-title">--}}
+{{--                            <h4 class="delay-1"><b>Only <span class="color-aqua">$235</span></b></h4>--}}
+{{--                            <a class="hover-it" href="#">--}}
+{{--                                <h3>nile trip</h3>--}}
+{{--                            </a>--}}
+{{--                            <h5 class="delay-1">Minya, 3 Nights/4 Days</h5>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-md-4 col-sm-6 col-xs-12">--}}
+{{--                <div class="photo-block hover-aqua">--}}
+{{--                    <div class="tour-layer delay-1"></div>--}}
+{{--                    <img src="img/33.jpg" alt="">--}}
+{{--                    <div class="vertical-align">--}}
+{{--                        <div class="photo-title">--}}
+{{--                            <h4 class="delay-1"><b>Only <span class="color-aqua">$235</span></b></h4>--}}
+{{--                            <a class="hover-it" href="#">--}}
+{{--                                <h3>nile trip</h3>--}}
+{{--                            </a>--}}
+{{--                            <h5 class="delay-1">Minya, 3 Nights/4 Days</h5>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
     </div>
 </div>
@@ -890,91 +886,94 @@
                     data-slides-per-view="responsive" data-mob-slides="1" data-xs-slides="2" data-sm-slides="2"
                     data-md-slides="3" data-lg-slides="3" data-add-slides="3">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide" data-val="0">
-                            <div class="offers-block radius-mask">
-                                <div class="clip">
-                                    <div class="bg bg-bg-chrome act"
-                                        style="background-image:url(img/266598299.jpg)">
+                        @foreach($tours as $tour)
+                            <div class="swiper-slide" data-val="0">
+                                <div class="offers-block radius-mask">
+                                    <div class="clip">
+                                        <div class="bg bg-bg-chrome act"
+                                             style="background-image:url({{$tour->tour_image}})">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="tour-layer delay-1"></div>
-                                <div class="vertical-top">
-                                    <div class="rate">
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
+                                    <div class="tour-layer delay-1"></div>
+                                    <div class="vertical-top">
+                                        <div class="rate">
+                                            <span class="fa fa-star color-yellow"></span>
+                                            <span class="fa fa-star color-yellow"></span>
+                                            <span class="fa fa-star color-yellow"></span>
+                                            <span class="fa fa-star color-yellow"></span>
+                                            <span class="fa fa-star color-yellow"></span>
+                                        </div>
+                                        <h3>{{$tour->tour_name}}</h3>
                                     </div>
-                                    <h3>Minya</h3>
-                                </div>
-                                <div class="vertical-bottom">
-                                    <ul class="offers-info">
-                                        <li><b>35</b>tours</li>
-                                        <li><b>90</b>hotels</li>
-                                    </ul>
-                                    <p>Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa
-                                        idporta nequetiam.</p>
-                                    <a href="#" class="c-button bg-aqua hv-aqua-o b-40"><span>view more</span></a>
+                                    <div class="vertical-bottom">
+                                        <ul class="offers-info">
+                                            <li><b>{{App\Tour::count()}}</b>tours</li>
+                                            <li><b>{{App\Hotel::count()}}</b>hotels</li>
+                                        </ul>
+                                        <p>{{$tour->tour_details}}</p>
+                                        <a href="{{route('tours.show',$tour)}}" class="c-button bg-aqua hv-aqua-o b-40"><span>view more</span></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide" data-val="1">
-                            <div class="offers-block radius-mask">
-                                <div class="clip">
-                                    <div class="bg bg-bg-chrome act" style="background-image:url(img/31.jpg)">
-                                    </div>
-                                </div>
-                                <div class="tour-layer delay-1"></div>
-                                <div class="vertical-top">
-                                    <div class="rate">
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                    </div>
-                                    <h3>Abu Qurqas</h3>
-                                </div>
-                                <div class="vertical-bottom">
-                                    <ul class="offers-info">
-                                        <li><b>58</b>tours</li>
-                                        <li><b>70</b>hotels</li>
-                                    </ul>
-                                    <p>Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa
-                                        idporta nequetiam.</p>
-                                    <a href="#" class="c-button bg-aqua hv-aqua-o b-40"><span>view more</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" data-val="2">
-                            <div class="offers-block radius-mask">
-                                <div class="clip">
-                                    <div class="bg bg-bg-chrome act" style="background-image:url(img/25.jpg)">
-                                    </div>
-                                </div>
-                                <div class="tour-layer delay-1"></div>
-                                <div class="vertical-top">
-                                    <div class="rate">
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                    </div>
-                                    <h3>Mallawi</h3>
-                                </div>
-                                <div class="vertical-bottom">
-                                    <ul class="offers-info">
-                                        <li><b>88</b>tours</li>
-                                        <li><b>193</b>hotels</li>
-                                    </ul>
-                                    <p>Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa
-                                        idporta nequetiam.</p>
-                                    <a href="#" class="c-button bg-aqua hv-aqua-o b-40"><span>view more</span></a>
-                                </div>
-                            </div>
-                        </div>
+                            @endforeach
+
+
+{{--                        <div class="swiper-slide" data-val="1">--}}
+{{--                            <div class="offers-block radius-mask">--}}
+{{--                                <div class="clip">--}}
+{{--                                    <div class="bg bg-bg-chrome act" style="background-image:url(img/31.jpg)">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="tour-layer delay-1"></div>--}}
+{{--                                <div class="vertical-top">--}}
+{{--                                    <div class="rate">--}}
+{{--                                        <span class="fa fa-star color-yellow"></span>--}}
+{{--                                        <span class="fa fa-star color-yellow"></span>--}}
+{{--                                        <span class="fa fa-star color-yellow"></span>--}}
+{{--                                        <span class="fa fa-star color-yellow"></span>--}}
+{{--                                        <span class="fa fa-star color-yellow"></span>--}}
+{{--                                    </div>--}}
+{{--                                    <h3>Abu Qurqas</h3>--}}
+{{--                                </div>--}}
+{{--                                <div class="vertical-bottom">--}}
+{{--                                    <ul class="offers-info">--}}
+{{--                                        <li><b>58</b>tours</li>--}}
+{{--                                        <li><b>70</b>hotels</li>--}}
+{{--                                    </ul>--}}
+{{--                                    <p>Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa--}}
+{{--                                        idporta nequetiam.</p>--}}
+{{--                                    <a href="#" class="c-button bg-aqua hv-aqua-o b-40"><span>view more</span></a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="swiper-slide" data-val="2">--}}
+{{--                            <div class="offers-block radius-mask">--}}
+{{--                                <div class="clip">--}}
+{{--                                    <div class="bg bg-bg-chrome act" style="background-image:url(img/25.jpg)">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="tour-layer delay-1"></div>--}}
+{{--                                <div class="vertical-top">--}}
+{{--                                    <div class="rate">--}}
+{{--                                        <span class="fa fa-star color-yellow"></span>--}}
+{{--                                        <span class="fa fa-star color-yellow"></span>--}}
+{{--                                        <span class="fa fa-star color-yellow"></span>--}}
+{{--                                        <span class="fa fa-star color-yellow"></span>--}}
+{{--                                        <span class="fa fa-star color-yellow"></span>--}}
+{{--                                    </div>--}}
+{{--                                    <h3>Mallawi</h3>--}}
+{{--                                </div>--}}
+{{--                                <div class="vertical-bottom">--}}
+{{--                                    <ul class="offers-info">--}}
+{{--                                        <li><b>88</b>tours</li>--}}
+{{--                                        <li><b>193</b>hotels</li>--}}
+{{--                                    </ul>--}}
+{{--                                    <p>Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa--}}
+{{--                                        idporta nequetiam.</p>--}}
+{{--                                    <a href="#" class="c-button bg-aqua hv-aqua-o b-40"><span>view more</span></a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                     <div class="pagination  poin-style-1 pagination-hidden"></div>
                 </div>
