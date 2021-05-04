@@ -158,149 +158,48 @@
                                 </div>
                                 <div class="tab-info">
                                     <form class="simple-from" name="information"
-                                        onsubmit="return validateFormCar()">
+                                        onsubmit="return validateFormCar()" method="post" action="{{route('bookcar.store' ,["id" =>$car] )}}" >
+                                        @csrf
                                         <div class="simple-group">
-                                            <h3 class="small-title color-dr-blue-2 ">Hotel Selection</h3>
+                                            <h3 class="small-title color-dr-blue-2 ">Car Booking</h3>
                                             <div class="row">
                                                 <div class="col-xs-12 col-sm-6">
                                                     <div class="form-block type-2 clearfix">
-                                                        <div class="form-label color-dark-2">Check In</div>
+                                                        <div class="form-label color-dark-2">Day Recieve</div>
                                                         <div class="input-style-1 b-50 brd-0 type-2 color-3">
-                                                            <input type="date" placeholder="Mm/Dd/Yy" class="">
+                                                            <input type="date" placeholder="Mm/Dd/Yy" class="" name="day_recieve">
                                                         </div>
                                                     </div>
                                                 </div>
+                                               
                                                 <div class="col-xs-12 col-sm-6">
                                                     <div class="form-block type-2 clearfix">
-                                                        <div class="form-label color-dark-2">Check Out</div>
-                                                        <div class="input-style-1 b-50 brd-0 type-2 color-3">
-                                                            <input type="date" placeholder="Mm/Dd/Yy" class="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-12 col-sm-6">
-                                                    <div class="form-block type-2 clearfix">
-                                                        <div class="form-label color-dark-2">Number of Cars</div>
+                                                        <div class="form-label color-dark-2">Number Of Days</div>
                                                         <div class="drop-wrap drop-wrap-s-4 color-5">
-                                                            <div class="drop">
-                                                                <b id="numCar1">1</b>
-                                                                <span id="person"></span>
-                                                                <a href="#" class="drop-list"><i
-                                                                        class="fa fa-angle-down"></i></a>
-                                                                <span>
-                                                                    <a href="#" class="numCar">1</a>
-                                                                    <a href="#" class="numCar">2</a>
-                                                                    <a href="#" class="numCar">3</a>
-                                                                    <a href="#" class="numCar">4</a>
-                                                                </span>
+                                                     
+                                                            <div class="input-style-1 b-50 brd-0 type-2 color-3">
+                                                                <input type="number"  class="" name="days">
                                                             </div>
+                                                          
+                                                              
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-12 col-sm-6">
-                                                    <div class="form-block type-2 clearfix">
-                                                        <div class="form-label color-dark-2">Type Of Cars</div>
-                                                        <div class="drop-wrap drop-wrap-s-4 color-5">
-                                                            <div class="drop">
-                                                                <b id="numPerson">Jeep</b>
-                                                                <span id="person"></span>
-                                                                <a href="#" class="drop-list"><i
-                                                                        class="fa fa-angle-down"></i></a>
-                                                                <span>
-                                                                    <a href="#" class="tperson">Jeep</a>
-                                                                    <a href="#" class="tperson">Mercedes</a>
-                                                                    <a href="#" class="tperson">Logan</a>
-                                                                    <a href="#" class="tperson">Volex</a>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                  
 
 
-                                                <div class="col-xs-12 col-sm-12">
+                                                {{-- <div class="col-xs-12 col-sm-12">
                                                     <div class="form-block type-2 clearfix">
                                                         <div class="sidebar-text-label bg-dr-blue-2 color-white">
                                                             <span class="h3">Total Price : <span id="totalPrice">
                                                                 </span> EGP </span>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                             <hr>
                                         </div>
-                                        <div class="simple-group">
-                                            <h3 class="small-title color-dr-blue-2">Your Personal Information</h3>
-                                            <div class="row">
-                                                <div class="col-xs-12 col-sm-6">
-                                                    <div class="form-block type-2 clearfix">
-                                                        <div class="form-label color-dark-2">First Name</div>
-                                                        <div class="input-style-1 b-50 brd-0 type-2 color-3">
-                                                            <input type="text" name="fname"
-                                                                placeholder="Enter your first name">
-                                                            <span class="error color-dr-blue-2 "
-                                                                id="fnameErr"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-12 col-sm-6">
-                                                    <div class="form-block type-2 clearfix">
-                                                        <div class="form-label color-dark-2">Last Name</div>
-                                                        <div class="input-style-1 b-50 brd-0 type-2 color-3">
-                                                            <input type="text" name="lname"
-                                                                placeholder="Enter your last name">
-                                                            <span class="error color-dr-blue-2"
-                                                                id="lnameErr"></span>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-12 col-sm-12">
-                                                    <div class="form-block type-2 clearfix">
-                                                        <div class="form-label color-dark-2">E-mail Adress</div>
-                                                        <div class="input-style-1 b-50 brd-0 type-2 color-3">
-                                                            <input type="email" name="email"
-                                                                placeholder="Enter your e-mail adress">
-                                                            <span class="error color-dr-blue-2"
-                                                                id="emailErr"></span>
-                                                        </div>
-
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-12 col-sm-6">
-                                                    <div class="form-block type-2 clearfix">
-                                                        <div class="form-label color-dark-2">Governrate Code</div>
-                                                        <div class="drop-wrap drop-wrap-s-4 color-5">
-                                                            <div class="drop">
-                                                                <b>Minya (086) </b>
-                                                                <a href="#" class="drop-list"><i
-                                                                        class="fa fa-angle-down"></i></a>
-                                                                <span>
-                                                                    <a href="#">Asyt (055)</a>
-                                                                    <a href="#">Cairo (044)</a>
-                                                                    <a href="#">Sohag (063)</a>
-                                                                    <a href="#">Bani Swef (052)</a>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-12 col-sm-6">
-                                                    <div class="form-block type-2 clearfix">
-                                                        <div class="form-label color-dark-2">Phone Number</div>
-                                                        <div class="input-style-1 b-50 brd-0 type-2 color-3">
-                                                            <input type="number" name="mobile"
-                                                                placeholder="Enter your phone number">
-                                                            <span class="error color-dr-blue-2"
-                                                                id="mobileErr"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <hr>
-                                        </div>
+                        
 
                                         <input type="submit" class="c-button bg-dr-blue-2 hv-dr-blue-2-o"
                                             value="confirm booking">

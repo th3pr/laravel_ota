@@ -36,6 +36,10 @@ class Hotel extends Model
 //        $this->attributes['status'] = ($status)? 1 : 0;
 //    }
 
+        public function users(): BelongsToMany
+        {
+            return $this->belongsToMany(User::class, 'book_hotel', 'user_id', 'hotel_id');
+        }
 
         public function ratings()
         {

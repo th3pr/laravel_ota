@@ -162,7 +162,7 @@
                                 </div>
                                 <div class="tab-info">
                                     <form class="simple-from" name="information"
-                                        onsubmit="return validateFormTour()" method="POST" >
+                                        onsubmit="return validateFormTour()" method="post" action="{{route('bookhotel.store' ,["id" =>$hotel] )}}"  >
                                         {{-- action="{{route('bookhotel.store' ,["id" =>$hotel] )}}" --}}
                                         @csrf
 
