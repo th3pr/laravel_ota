@@ -8,7 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.2.5",
+        "php": "^7.2.5|^8.0",
         "anlutro/l4-settings": "^0.11.2",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
@@ -19,8 +19,10 @@
         "laravel/ui": "^2.0",
         "laravelcollective/html": "^6.1",
         "livewire/livewire": "^2.4",
+        "paypal/rest-api-sdk-php": "^1.14",
         "spatie/laravel-activitylog": "^3.14",
         "spatie/laravel-permission": "^3.13",
+        "stripe/stripe-php": "^7.77",
         "unisharp/laravel-filemanager": "^2.1"
     },
     "require-dev": {

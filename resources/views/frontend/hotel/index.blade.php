@@ -2,20 +2,6 @@
 @push('pg_btn')
 @section('hotels')
 	<!------------------------------------------------------------------------------------->
-    <div class="modal">
-        <img src="{{asset('img/imges/travelblog_drbbbl.png')}}" width="204" height="100" />
-        <span class="title">OTA Hotels
-            Welcomes You.
-
-        </span>
-
-        <div class="button">OK</div>
-    </div>
-    <script>
-    let modal = document.querySelector(".modal");
-    let button = document.querySelector(".button");
-    button.addEventListener("click", () => modal.classList.add("toggle"));
-    </script>
       <div class="inner-banner style-2">
           <img class="center-image" src="{{asset('img/imges/cover.jpg')}}" alt="">
           <div class="vertical-align">

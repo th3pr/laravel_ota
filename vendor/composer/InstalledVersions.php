@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'b92904f196ea37754a0c56f49b5b09e87fad0256',
+    'reference' => '3b10dfaa393214b304e3f1d08c07ab7abac789c0',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -177,12 +177,13 @@ private static $installed = array (
     ),
     'fzaninotto/faker' => 
     array (
-      'pretty_version' => 'v1.9.2',
-      'version' => '1.9.2.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
+        0 => '1.9.x-dev',
       ),
-      'reference' => '848d8125239d7dbf8ab25cb7f054f1a630e68c2e',
+      'reference' => '5ffe7db6c80f441f150fc88008d64e64af66634b',
     ),
     'guzzlehttp/guzzle' => 
     array (
@@ -464,7 +465,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'b92904f196ea37754a0c56f49b5b09e87fad0256',
+      'reference' => '3b10dfaa393214b304e3f1d08c07ab7abac789c0',
     ),
     'laravel/tinker' => 
     array (
@@ -595,6 +596,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '06e2ebd25f2869e54a306dda991f7db58066f7f6',
+    ),
+    'paypal/rest-api-sdk-php' => 
+    array (
+      'pretty_version' => '1.14.0',
+      'version' => '1.14.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '72e2f2466975bf128a31e02b15110180f059fc04',
     ),
     'phar-io/manifest' => 
     array (
@@ -955,6 +965,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '1c51a5fa12131565fe3860705163e53d7a26258a',
+    ),
+    'stripe/stripe-php' => 
+    array (
+      'pretty_version' => 'v7.77.0',
+      'version' => '7.77.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f6724447481f6fb8c2e714165e092adad9ca470a',
     ),
     'swiftmailer/swiftmailer' => 
     array (
