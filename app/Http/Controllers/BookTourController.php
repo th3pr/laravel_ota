@@ -27,7 +27,6 @@ class BookTourController extends Controller
         
         $user = User::find(auth()->user()->id);
         
-
         $tours = $user -> booktours;
 
         return view('frontend.profile.bookingtours', compact('tours'));
