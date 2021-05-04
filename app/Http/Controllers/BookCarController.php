@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\BookTour;
+use App\BookCar;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-
-class BookTourController extends Controller
+class BookCarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +18,7 @@ class BookTourController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
         //
@@ -45,37 +44,35 @@ class BookTourController extends Controller
     {
         //
         $request->validate([
-            'book_date' => 'required | date',
-            'persons' => 'required | numeric',
-
+            'day_recieve' => 'required | date',
+            'days' => 'required | numeric',
         ]);
         $input = $request->all();
-        $input['tour_id'] = (int)$input['id'];
+        $input['car_id'] = (int)$input['id'];
         $input['user_id'] = auth()->user()->id;
         //  dd($input);
         // BookTour::create($input);
         // return redirect()->route('tours.index');
 
-    $bookTour = BookTour::where('user_id' , auth()->user()->id)->where('tour_id' , $input['tour_id'] )->first();
-        if(!empty($bookTour))
+        $bookCar = BookCar::where('user_id' , auth()->user()->id)->where('car_id' , $input['car_id'] )->first();
+        if(!empty($bookCar))
         {    
-            return redirect()->route('tours.show' ,  $input['tour_id']);
+            return redirect()->route('cars.show' ,  $input['car_id']);
         }
         else{
-            BookTour::create($input);
-            return redirect()->route('tours.index');
+            BookCar::create($input);
+            return redirect()->route('cars.index');
 
         }
-   
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\BookTour  $bookTour
+     * @param  \App\BookCar  $bookCar
      * @return \Illuminate\Http\Response
      */
-    public function show(BookTour $bookTour)
+    public function show(BookCar $bookCar)
     {
         //
     }
@@ -83,10 +80,10 @@ class BookTourController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\BookTour  $bookTour
+     * @param  \App\BookCar  $bookCar
      * @return \Illuminate\Http\Response
      */
-    public function edit(BookTour $bookTour)
+    public function edit(BookCar $bookCar)
     {
         //
     }
@@ -95,10 +92,10 @@ class BookTourController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\BookTour  $bookTour
+     * @param  \App\BookCar  $bookCar
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BookTour $bookTour)
+    public function update(Request $request, BookCar $bookCar)
     {
         //
     }
@@ -106,10 +103,10 @@ class BookTourController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\BookTour  $bookTour
+     * @param  \App\BookCar  $bookCar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BookTour $bookTour)
+    public function destroy(BookCar $bookCar)
     {
         //
     }

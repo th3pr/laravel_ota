@@ -67,7 +67,7 @@ class HotelRatings extends Component
             $rating->status = 1;
             try {
                 $rating->update();
-            } catch (\Throwable $th) {
+            } catch (\Throwable $th){
                 throw $th;
             }
             session()->flash('message', 'Success!');

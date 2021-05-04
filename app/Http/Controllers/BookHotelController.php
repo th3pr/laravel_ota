@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\BookTour;
+use App\BookHotel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-
-class BookTourController extends Controller
+class BookHotelController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
 
     public function __construct()
     {
@@ -43,39 +43,37 @@ class BookTourController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $request->validate([
-            'book_date' => 'required | date',
-            'persons' => 'required | numeric',
-
+            'check_in_date' => 'required | date',
+            'check_out_date' => 'required | date',
         ]);
         $input = $request->all();
-        $input['tour_id'] = (int)$input['id'];
+        $input['hotel_id'] = (int)$input['id'];
         $input['user_id'] = auth()->user()->id;
         //  dd($input);
         // BookTour::create($input);
         // return redirect()->route('tours.index');
 
-    $bookTour = BookTour::where('user_id' , auth()->user()->id)->where('tour_id' , $input['tour_id'] )->first();
-        if(!empty($bookTour))
+        $bookHotel = BookHotel::where('user_id' , auth()->user()->id)->where('hotel_id' , $input['hotel_id'] )->first();
+        if(!empty($bookHotel))
         {    
-            return redirect()->route('tours.show' ,  $input['tour_id']);
+            return redirect()->route('hotels.show' ,  $input['hotel_id']);
         }
         else{
-            BookTour::create($input);
-            return redirect()->route('tours.index');
+            BookHotel::create($input);
+            return redirect()->route('hotels.index');
 
         }
-   
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\BookTour  $bookTour
+     * @param  \App\BookHotel  $bookHotel
      * @return \Illuminate\Http\Response
      */
-    public function show(BookTour $bookTour)
+    public function show(BookHotel $bookHotel)
     {
         //
     }
@@ -83,10 +81,10 @@ class BookTourController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\BookTour  $bookTour
+     * @param  \App\BookHotel  $bookHotel
      * @return \Illuminate\Http\Response
      */
-    public function edit(BookTour $bookTour)
+    public function edit(BookHotel $bookHotel)
     {
         //
     }
@@ -95,10 +93,10 @@ class BookTourController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\BookTour  $bookTour
+     * @param  \App\BookHotel  $bookHotel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BookTour $bookTour)
+    public function update(Request $request, BookHotel $bookHotel)
     {
         //
     }
@@ -106,10 +104,10 @@ class BookTourController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\BookTour  $bookTour
+     * @param  \App\BookHotel  $bookHotel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BookTour $bookTour)
+    public function destroy(BookHotel $bookHotel)
     {
         //
     }
