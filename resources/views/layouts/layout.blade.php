@@ -1,3 +1,10 @@
+@php
+	$settings = DB::table('settings')->get()->pluck('value');
+	$page_title = $settings[0];
+	$email = $settings[1];
+	$phone_number = $settings[2];
+	$location = $settings[4];
+@endphp
 <!DOCTYPE html>
 <html>
 
@@ -18,7 +25,7 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link href="{{asset('assets/css/frontend/style.min.css')}}" rel="stylesheet" type="text/css" />
 	@livewireStyles
-	<title>Minya </title>
+	<title>{{$page_title}}</title>
 </head>
 
 <body data-color="mainColor">
@@ -42,8 +49,8 @@
 		<div class="top-header-bar">
 			<div class="container">
 				<div class="left-col">
-					<a href="#"><i class="fa fa-phone"></i>01065165640</a>
-					<a href="#"><i class="fa  fa-map-marker"></i>Minya</a>
+					<a href="#"><i class="fa fa-phone"></i>{{ $phone_number }}</a>
+					<a href="#"><i class="fa  fa-map-marker"></i>{{ $location }}</a>
 
 				</div>
 				<div class="right-col">
@@ -66,8 +73,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<a href="index.php" class="logo">
-							<img src="{{asset('img/minyalogo1.png')}}" alt="Minya Tours">
+						<a href="{{route('home')}}" class="logo">
+							<img src="{{asset('img/minyalogo1.png')}}" alt="{{$page_title}}">
 						</a>
 						<div class="nav-menu-icon">
 							<a href="#"><i></i></a>
@@ -172,14 +179,12 @@
 					<div class="footer-block">
 						<h6>Contact Info</h6>
 						<div class="contact-info">
-							<div class="contact-line color-grey-3"><i class="fa fa-map-marker"></i><span>Minya</span>
+							<div class="contact-line color-grey-3"><i class="fa fa-map-marker"></i><span>{{$location}}</span>
 							</div>
 							<div class="contact-line color-grey-3"><i class="fa fa-phone"></i><a
-									href="tel:201065165640">+01065165640</a></div>
+									href="tel:201065165640">{{ $phone_number }}</a></div>
 							<div class="contact-line color-grey-3"><i class="fa fa-envelope-o"></i><a
-									href="mailto:">ota@mail.com</a></div>
-							<div class="contact-line color-grey-3"><i class="fa fa-globe"></i><a
-									href="#">minya@ota.com</a></div>
+									href="mailto:{{$email}}">{{$email}}</a></div>
 
 						</div>
 					</div>
