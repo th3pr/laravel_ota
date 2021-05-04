@@ -6,7 +6,7 @@ use App\Post;
 use Faker\Generator as Faker;
 
 $factory->define(Post::class, function (Faker $faker) {
-    $fakeImage = 'https://loremflickr.com/840/580/cars/all?random=';
+    $fakeImage = 'https://loremflickr.com/840/580/reading/all?random=';
     return [
         'post_title' => $faker->sentence(),
         'post_body' => $faker->paragraph(),

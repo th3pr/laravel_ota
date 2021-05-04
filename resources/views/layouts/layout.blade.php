@@ -1,9 +1,13 @@
 @php
+	// Settings
 	$settings = DB::table('settings')->get()->pluck('value');
 	$page_title = $settings[0];
 	$email = $settings[1];
 	$phone_number = $settings[2];
 	$location = $settings[4];
+	$logo = $settings[5];
+	// Posts
+	$posts = DB::table('posts')->latest()->limit(3)->get();
 @endphp
 <!DOCTYPE html>
 <html>
@@ -74,7 +78,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<a href="{{route('home')}}" class="logo">
-							<img src="{{asset('img/minyalogo1.png')}}" alt="{{$page_title}}">
+							<img src="{{$logo}}" alt="{{$page_title}}">
 						</a>
 						<div class="nav-menu-icon">
 							<a href="#"><i></i></a>
@@ -128,39 +132,19 @@
 				<div class="col-lg-3 col-md-3 col-sm-6 col-sm-6 no-padding">
 					<div class="footer-block">
 						<h6>Travel News</h6>
+						@foreach ($posts as $post)
 						<div class="f_news clearfix">
 							<a class="f_news-img black-hover" href="#">
-								<img class="img-responsive" src="{{asset('assets/img/frontend/6.jpg')}}" alt="">
+								<img class="img-responsive" src="{{$post->featured_image}}" alt="">
 								<div class="tour-layer delay-1"></div>
 							</a>
 							<div class="f_news-content">
-								<a class="f_news-tilte color-white link-red" href="#">amazing place</a>
-								<span class="date-f">Feb 18, 2021</span>
+								<a class="f_news-tilte color-white link-red" href="#">{{$post->post_title}}</a>
+								<span class="date-f">{{$post->created_at}}</span>
 								<a href="#" class="r-more">read more</a>
 							</div>
 						</div>
-						<div class="f_news clearfix">
-							<a class="f_news-img black-hover" href="#">
-								<img class="img-responsive" src="{{asset('assets/img/frontend/6.jpg')}}" alt="">
-								<div class="tour-layer delay-1"></div>
-							</a>
-							<div class="f_news-content">
-								<a class="f_news-tilte color-white link-red" href="#">amazing place</a>
-								<span class="date-f">Feb 18, 2021</span>
-								<a href="#" class="r-more">read more</a>
-							</div>
-						</div>
-						<div class="f_news clearfix">
-							<a class="f_news-img black-hover" href="#">
-								<img class="img-responsive" src="{{asset('assets/img/frontend/5.jpg')}}" alt="">
-								<div class="tour-layer delay-1"></div>
-							</a>
-							<div class="f_news-content">
-								<a class="f_news-tilte color-white link-red" href="#">amazing place</a>
-								<span class="date-f">Feb 18, 2021</span>
-								<a href="#" class="r-more">read more</a>
-							</div>
-						</div>
+						@endforeach
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
