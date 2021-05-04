@@ -3,12 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Tour extends Model
 {
-    use Searchable;
 //    use LogsActivity;
 
     protected $table = "tours";

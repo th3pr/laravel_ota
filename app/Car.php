@@ -4,12 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Car extends Model
 {
-    use Searchable;
+
     protected $table = "cars";
     protected $fillable = [
         'car_model',

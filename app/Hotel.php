@@ -5,12 +5,10 @@ namespace App;
 
 //use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Hotel extends Model
 {
-    use Searchable;
 //    use HasFactory;
 //    use LogsActivity;
 

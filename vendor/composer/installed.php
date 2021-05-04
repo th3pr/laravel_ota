@@ -6,20 +6,11 @@
     'aliases' => 
     array (
     ),
-    'reference' => '25cf9d2f471ef3ee3c012be13d50f2537b8d6b4c',
+    'reference' => 'b92904f196ea37754a0c56f49b5b09e87fad0256',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
   array (
-    'algolia/algoliasearch-client-php' => 
-    array (
-      'pretty_version' => '2.2.0',
-      'version' => '2.2.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'd2477f550cabf12c99a018183d2bd4494ed39b0b',
-    ),
     'anlutro/l4-settings' => 
     array (
       'pretty_version' => 'v0.11.3',
@@ -449,16 +440,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '25cf9d2f471ef3ee3c012be13d50f2537b8d6b4c',
-    ),
-    'laravel/scout' => 
-    array (
-      'pretty_version' => 'v8.6.1',
-      'version' => '8.6.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '7fb1c860a2fd904f0e084a7cc3641eb1448ba278',
+      'reference' => 'b92904f196ea37754a0c56f49b5b09e87fad0256',
     ),
     'laravel/tinker' => 
     array (

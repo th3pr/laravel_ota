@@ -28,26 +28,28 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="tab-content tpl-tabs-cont section-text t-con-style-1">
-                            <div class="tab-pane active in" id="one">
-                                <div class="container">
+
+                             <div class="tab-content tpl-tabs-cont section-text t-con-style-1">
+                                 <form action="{{route('searchHotel')}}" method="get" class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="tab-pane active in" id="one">
+                                        <div class="container">
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                                             <div class="tabs-block">
                                                 <h5>Your Hotels</h5>
                                                 <div class="input-style">
                                                     <img src="{{asset('img/loc_icon_small.png')}}" alt="">
-                                                    <input type="text" name="search"
+                                                    <input type="text" name="search" value="{{request()->query('search')}}"
                                                         placeholder="Enter a destination or hotel name">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6">
                                             <div class="tabs-block">
-                                                <h5>Check In</h5>
+                                                <h5>hot_type</h5>
                                                 <div class="input-style">
-                                                    <img src="{{asset('img/calendar_icon.png')}}" alt="">
-                                                    <input type="text" placeholder="Mm/Dd/Yy" class="datepicker">
+{{--                                                    <img src="{{asset('img/calendar_icon.png')}}" alt="">--}}
+                                                    <input type="text" name="hot_type"  value="{{request()->query('hot_type')}}"placeholder="Hotel Type" class="datepicker">
                                                 </div>
                                             </div>
                                         </div>
@@ -60,24 +62,24 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-4">
-                                            <div class="tabs-block">
-                                                <h5>Kids</h5>
-                                                <div class="drop-wrap">
-                                                    <div class="drop">
-                                                        <b>01 kids</b>
-                                                        <a href="#" class="drop-list"><i
-                                                                class="fa fa-angle-down"></i></a>
-                                                        <span>
-                                                            <a href="#">01 kids</a>
-                                                            <a href="#">02 kids</a>
-                                                            <a href="#">03 kids</a>
-                                                            <a href="#">04 kids</a>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+{{--                                        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-4">--}}
+{{--                                            <div class="tabs-block">--}}
+{{--                                                <h5>Kids</h5>--}}
+{{--                                                <div class="drop-wrap">--}}
+{{--                                                    <div class="drop">--}}
+{{--                                                        <b>01 kids</b>--}}
+{{--                                                        <a href="#" class="drop-list"><i--}}
+{{--                                                                class="fa fa-angle-down"></i></a>--}}
+{{--                                                        <span>--}}
+{{--                                                            <a href="#">01 kids</a>--}}
+{{--                                                            <a href="#">02 kids</a>--}}
+{{--                                                            <a href="#">03 kids</a>--}}
+{{--                                                            <a href="#">04 kids</a>--}}
+{{--                                                        </span>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
                                         <div class="col-lg-1 col-md-2 col-sm-2 col-xs-4">
                                             <div class="tabs-block">
                                                 <h5>Adults</h5>
@@ -114,13 +116,21 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
-                                            <a href="#" class="c-button b-60 bg-aqua hv-transparent"><i
-                                                    class="fa fa-search"></i><span>search now</span></a>
-                                        </div>
+                                        <button type="submit"class="c-button b-60 bg-aqua hv-transparent">search now</button>
+
+{{--                                        <form action="" method="get" class="col-lg-2 col-md-6 col-sm-6 col-xs-12">--}}
+{{--                                            --}}
+{{--                                            <input type="text" name="search" value="{{request()->query('search')}}" placeholder="Search...">--}}
+{{--                                        </form>--}}
+
+{{--                                        <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">--}}
+{{--                                            <a href="{{route('home')}}" class="c-button b-60 bg-aqua hv-transparent"><i--}}
+{{--                                                    class="fa fa-search"></i><span>search now</span></a>--}}
+{{--                                        </div>--}}
                                     </div>
                                 </div>
                             </div>
+                                 </form>
                             <div class="tab-pane" id="two">
                                 <div class="container">
                                     <div class="row">
@@ -306,6 +316,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

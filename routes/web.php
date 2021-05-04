@@ -20,6 +20,9 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/searchHotel', 'searchController@indexHotel')->name('searchHotel');
+Route::get('/searchTour', 'searchController@indexTour')->name('searchTour');
+Route::get('/searchCar', 'searchController@indexcar')->name('searchCar');
 
 // Route::get('/', [HomeController::class, 'index'])->name('home.index');
 

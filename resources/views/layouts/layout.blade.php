@@ -93,6 +93,9 @@
 	</header>
 @yield('home')
 @yield('hotels')
+@yield('searchHotels')
+@yield('searchTours')
+@yield('searchCars')
 @yield('hotel')
 @yield('tours')
 @yield('tour')
