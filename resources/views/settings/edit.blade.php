@@ -30,7 +30,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    {{Form::label('company_address', 'Company Address', ['class' => 'form-control-label'])}}
+                                    {{Form::label('company_address', 'Company Description', ['class' => 'form-control-label'])}}
                                     {{ Form::text('company_address', setting('company_address'), ['class'=>"form-control"])}}
                                 </div>
                             </div>
