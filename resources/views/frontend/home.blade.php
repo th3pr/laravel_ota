@@ -1,14 +1,6 @@
 @php
     // Hotels
     $hotels = DB::table('hotels')->limit(6)->get();
-    //dd($hotels);
-    //$page_title = $settings[0];
-   // $email = $settings[1];
-    //$phone_number = $settings[2];
-    //$location = $settings[4];
-    //$logo = $settings[5];
-    // Posts
-    //$posts = DB::table('posts')->latest()->limit(3)->get();
 @endphp
 
 @extends('layouts.layout')
@@ -30,12 +22,12 @@
                                     <b>hotels</b>
                                     <a href="#" class="arrow-down"><i class="fa fa-angle-down"></i></a>
                                     <ul class="nav-tabs tpl-tabs tabs-style-1">
-                                        <li class="active click-tabs"><a href="hotels.html" data-toggle="tab"
+                                        <li class="active click-tabs"><a href="#one" data-toggle="tab"
                                                 aria-expanded="false">Hotels</a>
                                         </li>
-                                        <li class="click-tabs"><a href="cars.html" data-toggle="tab"
+                                        <li class="click-tabs"><a href="#two" data-toggle="tab"
                                                 aria-expanded="false">Cars</a></li>
-                                        <li class="click-tabs"><a href="tours.html" data-toggle="tab"
+                                        <li class="click-tabs"><a href="#three" data-toggle="tab"
                                                 aria-expanded="false">Tours</a></li>
 
                                     </ul>
@@ -43,13 +35,13 @@
                             </div>
 
                             <div class="tab-content tpl-tabs-cont section-text t-con-style-1">
-                                <form action="" method="get" class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="tab-pane active in" id="one">
+                                <form action="" method="get" id="one" class="tab-pane active in col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                                    <div>
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                                                     <div class="tabs-block">
-                                                        <h5>Your Tours</h5>
+                                                        <h5>Your Hotels</h5>
                                                         <div class="input-style">
                                                             <img src="{{ asset('img/loc_icon_small.png') }}" alt="">
                                                             <input type="text" name="search"
@@ -118,15 +110,16 @@
                                         </div>
                                     </div>
                                 </form>
-                                <div class="tab-pane" id="two">
-                                    <div class="container">
+                                <form action="{{route('searchTour')}}" method="get" id="two" class=" tab-pane col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                                    <div>
+                                        <div class="container">
                                         <div class="row">
                                             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                                                 <div class="tabs-block">
                                                     <h5>Your Cars</h5>
                                                     <div class="input-style">
                                                         <img src="{{ asset('img/loc_icon_small.png') }}" alt="">
-                                                        <input type="text" placeholder="Enter a destination or flight name">
+                                                        <input type="text"  name="search" value="{{ request()->query('search') }}" placeholder="Enter a destination or flight name">
                                                     </div>
                                                 </div>
                                             </div>
@@ -208,8 +201,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="tab-pane" id="three">
+                                    </div>
+                                </form>
+                                <form action="" method="get" id="three" class="tab-pane col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                                    <div >
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -217,7 +212,7 @@
                                                     <h5>Your Tours</h5>
                                                     <div class="input-style">
                                                         <img src="{{ asset('img/loc_icon_small.png') }}" alt="">
-                                                        <input type="text" placeholder="Enter a destination or car name">
+                                                        <input type="text"   name="search" value="{{ request()->query('search') }}" placeholder="Enter a destination or car name">
                                                     </div>
                                                 </div>
                                             </div>
@@ -300,6 +295,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                </form>
                             </div>
 
                         </div>

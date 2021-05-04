@@ -37,10 +37,8 @@ class HomeController extends Controller
     public function indexTour(Request $request)
     {
 
-        if ($request->has('search' || 'start_date' || 'end_date')) {
+        if ($request->has('search')) {
             $tours = Tour::with(['user'])->where('tour_name', 'like', '%'.$request->search.'%')
-                ->orWhere('start_date', 'like', '%'.$request->start_date.'%')
-                ->orWhere('end_date', 'like', '%'.$request->end_date.'%')
                 ->paginate(setting('record_per_page', 10));
         }else{
             $tours = Tour::paginate(setting('record_per_page', 4));
