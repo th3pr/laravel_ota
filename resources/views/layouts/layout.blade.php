@@ -17,7 +17,6 @@
 	<link href="{{asset('assets/css/frontend/jquery-ui.min.css')}}" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link href="{{asset('assets/css/frontend/style.min.css')}}" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="{{asset('assets/css/frontend/popup.css')}}">
 	@livewireStyles
 	<title>Minya </title>
 </head>
@@ -76,7 +75,7 @@
 						<nav class="menu">
 							<ul>
 								<li class="type-1 active">
-									<a href="">home<span class="fa fa-angle-down"></span></a>
+									<a href="{{ route('home')}}">home<span class="fa fa-angle-down"></span></a>
 								</li>
 								<li class="type-1"><a href="{{route('hotels.index')}}">Hotels<span class="fa fa-angle-down"></span></a>
 								</li>

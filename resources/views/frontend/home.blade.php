@@ -560,22 +560,6 @@
         </div>
     </div>
 </div>
-<!-------popup start-->
-<div class="modal">
-    <img src="img/imges/b5785a0b8b6bc0426e1c7a761458c731.jpg" width="114" height="70" />
-    <span class="title">OTA Traval
-        Welcomes you
-    </span>
-
-    <div class="button">OK</div>
-</div>
-<script>
-    let modal = document.querySelector(".modal");
-    let button = document.querySelector(".button");
-    button.addEventListener("click", () => modal.classList.add("toggle"));
-</script>
-<!--------------popup end------------------------------------------------------------------------>
-
 <!-- Section -->
 <div class="main-wraper padd-90">
     <div class="container">
