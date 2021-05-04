@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BookHotel;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,10 @@ class BookHotelController extends Controller
     
     public function index()
     {
-        //
+        $user = User::find(auth()->user()->id);
+        $hotels = $user -> bookhotels;
+
+        return view('frontend.profile.bookinghotels', compact('hotels'));
     }
 
     /**
@@ -61,7 +65,10 @@ class BookHotelController extends Controller
         }
         else{
             BookHotel::create($input);
-            return redirect()->route('hotels.index');
+            $user = User::find(auth()->user()->id);
+            $hotels = $user -> bookhotels;
+
+           return view('frontend.profile.bookinghotels', compact('hotels'));
 
         }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BookCar;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -22,6 +23,10 @@ class BookCarController extends Controller
     public function index()
     {
         //
+        $user = User::find(auth()->user()->id);
+        $cars = $user -> bookcars;
+
+        return view('frontend.profile.bookingcars', compact('cars'));
     }
 
     /**
@@ -61,7 +66,10 @@ class BookCarController extends Controller
         }
         else{
             BookCar::create($input);
-            return redirect()->route('cars.index');
+            $user = User::find(auth()->user()->id);
+            $cars = $user -> bookcars;
+    
+            return view('frontend.profile.bookingcars', compact('cars'));
 
         }
     }

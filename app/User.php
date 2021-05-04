@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
+// use App\Tour;
+
 
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Permission\Traits\HasRoles;
@@ -76,15 +78,17 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany('App\Car');
     }
-    public function booktours(): BelongsToMany
+     
+
+    public function booktours()
     {
-        return $this->belongsToMany(Tour::class, 'book_tour', 'user_id', 'tour_id');
+        return $this->belongsToMany('App\Tour', 'book_tour', 'user_id' ,'tour_id'  , 'id' , 'id');  
     }
-    public function bookhotels(): BelongsToMany
+    public function bookhotels()
     {
         return $this->belongsToMany(Hotel::class, 'book_hotel', 'user_id', 'hotel_id');
     }
-    public function bookcars(): BelongsToMany
+    public function bookcars()
     {
         return $this->belongsToMany(Car::class, 'book_car', 'user_id', 'car_id');
     }

@@ -95,6 +95,20 @@
 								</li>
 								<li class="type-1"><a href="{{route('tours.index')}}">Tours<span class="fa fa-angle-down"></span></a>
 								</li>
+								
+								<li class="type-1"><a href="#">Account<span class="fa fa-angle-down"></span></a>
+									<ul class="dropmenu">
+										<li><a href="login.html">Profile</a></li>
+										<li><a href="#">My Bookings <span class="fa fa-chevron-right"></span></a>
+										   <ul class="dropmenu">
+												<li><a href="{{route('bookhotel.index')}}">Hotels Reservation</a></li>
+												<li><a href="{{route('booktour.index')}}">Tours Reservation</a></li>					
+												<li><a href="{{route('bookcar.index')}}">Cars Reservation</a></li>					
+											</ul>
+										</li>
+									
+									</ul>
+								</li>
 							</ul>
 						</nav>
 					</div>
@@ -108,6 +122,9 @@
 @yield('searchTours')
 @yield('searchCars')
 @yield('hotel')
+@yield('mybooking')
+@yield('mybookingcars')
+@yield('mybookinghotels')
 @yield('tours')
 @yield('tour')
 @yield('cars')

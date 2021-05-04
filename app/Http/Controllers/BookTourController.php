@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\BookTour;
+use App\Tour;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -22,7 +24,14 @@ class BookTourController extends Controller
     
     public function index()
     {
-        //
+        
+        $user = User::find(auth()->user()->id);
+        
+
+        $tours = $user -> booktours;
+
+        return view('frontend.profile.bookingtours', compact('tours'));
+
     }
 
     /**
@@ -63,7 +72,10 @@ class BookTourController extends Controller
         }
         else{
             BookTour::create($input);
-            return redirect()->route('tours.index');
+            $user = User::find(auth()->user()->id);
+            $tours = $user -> booktours;
+
+           return view('frontend.profile.bookingtours', compact('tours'));
 
         }
    
