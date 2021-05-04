@@ -20,7 +20,7 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/searchHotel', 'searchController@indexHotel')->name('searchHotel');
+//Route::get('/searchHotel', 'searchController@indexHotel')->name('searchHotel');
 Route::get('/searchTour', 'searchController@indexTour')->name('searchTour');
 Route::get('/searchCar', 'searchController@indexcar')->name('searchCar');
 
@@ -72,6 +72,12 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::resource('booktour', 'BookTourController');
     Route::resource('bookhotel', 'BookHotelController');
     Route::resource('bookcar', 'BookCarController');
+
+    // Route::resource('booktour', 'BookTourController');
+    
+
+
+
 
 
 

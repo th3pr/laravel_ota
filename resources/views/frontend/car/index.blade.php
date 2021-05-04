@@ -211,9 +211,7 @@
 
 <!-- TOP PREVIEW-->
 <div class="top-preview row no-margin">
-    <?php $count = 0; ?>
     @foreach ($cars as $item)
-        <?php if($count == 8) break; ?>
     <div class="col-mob-12 col-xs-6 col-sm-6 col-md-3 no-padding">
         <div class="tp_entry style-2">
             <div class="tp_image">
@@ -245,7 +243,6 @@
             </div>
         </div>
     </div>
-    <?php $count++; ?>
     @endforeach
 </div>
 

@@ -49,9 +49,9 @@ class Tour extends Model
 //    }
 
 
-public function users(): BelongsToMany
+public function users()
 {
-    return $this->belongsToMany(User::class, 'book_tour', 'user_id', 'tour_id');
+    return $this->belongsToMany('App\User', 'book_tour' ,'user_id', 'tour_id' , 'id' , 'id');
 }
 
 public function ratings()
