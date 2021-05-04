@@ -1,8 +1,8 @@
 @extends('layouts.auth')
 
 @section('content')
-
-    <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
+    <div style="background-image: url({{asset('img/photo7.jpg')}});background-repeat: no-repeat;background-position: center;background-size: contain;linear-gradient(87deg, #0A48B3B8 0, #120ab354 100%)">
+    <div class="header py-7 py-lg-8 pt-lg-9">
         <div class="container">
             <div class="header-body text-center mb-7">
                 <div class="row justify-content-center">
@@ -99,5 +99,5 @@
             </div>
         </div>
     </div>
-
+</div>
 @endsection
