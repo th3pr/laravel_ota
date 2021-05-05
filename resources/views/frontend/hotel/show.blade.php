@@ -1,5 +1,9 @@
 @extends('layouts.layout')
 @section('hotel')
+@php
+    $related_hotels = DB::table('hotels')->limit(6)->get();
+    // dd($related_cars); 
+@endphp
 <!-- INNER-BANNER slider -->
 <div class="inner-banner style-2">
     <img class="center-image" src="{{ $hotel->hot_image }}">
@@ -232,89 +236,6 @@
                                             </div>
                                             <hr>
                                         </div>
-                                        {{-- <div class="simple-group">
-                                            <h3 class="small-title color-dr-blue-2">Your Personal Information</h3>
-                                            <div class="row">
-                                                <div class="col-xs-12 col-sm-6">
-                                                    <div class="form-block type-2 clearfix">
-                                                        <div class="form-label color-dark-2">First Name</div>
-                                                        <div class="input-style-1 b-50 brd-0 type-2 color-3">
-                                                            <input type="text" name="fname"
-                                                                placeholder="Enter your first name">
-                                                            <span class="error color-dr-blue-2 "
-                                                                id="fnameErr"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-12 col-sm-6">
-                                                    <div class="form-block type-2 clearfix">
-                                                        <div class="form-label color-dark-2">Last Name</div>
-                                                        <div class="input-style-1 b-50 brd-0 type-2 color-3">
-                                                            <input type="text" name="lname"
-                                                                placeholder="Enter your last name">
-                                                            <span class="error color-dr-blue-2"
-                                                                id="lnameErr"></span>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-12 col-sm-6">
-                                                    <div class="form-block type-2 clearfix">
-                                                        <div class="form-label color-dark-2">E-mail Adress</div>
-                                                        <div class="input-style-1 b-50 brd-0 type-2 color-3">
-                                                            <input type="email" name="email"
-                                                                placeholder="Enter your e-mail adress">
-                                                            <span class="error color-dr-blue-2"
-                                                                id="emailErr"></span>
-                                                        </div>
-
-
-                                                    </div>
-                                                </div>
-                                                <!-- <div class="col-xs-12 col-sm-6">
-                                                    <div class="form-block type-2 clearfix">
-                                                        <div class="form-label color-dark-2">Verify E-mail Address
-                                                        </div>
-                                                        <div class="input-style-1 b-50 brd-0 type-2 color-3">
-                                                            <input type="text"
-                                                                placeholder="Enter your e-mail adress for verify">
-                                                        </div>
-                                                    </div>
-                                                </div> -->
-                                                <div class="col-xs-12 col-sm-6">
-                                                    <div class="form-block type-2 clearfix">
-                                                        <div class="form-label color-dark-2">Governrate Code</div>
-                                                        <div class="drop-wrap drop-wrap-s-4 color-5">
-                                                            <div class="drop">
-                                                                <b>Minya (086) </b>
-                                                                <a href="#" class="drop-list"><i
-                                                                        class="fa fa-angle-down"></i></a>
-                                                                <span>
-                                                                    <a href="#">Asyt (055)</a>
-                                                                    <a href="#">Cairo (044)</a>
-                                                                    <a href="#">Sohag (063)</a>
-                                                                    <a href="#">Bani Swef (052)</a>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-12 col-sm-12">
-                                                    <div class="form-block type-2 clearfix">
-                                                        <div class="form-label color-dark-2">Phone Number</div>
-                                                        <div class="input-style-1 b-50 brd-0 type-2 color-3">
-                                                            <input type="number" name="mobile"
-                                                                placeholder="Enter your phone number">
-                                                            <span class="error color-dr-blue-2"
-                                                                id="mobileErr"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <hr>
-                                        </div> --}}
-
                                         <input type="submit" class="c-button bg-dr-blue-2 hv-dr-blue-2-o"
                                             value="confirm booking">
                                     </form>
@@ -322,13 +243,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
-
 
                     <div class="detail-content-block">
                         <h3>If You Have Any Questions</h3>
@@ -471,14 +385,15 @@
                     data-center="0" data-slides-per-view="responsive" data-mob-slides="1" data-xs-slides="2"
                     data-sm-slides="2" data-md-slides="3" data-lg-slides="4" data-add-slides="4">
                     <div class="swiper-wrapper">
+                        @foreach ($related_hotels as $hotels)
                         <div class="swiper-slide">
                             <div class="hotel-item">
                                 <div class="radius-top">
-                                    <img src="{{asset('img/imges/1.jpg')}}" alt="">
+                                    <img src="{{$hotels->hot_image}}" alt="">
                                     <div class="price price-s-1">$27</div>
                                 </div>
                                 <div class="title clearfix">
-                                    <h4><b>Pionner</b></h4>
+                                    <h4><b>{{$hotels->hot_name}}</b></h4>
                                     <div class="rate-wrap">
                                         <div class="rate">
                                             <span class="fa fa-star color-yellow"></span>
@@ -489,88 +404,11 @@
                                         </div>
                                         <i>48 rewies</i>
                                     </div>
-                                    <a href="#" class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">Details</a>
-                                    <a href="#" class="c-button color-dr-blue hv-o b-50 fr"><img
-                                            src="{{asset('img/loc_icon_small_drak.png')}}" alt="">view on map</a>
+                                    <a href="{{route('hotels.show' , $hotels->id)}}" class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">Details</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="hotel-item">
-                                <div class="radius-top">
-                                    <img src="{{asset('img/imges/5.jpg')}}" alt="">
-                                    <div class="price price-s-1">$27</div>
-                                </div>
-                                <div class="title clearfix">
-                                    <h4><b>
-                                            OMAR EL KHAYAM AL MINYA HOTELOPENS</b></h4>
-                                    <div class="rate-wrap">
-                                        <div class="rate">
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                        </div>
-                                        <i>48 rewies</i>
-                                    </div>
-                                    <a href="tour_detail.html"
-                                        class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">select</a>
-                                    <a href="#" class="c-button color-dr-blue hv-o b-50 fr"><img
-                                            src="{{asset('img/loc_icon_small_drak.png')}}" alt="">view on map</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="hotel-item">
-                                <div class="radius-top">
-                                    <img src="{{asset('img/imges/8.jpg')}}" alt="">
-                                    <div class="price price-s-1">$27</div>
-                                </div>
-                                <div class="title clearfix">
-                                    <h4><b>QUEEN ISIS FLOATING HOTEL</b></h4>
-                                    <div class="rate-wrap">
-                                        <div class="rate">
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                        </div>
-                                        <i>48 rewies</i>
-                                    </div>
-                                    <a href="tour_detail.html"
-                                        class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">Details</a>
-                                    <a href="#" class="c-button color-dr-blue hv-o b-50 fr"><img
-                                            src="{{asset('img/loc_icon_small_drak.png')}}" alt="">view on map</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="hotel-item">
-                                <div class="radius-top">
-                                    <img src="{{asset('img/15.jpg')}}" alt="">
-                                    <div class="price price-s-1">$273</div>
-                                </div>
-                                <div class="title clearfix">
-                                    <h4><b>Tuna ElGabel</b></h4>
-                                    <div class="rate-wrap">
-                                        <div class="rate">
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                        </div>
-                                        <i>48 rewies</i>
-                                    </div>
-                                    <a href="tour_detail.html"
-                                        class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">Details</a>
-                                    <a href="#" class="c-button color-dr-blue hv-o b-50 fr"><img
-                                            src="{{asset('img/loc_icon_small_drak.png')}}" alt="">view on map</a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="pagination"></div>
                     <div class="swiper-arrow-left arrows-travel"><span class="fa fa-angle-left"></span></div>

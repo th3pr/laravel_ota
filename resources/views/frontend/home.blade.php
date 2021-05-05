@@ -9,13 +9,13 @@
     <div class="full-height">
         <div class="video-wrapper">
             <video loop autoplay muted poster="img/259633153.jpg" class="bgvid" id="bgvid">
-                <source type="video/mp4" src="{{ asset('video/This is Egypt.mp4') }}">
+                <source type="video/mp4" src="{{ asset('video/3.mp4') }}">
                 <!-- <source type="video/ogv" src="video/This is Egypt.ogv"> -->
                 <!-- <source type="video/webm" src="video/video.webm"> -->
             </video>
             <div class="vertical-align">
                 <div class="container">
-                    <div class="tabs-slider">
+                    {{-- <div class="tabs-slider">
                         <div class="baner-tabs">
                             <div class="text-center">
                                 <div class="drop-tabs">
@@ -54,7 +54,7 @@
                                                     <div class="tabs-block">
                                                         <h5>hot_type</h5>
                                                         <div class="input-style">
-                                                            {{-- <img src="{{asset('img/calendar_icon.png')}}" alt=""> --}}
+                                                            <img src="{{asset('img/calendar_icon.png')}}" alt="">
                                                             <input type="text" placeholder="Hotel Type" class="datepicker">
                                                         </div>
                                                     </div>
@@ -299,7 +299,7 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -441,7 +441,7 @@
                                             <span class="fa fa-star color-yellow"></span>
                                             <span class="fa fa-star color-yellow"></span>
                                         </div>
-                                        <h2>{{ $hotel->hot_name }}</h2>
+                                        <a href="{{route('hotels.show' , $hotel->id)}}"><h2>{{ $hotel->hot_name }}</h2></a>
                                         <h5>{{ $hotel->hot_type }}</h5>
                                     </div>
                                 </div>
@@ -475,7 +475,7 @@
                                 <div class="photo-title">
                                     <h4 class="delay-1"><b>Only <span class="color-aqua">$
                                                 {{ $hotel->hot_price }}</span></b></h4>
-                                    <a class="hover-it" href="#">
+                                    <a class="hover-it" href="{{route('hotels.show' , $hotel->id)}}">
                                         <h3>{{ $hotel->hot_name }}</h3>
                                     </a>
                                     <p>Discount</p>

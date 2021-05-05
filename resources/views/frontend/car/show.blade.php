@@ -1,8 +1,7 @@
 @extends('layouts.layout')
 @section('car')
 @php
-    $related_cars = DB::table('cars')->limit(6)->get();
-    // dd($related_cars); 
+    $related_cars = DB::table('cars')->limit(6)->get();  
 @endphp
 <!-- INNER-BANNER -->
 <div class="inner-banner">
@@ -407,89 +406,12 @@
                                         </div>
                                         <i>485 rewies</i>
                                     </div>
-                                    <a href="car_detail.html"
+                                    <a href="{{route('cars.show' , $cars->id)}}"
                                         class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">Details</a>
-                                    <a href="#" class="c-button color-dr-blue hv-o b-50 fr"><img
-                                            src="{{asset('img/loc_icon_small_drak.png')}}" alt="">view on map</a>
                                 </div>
                             </div>
                         </div>
                         @endforeach
-                        {{-- <div class="swiper-slide">
-                            <div class="hotel-item">
-                                <div class="radius-top">
-                                    <img src="{{asset('img/mb_gla_1x.png')}}" alt="">
-                                    <div class="price price-s-1">EG 873</div>
-                                </div>
-                                <div class="title clearfix">
-                                    <h4><b>MARSIDEC</b></h4>
-                                    <div class="rate-wrap">
-                                        <div class="rate">
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                        </div>
-                                        <i>485 rewies</i>
-                                    </div>
-                                    <a href="car_detail.html"
-                                        class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">Details</a>
-                                    <a href="#" class="c-button color-dr-blue hv-o b-50 fr"><img
-                                            src="{{asset('img/loc_icon_small_drak.png')}}" alt="">view on map</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="hotel-item">
-                                <div class="radius-top">
-                                    <img src="{{asset('img/red car.jfif')}}" alt="">
-                                    <div class="price price-s-1">EG 973</div>
-                                </div>
-                                <div class="title clearfix">
-                                    <h4><b>Jeep</b></h4>
-                                    <div class="rate-wrap">
-                                        <div class="rate">
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                        </div>
-                                        <i>485 rewies</i>
-                                    </div>
-                                    <a href="tour_detail.html"
-                                        class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">Details</a>
-                                    <a href="#" class="c-button color-dr-blue hv-o b-50 fr"><img
-                                            src="{{asset('img/loc_icon_small_drak.png')}}" alt="">view on map</a>
-                                </div>
-                            </div>
-                        </div> --}}
-                        {{-- <div class="swiper-slide">
-                            <div class="hotel-item">
-                                <div class="radius-top">
-                                    <img src="{{asset('img/PORSCHE CAYENNE.jpg')}}" alt="">
-                                    <div class="price price-s-1">EG 973</div>
-                                </div>
-                                <div class="title clearfix">
-                                    <h4><b>MARCIDES</b></h4>
-                                    <div class="rate-wrap">
-                                        <div class="rate">
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                        </div>
-                                        <i>485 rewies</i>
-                                    </div>
-                                    <a href="car_detail.html"
-                                        class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">Details</a>
-                                    <a href="#" class="c-button color-dr-blue hv-o b-50 fr"><img
-                                            src="{{asset('img/loc_icon_small_drak.png')}}" alt="">view on map</a>
-                                </div>
-                            </div>
-                        </div> --}}
                     </div>
                     <div class="pagination"></div>
                     <div class="swiper-arrow-left arrows-travel"><span class="fa fa-angle-left"></span></div>

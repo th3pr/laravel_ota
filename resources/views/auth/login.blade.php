@@ -45,41 +45,42 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div>
-                                <input class="custom-control-input" id=" customCheckLogin" name="remember"
+                            <div class="form-check">
+                                <input class="form-check-input" id="customCheckLogin" name="remember"
                                     {{ old('remember') ? 'checked' : '' }} type="checkbox">
-                                <label class="custom-control-label" for=" customCheckLogin">
-                                    <span>Remember me</span>
+                                <label class="form-check-label" for="customCheckLogin">
+                                    Remember me
                                 </label>
                             </div>
-                            <div class="text-center">
+                            <div class="text-center mb-3">
                                 <button type="submit" class="btn btn-primary mt-4">Login</button>
                             </div>
                             <div class="form-group">
-                                <div class="alert alert-info">
-                                    Admin Email : admin@email.com , Password: secret
+                                <div>
+                                    Admin Email:admin@email.com ,Password:secret
                                 </div>
-                                <div class="alert alert-info">
-                                    User Email : user@email.com , Password: secret
+                                <div>
+                                    User Email:user@email.com ,Password:secret
                                 </div>
                             </div>
                         </form>
                     </div>
-                    <div class="row mt-3">
-                        <div class="col-6">
-                            @if (Route::has('password.request'))
-                                <a class="text-gray" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            @endif
-                        </div>
-                        <div class="col-6 text-right">
-                            @if (Route::has('register'))
-                                <a class="text-gray" href="{{ route('register') }}">
-                                    Create new account
-                                </a>
-                            @endif
-                        </div>
+                    <div class="row mb-3">
+                        @if (Route::has('password.request'))
+                            <a class="text-gray text-left" style="
+                                    padding-left: 20px;
+                                " href="{{ route('password.request') }}">
+                                Forgot Your Password?
+                            </a>
+                        @endif
+                        @if (Route::has('register'))
+                            <a class="text-gray text-right" style="
+                                    float: right;
+                                    padding-right: 12px;
+                                " href="{{ route('register') }}">
+                                Create new account
+                            </a>
+                        @endif
                     </div>
                 </div>
             </div>

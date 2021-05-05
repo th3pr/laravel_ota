@@ -1,5 +1,8 @@
 @extends('layouts.layout')
 @section('tour')
+@php
+    $related_tours = DB::table('tours')->limit(6)->get();  
+@endphp
 <!-- INNER-BANNER -->
 <div class="inner-banner style-6">
     <img class="center-image" src="{{asset('img/30.jpg')}}" alt="">
@@ -426,14 +429,15 @@
                     data-center="0" data-slides-per-view="responsive" data-mob-slides="1" data-xs-slides="2"
                     data-sm-slides="2" data-md-slides="3" data-lg-slides="4" data-add-slides="4">
                     <div class="swiper-wrapper">
+                        @foreach ($related_tours as $tours)
                         <div class="swiper-slide">
                             <div class="hotel-item">
                                 <div class="radius-top">
-                                    <img src="{{asset('img/15.jpg')}}" alt="">
-                                    <div class="price price-s-1">$273</div>
+                                    <img src="{{$tours->tour_image}}" alt="">
+                                    <div class="price price-s-1">{{$tours->tour_price}} EGP</div>
                                 </div>
                                 <div class="title clearfix">
-                                    <h4><b>Tuna ElGabel</b></h4>
+                                    <h4><b>{{$tours->tour_name}}</b></h4>
                                     <div class="rate-wrap">
                                         <div class="rate">
                                             <span class="fa fa-star color-yellow"></span>
@@ -444,87 +448,11 @@
                                         </div>
                                         <i>485 rewies</i>
                                     </div>
-                                    <a href="#" class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">Details</a>
-                                    <a href="#" class="c-button color-dr-blue hv-o b-50 fr"><img
-                                            src="{{asset('img/loc_icon_small_drak.png')}}" alt="">view on map</a>
+                                    <a href="{{route('tours.show' , $tours->id)}}" class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">Details</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="hotel-item">
-                                <div class="radius-top">
-                                    <img src="{{asset('img/15.jpg')}}" alt="">
-                                    <div class="price price-s-1">$273</div>
-                                </div>
-                                <div class="title clearfix">
-                                    <h4><b>Tuna ElGabel</b></h4>
-                                    <div class="rate-wrap">
-                                        <div class="rate">
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                        </div>
-                                        <i>485 rewies</i>
-                                    </div>
-                                    <a href="tour_detail.html"
-                                        class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">select</a>
-                                    <a href="#" class="c-button color-dr-blue hv-o b-50 fr"><img
-                                            src="{{asset('img/loc_icon_small_drak.png')}}" alt="">view on map</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="hotel-item">
-                                <div class="radius-top">
-                                    <img src="{{asset('img/15.jpg')}}" alt="">
-                                    <div class="price price-s-1">$273</div>
-                                </div>
-                                <div class="title clearfix">
-                                    <h4><b>Tuna ElGabel</b></h4>
-                                    <div class="rate-wrap">
-                                        <div class="rate">
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                        </div>
-                                        <i>485 rewies</i>
-                                    </div>
-                                    <a href="tour_detail.html"
-                                        class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">Details</a>
-                                    <a href="#" class="c-button color-dr-blue hv-o b-50 fr"><img
-                                            src="img/loc_icon_small_drak.png" alt="">view on map</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="hotel-item">
-                                <div class="radius-top">
-                                    <img src="{{asset('img/15.jpg')}}" alt="">
-                                    <div class="price price-s-1">$273</div>
-                                </div>
-                                <div class="title clearfix">
-                                    <h4><b>Tuna ElGabel</b></h4>
-                                    <div class="rate-wrap">
-                                        <div class="rate">
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                            <span class="fa fa-star color-yellow"></span>
-                                        </div>
-                                        <i>485 rewies</i>
-                                    </div>
-                                    <a href="tour_detail.html"
-                                        class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">Details</a>
-                                    <a href="#" class="c-button color-dr-blue hv-o b-50 fr"><img
-                                            src="{{asset('img/loc_icon_small_drak.png')}}" alt="">view on map</a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="pagination"></div>
                     <div class="swiper-arrow-left arrows-travel"><span class="fa fa-angle-left"></span></div>
